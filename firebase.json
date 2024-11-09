@@ -8,6 +8,11 @@
     ],
     "frameworksBackend": {
       "region": "us-west1"
-    }
+    },
+    "redirects": [ {
+      "source": "/oldindex",
+      "destination": "/old/oldindex",
+      "type": 301
+    } ]
   }
 }
