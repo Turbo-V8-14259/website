@@ -1,9 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Welcome to Astro." navIndex={0}>
     <main>
         <h1>You aren't supposed to be here...</h1>
         <p>
@@ -14,15 +13,7 @@ import Card from '../components/Card.astro';
 </Layout>
 
 <style>
-    main {
-        margin: auto;
-        padding: 1rem;
-        width: 800px;
-        max-width: calc(100% - 2rem);
-        color: white;
-        font-size: 20px;
-        line-height: 1.6;
-    }
+
 
 
 
@@ -41,17 +32,13 @@ import Card from '../components/Card.astro';
         text-align: center;
         margin-bottom: 1em;
     }
-    a:link a:visited {
-        color: #0059ff;
+    a:link,a:visited {
+        color: #006fff;
         background-color: transparent;
         text-decoration: none;
     }
 
-    a:visited {
-        color: #0059ff;
-        background-color: transparent;
-        text-decoration: none;
-    }
+
 
     a:hover {
         color: #0095ff;

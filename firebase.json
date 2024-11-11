@@ -10,9 +10,9 @@
       "region": "us-west1"
     },
     "redirects": [ {
-      "source": "/oldindex",
-      "destination": "/old/oldindex",
+      "source": "/index",
+      "destination": "/",
       "type": 301
-    } ]
+    }]
   }
 }
