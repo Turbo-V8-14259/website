@@ -1,0 +1,110 @@
+---
+interface Props {
+    title: string;
+}
+
+const {title} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="generator" content={Astro.generator}/>
+    <meta name="title" content={title}>
+    <meta name="description"
+          content="We are TurboV8, a robotics team based in Pleasanton, California, participating in the FIRST Tech Challenge (FTC) since 2017. Our team is passionate about robotics and engineering, and we take pride in designing innovative robots. Beyond the competitions, we're committed to inspiring the next generation of STEM enthusiasts through outreach and mentorship in our community.">
+    <meta name="keywords" content="ftc first tech challenge turbo v8 turbov8 ">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+
+    <title>{title}</title>
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <meta name="apple-mobile-web-app-title" content="MyWebSite"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <div class="nav-content">
+        <div class="logo">TurbΩ V8</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+<slot/>
+</body>
+</html>
+<style is:global>
+    :root {
+        --black: #0a0a0a;
+        --red: #ff1a1a;
+        --red-glow: #ff1a1a50;
+        --red-bg: #aa0000;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: 'Orbitron', system-ui, sans-serif;
+        background: var(--black);
+        color: white;
+        scroll-behavior: smooth;
+    }
+
+    nav {
+        position: fixed;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 2px solid var(--red);
+    }
+
+    .nav-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--red);
+        text-shadow: 0 0 10px var(--red-glow);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: var(--red);
+    }
+
+</style>

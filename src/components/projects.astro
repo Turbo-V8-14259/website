@@ -1,0 +1,78 @@
+---
+const projects = [
+    {
+        title: "Battle Bot",
+        description: "Our award-winning combat robot design",
+        image: "/battle-bot.jpg"
+    },
+    {
+        title: "Autonomous Drone",
+        description: "AI-powered aerial robotics platform",
+        image: "/drone.jpg"
+    },
+    {
+        title: "Robot Arm",
+        description: "Precision robotic manipulation system",
+        image: "/robot-arm.jpg"
+    }
+];
+---
+<section id="projects" class="projects">
+    <h2>Our Projects</h2>
+    <div class="project-grid">
+        {projects.map(project => (
+                <div class="project-card">
+                    <div class="project-image" style={`background-image: url(${project.image})`}></div>
+                    <div class="project-info">
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+                    </div>
+                </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .projects {
+        padding: 6rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: var(--red);
+    }
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    .project-card {
+        background: #111111;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        border: 1px solid #333;
+    }
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+    .project-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+    .project-info {
+        padding: 1.5rem;
+    }
+    .project-info h3 {
+        color: var(--red);
+        margin-bottom: 0.5rem;
+    }
+    .project-info p {
+        color: #ffffff90;
+        font-size: 0.9rem;
+    }
+</style>
