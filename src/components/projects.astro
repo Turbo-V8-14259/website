@@ -1,10 +1,15 @@
 ---
+import {getImage} from "astro:assets";
+import battleBotImg from '../images/battle-bot.png';
+import drone from '../images/drone.png';
+import robotArm from '../images/robot-arm.png';
+
 const projects = [{
-    title: "Battle Bot", description: "Our award-winning combat robot design", image: "/static/images/battle-bot.png"
+    title: "Battle Bot", description: "Our award-winning combat robot design", image: (await getImage({src:battleBotImg})).src
 }, {
-    title: "Autonomous Drone", description: "AI-powered aerial robotics platform", image: "/static/images/drone.png"
+    title: "Autonomous Drone", description: "AI-powered aerial robotics platform", image: (await getImage({src:drone})).src
 }, {
-    title: "Robot Arm", description: "Precision robotic manipulation system", image: "/static/images/robot-arm.png"
+    title: "Robot Arm", description: "Precision robotic manipulation system", image: (await getImage({src:robotArm})).src
 }];
 ---
 <section id="projects" class="projects">
@@ -12,8 +17,8 @@ const projects = [{
     <div class="project-grid">
         {projects.map(project => (
                 <div class="project-card">
-                    <!--<div class="project-image" style={`background-image: url(${project.image})`}></div>-->
-                    <img class="project-image" src={project.image} />
+                    <div class="project-image" style={`background-image: url(${project.image})`}></div>
+                    <!--<img class="project-image" src={project.image} />-->
                     <div class="project-info">
                         <h3>{project.title}</h3>
                         <p>{project.description}</p>
