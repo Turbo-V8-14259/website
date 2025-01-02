@@ -1,48 +1,22 @@
 ---
-import Layout from '../layouts/LayoutDep.astro';
+import Layout from '../layouts/layout.astro';
+import Heading from '../components/heading.astro';
 ---
-<Layout title="Page Not Found" navIndex={-1}>
+
+<Layout title="Page not found">
     <main>
-        <h1>404 Page not found...</h1>
+        <Heading titleText="404: The page requested was not found"/>
     </main>
 </Layout>
 
-
 <style>
+    main {
+        width: 100%;
+    }
     h1 {
         font-size: 4rem;
-        font-weight: 700;
-        line-height: 1;
-        text-align: center;
-        margin-bottom: 1em;
-        color:white;
-    }
-
-    p {
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 1;
-        text-align: center;
-        margin-bottom: 1em;
-        color:white;
-    }
-    a:link,a:visited {
-        color: #006fff;
-        background-color: transparent;
-        text-decoration: none;
-    }
-
-
-
-    a:hover {
-        color: #0095ff;
-        background-color: transparent;
-        text-decoration: underline;
-    }
-
-    a:active {
-        color: #00d0ff;
-        background-color: transparent;
-        text-decoration: underline;
+        margin-bottom: 1rem;
+        color: white;
+        text-shadow: 0 0 15px var(--red-bg);
     }
 </style>
