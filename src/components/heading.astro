@@ -6,25 +6,44 @@ interface props{
     buttonText:string;
     buttonURL:string;
     bgImage:string;
+    animation:boolean;
 }
-var {titleText, subtitleText, buttonText, buttonURL, bgImage} = Astro.props;
+var {titleText, subtitleText, buttonText, buttonURL, bgImage, animation} = Astro.props;
 if (bgImage) {
     bgImage="url("+bgImage+")";
 }
 else {
     bgImage="none";
 }
-
+var a=0
+if (animation==null){
+    animation=false;
+}
 ---
 <section class="title">
     <div class="title-content">
-        <h1>{titleText}</h1>
-        <p>Innovating through robotics and technology</p>
-        <a class="cta-button">View Our Projects</a>
+        <h1 class="slideUp">{titleText}</h1>
+        <p class="slideUp" style="animation-delay: 200ms;">{subtitleText}</p>
+        <a class="cta-button slideUp" style="animation-delay: 400ms;" href={buttonURL}>{buttonText}</a>
     </div>
+
 </section>
 
 <style define:vars={{bgImage}}>
+    @keyframes slide-up {
+        0% {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .slideUp {
+        opacity: 0;
+        animation: slide-up 0.8s ease forwards;
+    }
     .title {
         height: 100vh;
         display: flex;

@@ -7,9 +7,9 @@ import {getImage} from "astro:assets";
 const optImage=(await getImage({src:bgImage}));
 ---
 
-<Layout title="Robotics Team">
+<Layout title="">
     <main>
-        <Heading titleText='BUILDING THE FUTURE' bgImage={optImage.src}/>
+        <Heading titleText='BUILDING THE FUTURE' subtitleText="Innovating through robotics and technology" buttonText="View Our Projects" buttonURL="" bgImage={optImage.src}/>
         <Projects/>
     </main>
 </Layout>

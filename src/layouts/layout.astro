@@ -5,7 +5,7 @@ interface Props {
 }
 
 var {title} = Astro.props;
-title = title + "a";
+title = (title?title+" | TurbΩ V8 FTC":"TurbΩ V8 FTC");
 ---
 
 <!DOCTYPE html>
@@ -94,6 +94,7 @@ title = title + "a";
         })
     });
 </script>
+
 </body>
 </html>
 <style is:global>

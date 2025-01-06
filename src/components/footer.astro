@@ -6,7 +6,11 @@ import polymaker from '../images/sponsor-logos/polymaker.png';
 import vbelt from '../images/sponsor-logos/vbelt.png';
 import pcbway from '../images/sponsor-logos/pcbway.png';
 
+const year = new Date().getFullYear(); //fallback
+
 import {getImage} from "astro:assets";
+import {email} from "../constants"
+const emailLink="mailto:"+email;
 ---
 <section id="footer">
     <div class="sponsors">
@@ -20,32 +24,34 @@ import {getImage} from "astro:assets";
             <a href="https://www.pcbway.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:pcbway})).src} alt="PCBWay Logo"/></a>
         </section>
     </div>
-    <!--<section id="image-carousel" class="splide" aria-label="Beautiful Images">
-        <div class="splide__track">
-            <ul class="splide__list">
-                <li class="splide__slide">
-                    <img src="https://picsum.photos/300/200?random=1" alt="">
-                </li>
-                <li class="splide__slide">
-                    <img src="https://picsum.photos/300/200?random=2" alt="">
-                </li>
-                <li class="splide__slide">
-                    <img src="https://picsum.photos/300/200?random=3" alt="">
-                </li>
-            </ul>
-        </div>
-    </section>-->
+    <footer>
+        <p>
+            &copy; <span id="footer-year">{year}</span> TurbΩ V8 - All rights reserved<br>FIRST Tech Challenge (FTC)<br>
+            <a id="email" target="_blank" rel="noopener noreferrer" href={emailLink}>{email}</a>
+        </p>
+    </footer>
+    <script is:inline>
+        document.getElementById("footer-year").innerText = new Date().getFullYear();
+    </script>
 </section>
 <style>
-
+    #sponsor-title {
+        font-size: xx-large;
+    }
+    #email:link, #email:visited{
+        color: white;
+    }
+    footer{
+        background-color: var(--red-glow);
+        text-align: center;
+        padding-bottom: 50px;
+        padding-top: 20px;
+    }
     .sponsors{
         width:100%;
         padding-top: 20px;
         text-align:center;
-    }
-    #sponsor-title{
-        font-family:sans-serif;
-        color:#fff;
+        margin-bottom: 40px;
     }
     .sponsor-logos{
         width:90%;
@@ -65,93 +71,3 @@ import {getImage} from "astro:assets";
         color:white;
     }
 </style>
-<!--<style>
-    .sponsors {
-        margin:auto;
-        width: 90%;
-    }
-    #sponsor-title {
-        text-align: center;
-        padding: 80px 0 40px;
-        font-size: 42px;
-        font-weight: 700;
-    }
-    .slick-slide {
-        margin:0 20px;
-    }
-    .slick-slide img {
-        width: 100%;
-    }
-    .slick-list {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-    }
-    .slick-list:focus {
-        outline: none;
-    }
-    .slick-list.dragging {
-        //cursor:pointer;
-        cursor: hand;
-    }
-    .slick-slider .slick-track,
-    .slick-slider .slick-list {
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-    }
-    .slick-track {
-        position: relative;
-        top: 0;
-        left: 0;
-        display: block;
-    }
-    .slick-track:before,
-    .slick-track:after {
-        display: table;
-        content: ""
-    }
-    .slick-track:after {
-        clear: both;
-    }
-    .slick-loading .slick-track {
-        visibility: hidden;
-    }
-    .slick-slide {
-        display: none;
-        float: left;
-        height: 100%;
-        min-height: 1px;
-    }
-    [dir="rtl"] .slick-slide {
-        float: right;
-    }
-    .slick-slide img {
-        display: block;
-    }
-    .slick-slide.slick-loading img {
-        display: none;
-    }
-    .slick-slide.dragging img {
-        pointer-events: none;
-    }
-    .slick-initialized .slick-slide {
-        display: block;
-    }
-    .slick-loading .slick-slide {
-        visibility: hidden;
-    }
-    .slick-vertical .slick-slide {
-        display: block;
-        height: auto;
-        border: 1px solid transparent;
-    }
-    .slick-arrow.slick-hidden {
-        display: none;
-    }
-
-</style>-->
