@@ -11,19 +11,31 @@ const year = new Date().getFullYear(); //fallback
 import {getImage} from "astro:assets";
 import {Image} from "astro:assets"
 import {email} from "../constants"
-const emailLink="mailto:"+email;
+const emailLink = "mailto:" + email;
 ---
 <section id="footer">
     <div class="sponsors">
         <h2 id="sponsor-title">SPONSORS</h2>
         <section class="sponsor-logos slider">
-            <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:bytebridge})).src} alt="Bytebridge Logo"/></a>
-            <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="slide"><Image src={bytebridge} alt="Bytebridge Logo 2"/></a>
-            <a href="https://www.haascnc.com/content/ghf/en/home.html" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:haas})).src} alt="Gene Haas Foundation Logo"/></a>
-            <a href="https://undergroundshirts.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:ugp})).src} alt="Underground Printing Press Logo"/></a>
-            <a href="https://polymaker.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:polymaker})).src} alt="Polymaker Logo"/></a>
-            <a href="https://www.vbeltguys.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:vbelt})).src} alt="V-Belt Guys Logo"/></a>
-            <a href="https://www.pcbway.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:pcbway})).src} alt="PCBWay Logo"/></a>
+            <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={bytebridge} alt="Bytebridge Logo 2"/>
+            </a>
+            <a href="https://www.haascnc.com/content/ghf/en/home.html" target="_blank" rel="noopener noreferrer"
+               class="slide">
+                <Image src={haas} alt="Gene Haas Foundation Logo"/>
+            </a>
+            <a href="https://undergroundshirts.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={ugp} alt="Underground Printing Press Logo"/>
+            </a>
+            <a href="https://polymaker.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={polymaker} alt="Polymaker Logo"/>
+            </a>
+            <a href="https://www.vbeltguys.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={vbelt} alt="V-Belt Guys Logo"/>
+            </a>
+            <a href="https://www.pcbway.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={pcbway} alt="PCBWay Logo"/>
+            </a>
         </section>
     </div>
     <footer>
@@ -40,36 +52,43 @@ const emailLink="mailto:"+email;
     #sponsor-title {
         font-size: xx-large;
     }
-    #email:link, #email:visited{
+
+    #email:link, #email:visited {
         color: white;
     }
-    footer{
+
+    footer {
         background-color: var(--red-glow);
         text-align: center;
         padding-bottom: 50px;
         padding-top: 20px;
     }
-    .sponsors{
-        width:100%;
+
+    .sponsors {
+        width: 100%;
         padding-top: 20px;
-        text-align:center;
+        text-align: center;
         margin-bottom: 40px;
     }
-    .sponsor-logos{
-        width:90%;
-        margin:0px auto;
+
+    .sponsor-logos {
+        width: 90%;
+        margin: 0px auto;
     }
-    .slick-slide{
-        margin:10px;
+
+    .slick-slide {
+        margin: 10px;
     }
-    .slick-slide img{
-        width:100%;
+
+    .slick-slide img {
+        width: 100%;
         height: 100%;
         object-fit: cover;
         border: 2px solid #fff;
     }
+
     .wrapper .slick-dots li button:before {
-        font-size:20px;
-        color:white;
+        font-size: 20px;
+        color: white;
     }
 </style>
