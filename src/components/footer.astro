@@ -9,6 +9,7 @@ import pcbway from '../images/sponsor-logos/pcbway.png';
 const year = new Date().getFullYear(); //fallback
 
 import {getImage} from "astro:assets";
+import {Image} from "astro:assets"
 import {email} from "../constants"
 const emailLink="mailto:"+email;
 ---
@@ -17,6 +18,7 @@ const emailLink="mailto:"+email;
         <h2 id="sponsor-title">SPONSORS</h2>
         <section class="sponsor-logos slider">
             <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:bytebridge})).src} alt="Bytebridge Logo"/></a>
+            <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="slide"><Image src={bytebridge} alt="Bytebridge Logo 2"/></a>
             <a href="https://www.haascnc.com/content/ghf/en/home.html" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:haas})).src} alt="Gene Haas Foundation Logo"/></a>
             <a href="https://undergroundshirts.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:ugp})).src} alt="Underground Printing Press Logo"/></a>
             <a href="https://polymaker.com/" target="_blank" rel="noopener noreferrer" class="slide"><img src={(await getImage({src:polymaker})).src} alt="Polymaker Logo"/></a>
