@@ -1,24 +1,25 @@
 ---
 import {getImage} from "astro:assets";
+import {ImageMetadata} from "astro";
 interface props{
     titleText:string;
     subtitleText:string;
     buttonText:string;
     buttonURL:string;
-    bgImage:string;
-    animation:boolean;
+    bgImageData:ImageMetadata;
 }
-var {titleText, subtitleText, buttonText, buttonURL, bgImage, animation} = Astro.props;
-if (bgImage) {
+let {titleText, subtitleText, buttonText, buttonURL, bgImageData} = Astro.props;
+let bgImage:string;
+if (bgImageData) {
+    bgImage=(await getImage({src:bgImageData})).src;
     bgImage="url("+bgImage+")";
 }
 else {
     bgImage="none";
 }
-var a=0
-if (animation==null){
-    animation=false;
-}
+
+
+
 ---
 <section class="title">
     <div class="title-content">

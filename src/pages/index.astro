@@ -2,14 +2,12 @@
 import Layout from '../layouts/layout.astro';
 import Heading from '../components/heading.astro';
 import Projects from '../components/projects.astro';
-import bgImage from '../images/robot-bg.png';
-import {getImage} from "astro:assets";
-const optImage=(await getImage({src:bgImage}));
+import bgImage from '../images/robot-bg.jpg';
 ---
 
 <Layout title="">
     <main>
-        <Heading titleText='BUILDING THE FUTURE' subtitleText="Innovating through robotics and technology" buttonText="View Our Projects" buttonURL="" bgImage={optImage.src}/>
+        <Heading titleText='BUILDING THE FUTURE' subtitleText="Innovating through robotics and technology" buttonText="View Our Projects" buttonURL="#projects" bgImageData={bgImage}/>
         <Projects/>
     </main>
 </Layout>
