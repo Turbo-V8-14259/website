@@ -9,7 +9,7 @@ This is the repository for the Turbo V8 website. The website is hosted on fireba
 
 ## To edit the website
 
-To edit the website you need to pull the repository locally. Once it pulls, run `npm install` to install all the required packages. When you finish editing, push the code back to the repository. This repository is set so that when you push it to GitHub will automatically compile and update the website. In case GitHub doesn't work, you can use `firebase deploy` to update instead.
+To edit the website you need to pull the repository locally. Once it pulls, run `npm install` to install all the required packages. When you finish editing, push the code back to the repository. When you edit the website, make sure to commit and push to the dev branch. When you're happy with your change and ready to update the website, create a new pull request on github to merge to the main branch. This repository is set so that when you push it to GitHub will automatically compile and update the website. In case GitHub doesn't work, you can use `firebase deploy` to update instead.
 
 ## Test website locally
 
