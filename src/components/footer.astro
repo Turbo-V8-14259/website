@@ -12,29 +12,30 @@ import {getImage} from "astro:assets";
 import {Image} from "astro:assets"
 import {email} from "../constants"
 const emailLink = "mailto:" + email;
+const sponsorsHeight = 110;
 ---
 <section id="footer">
     <div class="sponsors">
         <h2 id="sponsor-title">SPONSORS</h2>
         <section class="sponsor-logos slider">
             <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={bytebridge} alt="Bytebridge Logo 2"/>
+                <Image src={bytebridge} alt="Bytebridge Logo" height={sponsorsHeight}/>
             </a>
             <a href="https://www.haascnc.com/content/ghf/en/home.html" target="_blank" rel="noopener noreferrer"
                class="slide">
-                <Image src={haas} alt="Gene Haas Foundation Logo"/>
+                <Image src={haas} alt="Gene Haas Foundation Logo" height={sponsorsHeight}/>
             </a>
             <a href="https://undergroundshirts.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={ugp} alt="Underground Printing Press Logo"/>
+                <Image src={ugp} alt="Underground Printing Press Logo" height={sponsorsHeight}/>
             </a>
             <a href="https://polymaker.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={polymaker} alt="Polymaker Logo"/>
+                <Image src={polymaker} alt="Polymaker Logo" height={sponsorsHeight}/>
             </a>
             <a href="https://www.vbeltguys.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={vbelt} alt="V-Belt Guys Logo"/>
+                <Image src={vbelt} alt="V-Belt Guys Logo" height={sponsorsHeight}/>
             </a>
             <a href="https://www.pcbway.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={pcbway} alt="PCBWay Logo"/>
+                <Image src={pcbway} alt="PCBWay Logo" height={sponsorsHeight}/>
             </a>
         </section>
     </div>
@@ -66,6 +67,7 @@ const emailLink = "mailto:" + email;
 <style>
     #sponsor-title {
         font-size: xx-large;
+
     }
 
     #email:link, #email:visited {
@@ -80,19 +82,20 @@ const emailLink = "mailto:" + email;
     }
 
     .sponsors {
-        width: 100%;
+        width: 65%;
         padding-top: 20px;
         text-align: center;
-        margin-bottom: 40px;
+        margin:0 auto 40px auto;
     }
 
     .sponsor-logos {
         width: 90%;
-        margin: 0px auto;
+        margin: 0 auto;
     }
 
     .slick-slide {
         margin: 10px;
+
     }
 
     .slick-slide img {
