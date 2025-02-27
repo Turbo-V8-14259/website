@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://testing.ftcturbov8.com', //change after domain change
+    site: 'https://ftcturbov8.com', 
     base: "/",
     build: {
         inlineStylesheets: 'never'
