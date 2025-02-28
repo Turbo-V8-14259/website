@@ -42,8 +42,12 @@ const sponsorsHeight = 110;
     <footer>
         <p>
             &copy; <span id="footer-year">{year}</span> TurbΩ V8 - All rights reserved<br>FIRST Tech Challenge (FTC)<br>
-            <a id="email" target="_blank" rel="noopener noreferrer" href={emailLink}>{email}</a>
+            <a id="email" target="_blank" rel="noopener noreferrer"  href={emailLink}>{email}</a>
         </p>
+        <div id="socials">
+            <a href="https://www.instagram.com/ftc_turbov8/" target="_blank" class="fa fa-instagram" rel="noopener noreferrer"></a>
+            <a href="https://www.youtube.com/@FTCTurboV8" target="_blank" class="fa fa-youtube-play" rel="noopener noreferrer"></a>
+        </div>
     </footer>
     <script is:inline>
         document.getElementById("footer-year").innerText = new Date().getFullYear();
@@ -65,6 +69,7 @@ const sponsorsHeight = 110;
 </section>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     #sponsor-title {
         font-size: xx-large;
@@ -76,7 +81,7 @@ const sponsorsHeight = 110;
     }
 
     footer {
-        background-color: var(--red-glow);
+        background-color: var(--dark-red);
         text-align: center;
         padding-bottom: 50px;
         padding-top: 20px;
@@ -111,5 +116,24 @@ const sponsorsHeight = 110;
     .wrapper .slick-dots li button:before {
         font-size: 20px;
         color: white;
+    }
+    #socials {
+        margin-top: 15px;
+    }
+    .fa {
+        margin: 0 10px 0 10px;
+        padding: 10px;
+        font-size: 30px;
+        text-align: center;
+        text-decoration: none;
+        background: white;
+        color: var(--dark-red);
+        border-radius: 50%;
+
+    }
+
+    /* Add a hover effect if you want */
+    .fa:hover {
+        opacity: 0.7;
     }
 </style>

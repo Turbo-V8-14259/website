@@ -61,9 +61,9 @@ title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
 <style is:global>
     :root {
         --black: #0a0a0a;
-        --red: #ff1a1a;
-        --red-glow: #ff1a1a50;
-        --red-bg: #aa0000;
+        --light-red: #ff1a1a;
+        --dark-red: #631d1fff;
+        --red-shadow: #aa0000;
     }
 
     * {
@@ -85,7 +85,7 @@ title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
         background: rgba(10, 10, 10, 0.95);
         backdrop-filter: blur(10px);
         z-index: 1000;
-        border-bottom: 2px solid var(--red);
+        border-bottom: 2px solid var(--light-red);
     }
 
     .nav-content {
@@ -100,8 +100,8 @@ title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
     .logo {
         font-size: 1.5rem;
         font-weight: bold;
-        color: var(--red);
-        text-shadow: 0 0 10px var(--red-glow);
+        color: var(--light-red);
+        text-shadow: 0 0 10px var(--dark-red);
         text-decoration: none;
     }
 
@@ -117,7 +117,7 @@ title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
     }
 
     .nav-links a:hover {
-        color: var(--red);
+        color: var(--light-red);
     }
 
 </style>
