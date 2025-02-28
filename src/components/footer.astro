@@ -48,10 +48,9 @@ const sponsorsHeight = 110;
     <script is:inline>
         document.getElementById("footer-year").innerText = new Date().getFullYear();
     </script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"/>
-    <script>
+    <script is:inline>
         $(document).ready(function () {
             $(".sponsor-logos").slick({
                 centerMode: true,
@@ -64,6 +63,8 @@ const sponsorsHeight = 110;
         });
     </script>
 </section>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <style>
     #sponsor-title {
         font-size: xx-large;
@@ -85,7 +86,7 @@ const sponsorsHeight = 110;
         width: 65%;
         padding-top: 20px;
         text-align: center;
-        margin:0 auto 40px auto;
+        margin: 0 auto 40px auto;
     }
 
     .sponsor-logos {
