@@ -1,0 +1,143 @@
+---
+import bytebridge from '../images/sponsor-logos/bytebridge.png';
+import haas from '../images/sponsor-logos/haas.png';
+import ugp from '../images/sponsor-logos/ugp.png';
+import polymaker from '../images/sponsor-logos/polymaker.png';
+import vbelt from '../images/sponsor-logos/vbelt.png';
+import pcbway from '../images/sponsor-logos/pcbway.png';
+
+const year = new Date().getFullYear(); //fallback
+
+
+import {Image} from "astro:assets"
+import {email} from "../constants"
+const emailLink = "mailto:" + email;
+const sponsorsHeight = 110;
+---
+<section id="footer">
+    <div class="sponsors">
+        <h2 id="sponsor-title">SPONSORS</h2>
+        <section class="sponsor-logos slider">
+            <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={bytebridge} alt="Bytebridge Logo" height={sponsorsHeight}/>
+            </a>
+            <a href="https://www.haascnc.com/content/ghf/en/home.html" target="_blank" rel="noopener noreferrer"
+               class="slide">
+                <Image src={haas} alt="Gene Haas Foundation Logo" height={sponsorsHeight}/>
+            </a>
+            <a href="https://undergroundshirts.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={ugp} alt="Underground Printing Press Logo" height={sponsorsHeight}/>
+            </a>
+            <a href="https://polymaker.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={polymaker} alt="Polymaker Logo" height={sponsorsHeight}/>
+            </a>
+            <a href="https://www.vbeltguys.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={vbelt} alt="V-Belt Guys Logo" height={sponsorsHeight}/>
+            </a>
+            <a href="https://www.pcbway.com/" target="_blank" rel="noopener noreferrer" class="slide">
+                <Image src={pcbway} alt="PCBWay Logo" height={sponsorsHeight}/>
+            </a>
+        </section>
+    </div>
+    <footer>
+        <p>
+            &copy; <span id="footer-year">{year}</span> TurbΩ V8 - All rights reserved<br>FIRST Tech Challenge (FTC)<br>
+            <a id="email" target="_blank" rel="noopener noreferrer" href={emailLink}>{email}</a>
+        </p>
+        <div id="socials">
+            <a href="https://www.instagram.com/ftc_turbov8/" target="_blank" class="fa fa-instagram"
+               rel="noopener noreferrer"></a>
+            <a href="https://www.youtube.com/@FTCTurboV8" target="_blank" class="fa fa-youtube-play"
+               rel="noopener noreferrer"></a>
+        </div>
+    </footer>
+    <script is:inline>
+        document.getElementById("footer-year").innerText = new Date().getFullYear();
+    </script>
+    <script is:inline type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"/>
+    <script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"/>
+    <script is:inline>
+        $(document).ready(function () {
+            $(".sponsor-logos").slick({
+                centerMode: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1000,
+                variableWidth: true,
+            })
+        });
+    </script>
+</section>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    #sponsor-title {
+        font-size: xx-large;
+
+    }
+
+    #email:link, #email:visited {
+        color: white;
+    }
+
+    footer {
+        background-color: var(--dark-red);
+        text-align: center;
+        padding-bottom: 30px;
+        padding-top: 20px;
+    }
+
+    .sponsors {
+        width: 65%;
+        padding-top: 20px;
+        text-align: center;
+        margin: 0 auto 40px auto;
+    }
+
+    .sponsor-logos {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .slick-slide {
+        margin: 10px;
+
+
+    }
+
+    .slick-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+    }
+
+    .wrapper .slick-dots li button:before {
+        font-size: 20px;
+        color: white;
+    }
+
+    #socials {
+        margin-top: 15px;
+    }
+
+    .fa {
+        margin: 0 10px 0 10px;
+        padding: 10px;
+        font-size: 30px;
+        text-align: center;
+        text-decoration: none;
+        background: white;
+        color: var(--dark-red);
+        border-radius: 50%;
+
+    }
+
+
+    .fa:hover {
+        opacity: 0.7;
+    }
+</style>
