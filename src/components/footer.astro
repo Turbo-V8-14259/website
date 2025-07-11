@@ -41,15 +41,17 @@ const sponsorsHeight = 110;
         <div id="socials">
             <a href="https://www.instagram.com/ftc_turbov8/" target="_blank" class="fa fa-instagram"
                rel="noopener noreferrer"></a>
-            <a href="https://www.youtube.com/@FTCTurboV8" target="_blank" class="fa fa-youtube-play"
-               rel="noopener noreferrer"></a>
+            <a href="https://www.youtube.com/@FTCTurboV8" target="_blank" class="fa"
+               rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i>
+            </a>
+
         </div>
     </footer>
     <script is:inline>
         document.getElementById("footer-year").innerText = new Date().getFullYear();
     </script>
 </section>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>-->
 <style>
     #sponsor-title {
         font-size: xx-large;
@@ -126,14 +128,16 @@ const sponsorsHeight = 110;
         height: 50px;
         width: 50px;
         padding: 10px;
-        font-size: 30px;
+        font-size: 28px; // too big causes logos to go off center
         text-align: center;
         text-decoration: none;
         background: white;
         color: var(--dark-red);
         border-radius: 50%;
         display: inline-block;
+
     }
+
 
     .fa:hover {
         opacity: 0.7;
