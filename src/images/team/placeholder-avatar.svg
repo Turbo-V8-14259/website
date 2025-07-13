@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#bgGradient)" stroke="#ff1a1a" stroke-width="3"/>
+  
+  <!-- Person icon -->
+  <g fill="#ff1a1a" opacity="0.8">
+    <!-- Head -->
+    <circle cx="100" cy="75" r="25"/>
+    
+    <!-- Body -->
+    <path d="M100 110 C85 110, 70 120, 70 140 L70 160 C70 165, 75 170, 80 170 L120 170 C125 170, 130 165, 130 160 L130 140 C130 120, 115 110, 100 110 Z"/>
+  </g>
+  
+  <!-- TurbΩ V8 text -->
+  <text x="100" y="190" text-anchor="middle" fill="#ff1a1a" font-family="Arial, sans-serif" font-size="12" font-weight="bold">TURBΩ V8</text>
+</svg>

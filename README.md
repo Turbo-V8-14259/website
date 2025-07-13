@@ -1,4 +1,4 @@
-[![Build and Deploy to Firebase](https://github.com/Turbo-V8-14259/Website/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/Turbo-V8-14259/Website/actions/workflows/firebase-hosting-merge.yml)
+[![Build and Deploy to Firebase](https://github.com/Turbo-V8-14259/Website/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/Turbo-V8-14259/Website/actions/workflows/firebase-hosting-merge.yml)z
 # Turbo V8 website
 This is the repository for the Turbo V8 website. The website is hosted on firebase, and the domain is purchased through squarespace. You can access both from the Turbo V8 Google account (ftcturbov8@gmail.com).
 
