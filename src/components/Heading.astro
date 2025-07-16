@@ -27,18 +27,17 @@ else {
         <p class="subtitle slide-up slide-up-delay-1">{subtitleText}</p>
         <a class="cta-button slide-up slide-up-delay-2" href={buttonURL}>{buttonText}</a>
     </div>
-
+    <div class="title-image"></div>
 </section>
 
 <style define:vars={{bgImage}}>
     .title {
         height: 100vh;
-        display: flex;
+        display: flex !important;
         align-items: center;
-        justify-content: center;
-        background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), var(--bgImage) center/cover;
         position: relative;
         overflow: hidden;
+        background: none !important;
     }
 
     .title::after {
@@ -48,10 +47,75 @@ else {
         width: 100%;
         height: 100px;
         background: linear-gradient(transparent, var(--black));
+        z-index: 3;
     }
 
     .title-content {
-        text-align: center;
+        width: 65% !important;
+        flex: none !important;
+        padding: 0 5% 0 8%;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start !important;
+        text-align: left !important;
+        background: linear-gradient(to right, var(--dark-red) 0%, var(--dark-red) 8%, rgba(80, 20, 20, 0.9) 18%, rgba(60, 15, 15, 0.8) 28%, rgba(40, 12, 12, 0.7) 38%, rgba(30, 10, 10, 0.6) 48%, rgba(25, 10, 10, 0.5) 58%, rgba(20, 10, 10, 0.4) 68%, rgba(15, 10, 10, 0.3) 78%, rgba(10, 10, 10, 0.2) 88%, rgba(10, 10, 10, 0.1) 95%, transparent 100%);
+        //background: linear-gradient(to right, var(--dark-red) 0%, var(--dark-red) 30%, rgba(10, 10, 10, 0.95) 50%, rgba(10, 10, 10, 0.8) 70%, rgba(10, 10, 10, 0.4) 85%, rgba(10, 10, 10, 0.1) 95%, transparent 100%);
+
+        //background: linear-gradient(135deg, var(--dark-red) 0%, rgba(0,0,0,0) 70%);
+        height: 100%;
+        position: relative;
+    }
+
+    .title-image {
+        width: 55% !important;
+        flex: none !important;
+        height: 100%;
+        background: var(--bgImage) center/cover no-repeat;
+        position: relative;
+        margin-left: -20%;
+    }
+
+    .title-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.98) 10%, rgba(10, 10, 10, 0.9) 20%, rgba(10, 10, 10, 0.8) 30%, rgba(10, 10, 10, 0.6) 40%, rgba(10, 10, 10, 0.4) 50%, rgba(10, 10, 10, 0.2) 65%, rgba(10, 10, 10, 0.1) 80%, transparent 95%);
         z-index: 1;
+    }
+
+    /* Override any global styles */
+    .title h1,
+    .title p,
+    .title a {
+        position: relative;
+        z-index: 3;
+    }
+
+    @media (max-width: 768px) {
+        .title {
+            flex-direction: column !important;
+        }
+        
+        .title-content {
+            width: 100% !important;
+            text-align: center !important;
+            align-items: center !important;
+            background: linear-gradient(to bottom, var(--dark-red) 0%, var(--dark-red) 5%, rgba(80, 20, 20, 0.9) 12%, rgba(60, 15, 15, 0.8) 20%, rgba(40, 12, 12, 0.7) 30%, rgba(30, 10, 10, 0.6) 40%, rgba(25, 10, 10, 0.5) 50%, rgba(20, 10, 10, 0.4) 60%, rgba(15, 10, 10, 0.3) 70%, rgba(10, 10, 10, 0.2) 80%, rgba(10, 10, 10, 0.1) 90%, transparent 100%);
+            padding: 5% 8%;
+        }
+
+        .title-image {
+            width: 100% !important;
+            margin-left: 0 !important;
+        }
+
+        .title-image::before {
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.6) 15%, rgba(10, 10, 10, 0.4) 30%, rgba(10, 10, 10, 0.2) 50%, rgba(10, 10, 10, 0.1) 70%, transparent 85%);
+        }
     }
 </style>
