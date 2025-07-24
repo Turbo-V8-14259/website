@@ -1,11 +1,13 @@
 ---
 import Footer from "../components/Footer.astro"
+import '@fontsource-variable/orbitron'
+import orbitronWoff2 from "@fontsource-variable/orbitron/files/orbitron-latin-wght-normal.woff2"
 interface Props {
     title: string;
 }
 
 var {title} = Astro.props;
-title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
+title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
 ---
 
 <!DOCTYPE html>
@@ -21,7 +23,24 @@ title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
+    <meta name='generator' content={Astro.generator}>
     <link rel="sitemap" href="/sitemap-index.xml"/>
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://testing.ftcturbov8.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TurbΩ V8 FTC 14259">
+    <meta property="og:description" content="We are TurboV8, a First Tech Challenge robotics team based in Pleasanton, California.">
+    <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/3436a9e2-d4ae-4454-bc06-eaca735285e9.png?token=4Rn3ZcLFNRxp0cpuod0dP6WIutAOUxsUnqIhYJ83YLU&height=675&width=1200&expires=33289385492">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="testing.ftcturbov8.com">
+    <meta property="twitter:url" content="https://testing.ftcturbov8.com">
+    <meta name="twitter:title" content="TurbΩ V8 FTC 14259">
+    <meta name="twitter:description" content="We are TurboV8, a First Tech Challenge robotics team based in Pleasanton, California.">
+    <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/3436a9e2-d4ae-4454-bc06-eaca735285e9.png?token=4Rn3ZcLFNRxp0cpuod0dP6WIutAOUxsUnqIhYJ83YLU&height=675&width=1200&expires=33289385492">
+
 
     <title>{title}</title>
 
@@ -31,9 +50,8 @@ title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
     <meta name="apple-mobile-web-app-title" content="TurbΩ V8"/>
     <link rel="manifest" href="/site.webmanifest"/>
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="preload" as="font" type="font/woff2" href={orbitronWoff2} crossorigin="anonymous" />
+   <!-- <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">-->
 
 
 </head>
@@ -72,7 +90,7 @@ title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
     }
 
     html {
-        font-family: 'Orbitron', system-ui, sans-serif;
+        font-family: 'Orbitron Variable', system-ui, sans-serif;
         background: var(--black);
         color: white;
         scroll-behavior: smooth;
@@ -338,28 +356,78 @@ title = (title?title+" | TurbΩ V8 FTC 14259":"TurbΩ V8 FTC 14259");
     }
 
     /* Spacing Utilities */
-    .mb-1 { margin-bottom: 0.5rem; }
-    .mb-2 { margin-bottom: 1rem; }
-    .mb-3 { margin-bottom: 1.5rem; }
-    .mb-4 { margin-bottom: 2rem; }
-    .mb-5 { margin-bottom: 3rem; }
-    .mb-6 { margin-bottom: 4rem; }
+    .mb-1 {
+        margin-bottom: 0.5rem;
+    }
 
-    .mt-1 { margin-top: 0.5rem; }
-    .mt-2 { margin-top: 1rem; }
-    .mt-3 { margin-top: 1.5rem; }
-    .mt-4 { margin-top: 2rem; }
-    .mt-5 { margin-top: 3rem; }
+    .mb-2 {
+        margin-bottom: 1rem;
+    }
 
-    .p-1 { padding: 0.5rem; }
-    .p-2 { padding: 1rem; }
-    .p-3 { padding: 1.5rem; }
-    .p-4 { padding: 2rem; }
+    .mb-3 {
+        margin-bottom: 1.5rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 2rem;
+    }
+
+    .mb-5 {
+        margin-bottom: 3rem;
+    }
+
+    .mb-6 {
+        margin-bottom: 4rem;
+    }
+
+    .mt-1 {
+        margin-top: 0.5rem;
+    }
+
+    .mt-2 {
+        margin-top: 1rem;
+    }
+
+    .mt-3 {
+        margin-top: 1.5rem;
+    }
+
+    .mt-4 {
+        margin-top: 2rem;
+    }
+
+    .mt-5 {
+        margin-top: 3rem;
+    }
+
+    .p-1 {
+        padding: 0.5rem;
+    }
+
+    .p-2 {
+        padding: 1rem;
+    }
+
+    .p-3 {
+        padding: 1.5rem;
+    }
+
+    .p-4 {
+        padding: 2rem;
+    }
 
     /* Text Alignment */
-    .text-center { text-align: center; }
-    .text-left { text-align: left; }
-    .text-right { text-align: right; }
+    .text-center {
+        text-align: center;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-right {
+        text-align: right;
+    }
 
     /* Responsive Design Utilities */
     @media (max-width: 768px) {

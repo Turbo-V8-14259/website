@@ -5,8 +5,8 @@ import ugp from "../images/sponsor-logos/ugp.png";
 import polymaker from "../images/sponsor-logos/polymaker.png";
 import vbelt from "../images/sponsor-logos/vbelt.png";
 import pcbway from "../images/sponsor-logos/pcbway.png";
+import astro from "../images/astro-icon-light.png"
 
-const year = new Date().getFullYear(); //fallback
 
 import SponsorLogos from "./SponsorLogos.astro";
 
@@ -34,9 +34,10 @@ const sponsorsHeight = 110;
     </div>
     <footer>
         <p>
-            &copy; <span id="footer-year">{year}</span> TurbΩ V8 - All rights reserved<br/>
+            &copy; <span id="footer-year">{new Date().getFullYear()}</span> TurbΩ V8 - All rights reserved<br/>
             FIRST Tech Challenge (FTC)<br/>
             <a id="email" target="_blank" rel="noopener noreferrer" href={emailLink}>{email}</a>
+
         </p>
         <div id="socials">
             <a href="https://www.instagram.com/ftc_turbov8/" target="_blank" class="fa fa-instagram"
@@ -46,12 +47,20 @@ const sponsorsHeight = 110;
             </a>
 
         </div>
+        <div id="astro-credit">
+            <p>Built with</p>
+            <a href="https://astro.build" target="_blank" rel="noopener noreferrer">
+                <!--<img src="https://astro.build/assets/press/astro-icon-light.png" alt="Astro" height="24" />-->
+                <Image src={astro} alt="Astro" height="24"/>
+                {Astro.generator}
+            </a>
+        </div>
     </footer>
-    <script is:inline>
+    <!--<script>
         document.getElementById("footer-year").innerText = new Date().getFullYear();
-    </script>
+    </script>-->
+    <script src="../scripts/footer.js"></script>
 </section>
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>-->
 <style>
     #sponsor-title {
         font-size: xx-large;
@@ -65,7 +74,7 @@ const sponsorsHeight = 110;
     footer {
         background-color: var(--dark-red);
         text-align: center;
-        padding-bottom: 30px;
+        padding-bottom: 15px;
         padding-top: 20px;
     }
 
@@ -141,5 +150,35 @@ const sponsorsHeight = 110;
 
     .fa:hover {
         opacity: 0.7;
+    }
+
+    #astro-credit {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 14px;
+        opacity: 0.8;
+    }
+
+    #astro-credit p {
+        color: white;
+    }
+
+    #astro-credit a {
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: opacity 0.3s ease;
+    }
+
+    #astro-credit a:hover {
+        opacity: 0.7;
+    }
+
+    #astro-credit img {
+        vertical-align: text-bottom;
+        margin-top: 6px;
     }
 </style>

@@ -27,10 +27,10 @@ else {
         <p class="subtitle slide-up slide-up-delay-1">{subtitleText}</p>
         <a class="cta-button slide-up slide-up-delay-2" href={buttonURL}>{buttonText}</a>
     </div>
-    <div class="title-image"></div>
+    <div class="title-image" style={{ background: `${bgImage} center/cover no-repeat` }}></div>
 </section>
 
-<style define:vars={{bgImage}}>
+<style>
     .title {
         height: 100vh;
         display: flex !important;

@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "website",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,9 +11,10 @@
     "emulate": "firebase emulators:start"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.3.1",
-    "firebase-tools": "^13.29.1",
-    "sharp": "^0.33.5"
+    "@astrojs/sitemap": "^3.4.1",
+    "@fontsource-variable/orbitron": "^5.2.6",
+    "astro": "^5.12.3",
+    "firebase-tools": "^14.11.1",
+    "sharp": "^0.34.3"
   }
 }

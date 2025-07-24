@@ -17,7 +17,7 @@ const projects = [{
     <div class="grid-auto-fit-large">
         {projects.map(project => (
                 <div class="card-simple">
-                    <div class="project-image" style={`background-image: url(${project.image})`}></div>
+                    <div class="project-image" style={{backgroundImage: `url(${project.image})`}}></div>
                     <div class="project-info p-3">
                         <h3 class="text-red mb-1">{project.title}</h3>
                         <p class="text-muted">{project.description}</p>
