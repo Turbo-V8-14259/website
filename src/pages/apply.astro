@@ -1,0 +1,453 @@
+---
+//import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Apply">
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Join TurboV8</h1>
+                <p class="hero-subtitle">Become part of our robotics family</p>
+                <p class="hero-description">
+                    Are you passionate about robotics, engineering, and making a difference in your community?
+                    TurboV8 is looking for dedicated students who want to learn, grow, and compete at the
+                    highest levels of FIRST Tech Challenge.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="section-title">What We're Looking For</h2>
+                        <div class="qualities-list">
+                            <div class="quality-item">
+                                <h3>Passion for STEM</h3>
+                                <p>
+                                    You don't need to be an expert, but you should have genuine interest
+                                    in science, technology, engineering, or mathematics.
+                                </p>
+                            </div>
+                            <div class="quality-item">
+                                <h3>Team Player</h3>
+                                <p>
+                                    Robotics is a team sport. We value collaboration, communication,
+                                    and supporting your teammates.
+                                </p>
+                            </div>
+                            <div class="quality-item">
+                                <h3>Commitment</h3>
+                                <p>
+                                    Our season runs from September to April. We expect regular attendance
+                                    at meetings and competitions.
+                                </p>
+                            </div>
+                            <div class="quality-item">
+                                <h3>Growth Mindset</h3>
+                                <p>
+                                    We believe in learning from failures and continuously improving.
+                                    Mistakes are opportunities to grow!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="col-md-6">
+                        <h2 class="section-title">Team Roles</h2>
+                        <div class="roles-grid">
+                            <div class="role-card">
+                                <h3>Hardware Team</h3>
+                                <p>Design, build, and maintain our competition robots</p>
+                                <ul>
+                                    <li>Mechanical design</li>
+                                    <li>CAD modeling</li>
+                                    <li>Assembly and testing</li>
+                                    <li>Problem solving</li>
+                                </ul>
+                            </div>
+                            <div class="role-card">
+                                <h3>Software Team</h3>
+                                <p>Program robot autonomy and driver control systems</p>
+                                <ul>
+                                    <li>Java programming</li>
+                                    <li>Sensor integration</li>
+                                    <li>Autonomous routines</li>
+                                    <li>Driver controls</li>
+                                </ul>
+                            </div>
+                            <div class="role-card">
+                                <h3>Outreach Team</h3>
+                                <p>Share our passion for STEM with the community</p>
+                                <ul>
+                                    <li>Event planning</li>
+                                    <li>Presentations</li>
+                                    <li>Social media</li>
+                                    <li>Community engagement</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6 px-2">
+                    <div class="col-12">
+                        <h2 class="section-title text-center mb-4">Application Process</h2>
+                        <div class="process-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <h3>Submit Application</h3>
+                                <p>Fill out our application form with your information and interests</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <h3>Interview</h3>
+                                <p>Meet with current team members to discuss your goals and interests</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <h3>Trial Period</h3>
+                                <p>Attend meetings for 2-3 weeks to experience team culture</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <h3>Welcome to the Team!</h3>
+                                <p>Officially join TurboV8 and start your robotics journey</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6 px-2">
+                    <div class="col-12">
+                        <h2 class="section-title text-center mb-4">Application Form</h2>
+                        <div class="application-form-container">
+                            <form class="application-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <input type="text" id="lastName" name="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="grade">Current Grade *</label>
+                                        <select id="grade" name="grade" required>
+                                            <option value="">Select grade</option>
+                                            <option value="7">7th Grade</option>
+                                            <option value="8">8th Grade</option>
+                                            <option value="9">9th Grade</option>
+                                            <option value="10">10th Grade</option>
+                                            <option value="11">11th Grade</option>
+                                            <option value="12">12th Grade</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="school">School *</label>
+                                        <input type="text" id="school" name="school" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="interests">Areas of Interest *</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="hardware">
+                                            <span>Hardware/Mechanical</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="software">
+                                            <span>Software/Programming</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="outreach">
+                                            <span>Outreach/Community</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="business">
+                                            <span>Business/Marketing</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="experience">Previous Robotics/STEM Experience</label>
+                                    <textarea id="experience" name="experience" rows="4"
+                                              placeholder="Tell us about any robotics, programming, or engineering experience you have..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="motivation">Why do you want to join TurboV8? *</label>
+                                    <textarea id="motivation" name="motivation" rows="4" required
+                                              placeholder="What motivates you to join our team?"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="availability">Availability *</label>
+                                    <textarea id="availability" name="availability" rows="3" required
+                                              placeholder="What days/times are you typically available for meetings and events?"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="parentEmail">Parent/Guardian Email *</label>
+                                    <input type="email" id="parentEmail" name="parentEmail" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6 px-2">
+                    <div class="col-12">
+                        <h2 class="section-title text-center mb-4">Important Information</h2>
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <h3>Meeting Schedule</h3>
+                                <p>
+                                    We meet 3-4 times per week during build season (September-February)
+                                    and 2-3 times per week during competition season (March-April).
+                                </p>
+                            </div>
+                            <div class="info-card">
+                                <h3>Time Commitment</h3>
+                                <p>
+                                    Expect to dedicate 8-12 hours per week during peak season.
+                                    We understand school comes first and work around academic schedules.
+                                </p>
+                            </div>
+                            <div class="info-card">
+                                <h3>Costs</h3>
+                                <p>
+                                    Team membership is free! We cover competition fees, travel, and materials.
+                                    Optional team merchandise is available for purchase.
+                                </p>
+                            </div>
+                            <div class="info-card">
+                                <h3>Questions?</h3>
+                                <p>
+                                    Have questions about joining? <a href="/contact">Contact us</a>
+                                    or attend one of our information sessions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .qualities-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .quality-item h3 {
+        color: var(--color-red);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .roles-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .role-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .role-card h3 {
+        color: var(--color-red);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .role-card p {
+        margin-bottom: 1rem;
+    }
+
+    .role-card ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .role-card li {
+        padding: 0.25rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .role-card li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--color-red);
+        font-weight: bold;
+    }
+
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .step {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        background: var(--color-red);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 1rem;
+        color: white;
+    }
+
+    .step h3 {
+        color: var(--color-red);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .application-form-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .application-form {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-red);
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-red);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        font-weight: normal;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        width: auto;
+        margin: 0;
+    }
+
+    .info-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .info-card h3 {
+        color: var(--color-red);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .info-card a {
+        color: var(--color-red);
+        text-decoration: none;
+    }
+
+    .info-card a:hover {
+        text-decoration: underline;
+    }
+
+    .btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .checkbox-group {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

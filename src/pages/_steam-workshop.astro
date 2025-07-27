@@ -1,0 +1,180 @@
+---
+//import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Steam Workshop">
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Steam Workshop</h1>
+                <p class="hero-subtitle">Free hands-on STEM learning experience</p>
+                <p class="hero-description">
+                    Join our interactive Steam Workshop where students learn robotics, programming,
+                    and engineering through hands-on activities. Our experienced team members guide
+                    participants through exciting projects and challenges.
+                </p>
+                <div class="hero-actions">
+                    <a href="#signup" class="btn btn-primary btn-lg">Sign Up Now - FREE!</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="section-title">What You'll Learn</h2>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>Robot Programming</h3>
+                                <p>Learn to program robots using Java and block-based programming languages.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>Mechanical Design</h3>
+                                <p>Understand the principles of mechanical engineering and robot construction.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>Problem Solving</h3>
+                                <p>Develop critical thinking skills through engineering challenges and competitions.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>Teamwork</h3>
+                                <p>Collaborate with peers to design, build, and program competitive robots.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="section-title">Workshop Details</h2>
+                        <div class="info-card">
+                            <h3>Schedule</h3>
+                            <p><strong>When:</strong> Saturdays, 10:00 AM - 2:00 PM</p>
+                            <p><strong>Duration:</strong> 4-week program</p>
+                            <p><strong>Age Group:</strong> 7th - 12th grade</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Location</h3>
+                            <p>Pleasanton, California</p>
+                            <p>Exact location provided upon registration</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Requirements</h3>
+                            <p>No prior experience necessary!</p>
+                            <p>Bring a laptop if available</p>
+                            <p>All materials provided</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6" id="signup">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Sign Up for Our Next Workshop</h2>
+                        <div class="signup-card">
+                            <p class="text-center text-lg">
+                                Ready to dive into the world of robotics? Our next Steam Workshop session
+                                starts soon, and spots are limited!
+                            </p>
+                            <div class="text-center mt-4">
+                                <a href="/contact" class="btn btn-primary btn-lg">Register Now</a>
+                                <p class="mt-2 text-sm">
+                                    Contact us for registration details and upcoming dates
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Why Choose Our Workshop?</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <h3>Expert Mentors</h3>
+                                <p>Learn from experienced FTC competitors and STEM enthusiasts</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h3>Hands-On Learning</h3>
+                                <p>Build and program real robots, not just theory</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h3>Small Groups</h3>
+                                <p>Personalized attention with low student-to-mentor ratios</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h3>Free of Charge</h3>
+                                <p>Quality STEM education accessible to all students</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .feature-item h3 {
+        color: var(--color-red);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .info-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .info-card h3 {
+        color: var(--color-red);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .signup-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 3rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .benefit-card {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .benefit-card h3 {
+        color: var(--color-red);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .hero-actions {
+        margin-top: 2rem;
+    }
+
+    .btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+</style>

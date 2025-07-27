@@ -1,30 +1,21 @@
 ---
-import bytebridge from "../images/sponsor-logos/bytebridge.png";
-import haas from "../images/sponsor-logos/haas.png";
-import ugp from "../images/sponsor-logos/ugp.png";
-import polymaker from "../images/sponsor-logos/polymaker.png";
-import vbelt from "../images/sponsor-logos/vbelt.png";
-import pcbway from "../images/sponsor-logos/pcbway.png";
+//import '../styles/global.css';
 import astro from "../images/astro-icon-light.png"
-
-
 import SponsorLogos from "./SponsorLogos.astro";
-
-import {Image} from "astro:assets";
+import {Image, getImage} from "astro:assets";
 import {email} from "../constants";
 const emailLink = "mailto:" + email;
-const sponsorsHeight = 110;
+const astroLogo = await getImage({src: astro, format: "avif"});
 ---
 
 <section id="footer">
-    <div class="sponsors">
-        <h2 id="sponsor-title">SPONSORS</h2>
+    <div class="sponsors mx-auto">
+        <h2 id="sponsor-title" class="mb-4 text-center">SPONSORS</h2>
         <div class="sponsor-container">
             <div class="sponsor-track">
                 <section class="sponsor-logos">
                     <SponsorLogos/>
                 </section>
-
 
                 <section class="sponsor-logos">
                     <SponsorLogos/>
@@ -32,33 +23,27 @@ const sponsorsHeight = 110;
             </div>
         </div>
     </div>
-    <footer>
-        <p>
+    <footer class="pt-5 pb-4 text-center">
+        <p class="mb-3">
             &copy; <span id="footer-year">{new Date().getFullYear()}</span> TurbΩ V8 - All rights reserved<br/>
             FIRST Tech Challenge (FTC)<br/>
             <a id="email" target="_blank" rel="noopener noreferrer" href={emailLink}>{email}</a>
-
         </p>
-        <div id="socials">
-            <a href="https://www.instagram.com/ftc_turbov8/" target="_blank" class="fa fa-instagram"
+        <div id="socials" class="mt-3 mb-4">
+            <a href="https://www.instagram.com/ftc_turbov8/" target="_blank" class="fa fa-instagram mx-2"
                rel="noopener noreferrer"></a>
-            <a href="https://www.youtube.com/@FTCTurboV8" target="_blank" class="fa"
+            <a href="https://www.youtube.com/@FTCTurboV8" target="_blank" class="fa mx-2"
                rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i>
             </a>
-
         </div>
-        <div id="astro-credit">
-            <p>Built with</p>
+        <div id="astro-credit" class="mt-4 pt-3">
+            <p class="mb-1">Built with</p>
             <a href="https://astro.build" target="_blank" rel="noopener noreferrer">
-                <!--<img src="https://astro.build/assets/press/astro-icon-light.png" alt="Astro" height="24" />-->
-                <Image src={astro} alt="Astro" height="24"/>
+                <img src={astroLogo.src} alt="Astro" height="24" loading="eager"/>
                 {Astro.generator}
             </a>
         </div>
     </footer>
-    <!--<script>
-        document.getElementById("footer-year").innerText = new Date().getFullYear();
-    </script>-->
     <script src="../scripts/footer.js"></script>
 </section>
 <style>
@@ -91,27 +76,40 @@ const sponsorsHeight = 110;
         position: relative;
         margin: 0 auto;
         padding: 20px 0;
+        /* Add mask for smooth fade edges */
+        mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+        -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
     }
 
     .sponsor-track {
         display: flex;
         width: max-content;
         align-items: center;
+        /* Improve performance with will-change */
+        will-change: transform;
     }
 
     .sponsor-logos {
         display: flex;
         gap: 20px;
         padding: 0 15px;
-        animation: scroll 15s linear infinite;
         align-items: center;
+        /* Improve performance */
+        will-change: transform;
     }
-
 
     a {
         display: flex;
         align-items: center;
         justify-content: center;
+        /* Improve touch targets for mobile */
+        min-width: 44px;
+        min-height: 44px;
+        transition: transform 0.2s ease;
+    }
+
+    a:hover {
+        transform: scale(1.05);
     }
 
     @keyframes scroll {
@@ -136,17 +134,17 @@ const sponsorsHeight = 110;
         margin: 0 10px 0 10px;
         height: 50px;
         width: 50px;
-        padding: 10px;
         font-size: 28px; /* too big causes logos to go off center */
         text-align: center;
         text-decoration: none;
         background: white;
         color: var(--dark-red);
         border-radius: 50%;
-        display: inline-block;
-
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
     }
-
 
     .fa:hover {
         opacity: 0.7;
@@ -180,5 +178,100 @@ const sponsorsHeight = 110;
     #astro-credit img {
         vertical-align: text-bottom;
         margin-top: 6px;
+    }
+
+    /* Mobile Responsive Improvements */
+    @media (max-width: 768px) {
+        .sponsors {
+            width: 90%;
+            padding-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        #sponsor-title {
+            font-size: x-large;
+            margin-bottom: 15px;
+        }
+
+        .sponsor-container {
+            padding: 15px 0;
+            /* Stronger mask for mobile to prevent edge cutoff */
+            mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+            -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+        }
+
+        .sponsor-logos {
+            gap: 15px;
+            padding: 0 10px;
+            /* Consistent animation speed across all devices */
+        }
+
+        /* Pause animation on touch for mobile users */
+        .sponsor-container:active .sponsor-logos {
+            animation-play-state: paused;
+        }
+
+        .fa {
+            height: 45px;
+            width: 45px;
+            font-size: 24px;
+            margin: 0 8px;
+        }
+
+        #astro-credit {
+            font-size: 12px;
+            margin-top: 15px;
+            padding-top: 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sponsors {
+            width: 95%;
+            padding-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        #sponsor-title {
+            font-size: large;
+            margin-bottom: 10px;
+        }
+
+        .sponsor-container {
+            padding: 10px 0;
+            /* Even stronger mask for small screens */
+            mask: linear-gradient(90deg, transparent, white 3%, white 97%, transparent);
+            -webkit-mask: linear-gradient(90deg, transparent, white 3%, white 97%, transparent);
+        }
+
+        .sponsor-logos {
+            gap: 12px;
+            padding: 0 8px;
+            /* Consistent animation speed across all devices */
+        }
+
+        .fa {
+            height: 40px;
+            width: 40px;
+            font-size: 20px;
+            margin: 0 6px;
+        }
+
+        #astro-credit {
+            font-size: 11px;
+        }
+
+        footer {
+            padding-bottom: 12px;
+            padding-top: 15px;
+        }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .sponsor-container {
+            border: 1px solid white;
+            border-radius: 8px;
+        }
     }
 </style>

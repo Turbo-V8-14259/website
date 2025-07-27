@@ -1,13 +1,170 @@
 ---
+//import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import Heading from '../components/Heading.astro';
-import Projects from '../components/Projects.astro';
 import bgImage from '../images/robot-bg.jpg';
+import robotArm from '../images/robot-arm.jpg';
+import battleBot from '../images/battle-bot.jpg';
+import drone from '../images/drone.jpg';
+import placeholderAvatar from '../images/team/placeholder-avatar.svg';
+import {Image} from 'astro:assets'
 ---
 
 <Layout title="">
-    <main class="main-content">
-        <Heading titleText='BUILDING THE FUTURE' subtitleText="Innovating through robotics and technology" buttonText="View Our Projects" buttonURL="#projects" bgImageData={bgImage}/>
-        <Projects/>
+    <main class="main-content index-main">
+        <Heading titleText='BUILDING THE FUTURE' subtitleText="Innovating through robotics and technology"
+                 buttonText="View Our Projects" buttonURL="#projects" bgImageData={bgImage}/>
+
+        <!-- About Sections -->
+        <section class="about-sections py-6">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-card p-4 mb-4">
+                        <div class="card-image mb-3">
+                            <Image src={bgImage} alt="TurboV8 Team" loading="eager" format="avif"/>
+                        </div>
+                        <h3 class="mb-3 text-red">Who we are</h3>
+                        <p class="mb-0">We are TurboV8, a robotics team based in Pleasanton, California, participating in the FIRST
+                            Tech Challenge (FTC) since 2017. Our team is passionate about robotics and engineering, and
+                            we take pride in designing innovative robots. Beyond the competitions, we're committed to
+                            inspiring the next generation of STEM enthusiasts through outreach and mentorship in our
+                            community.</p>
+                    </div>
+
+                    <div class="about-card p-4 mb-4">
+                        <div class="card-image mb-3">
+                            <Image src={bgImage} alt="Our Goal" loading="eager" format="avif"/>
+                        </div>
+                        <h3 class="mb-3 text-red">Our Goal</h3>
+                        <p class="mb-0">We are a community based team filled with youth STEM ambassadors. We hope to inspire and
+                            recruit passionate individuals and provide a powerful learning experience through robotics.
+                            By learning from each other and seeking daily growth, we transcend traditional disciplinary
+                            boundaries in our drive towards the <em>FIRST</em> World Championship.</p>
+                    </div>
+
+                    <div class="about-card p-4 mb-4">
+                        <div class="card-image mb-3">
+                            <Image src={bgImage} alt="What we do" loading="eager" format="avif"/>
+                        </div>
+                        <h3 class="mb-3 text-red">What we do</h3>
+                        <p class="mb-0">We often passionately interact with community members both locally and internationally,
+                            collaborating and mentoring others in STEM and robotics. TurboV8 has frequent team meetings
+                            to communicate and build our robots for every season.</p>
+                    </div>
+
+                    <div class="about-card p-4 mb-4">
+                        <div class="card-image mb-3">
+                            <Image src={bgImage} alt="FIRST and FTC" loading="eager" format="avif"/>
+                        </div>
+                        <h3 class="mb-3 text-red">What is FIRST and FTC?</h3>
+                        <p class="mb-3"><em>FIRST</em> is a nonprofit organization that supports youth in their journey through STEM.
+                            <em>FIRST</em> provide both an opportunity and a community for an engaging experience in
+                            robotics. Ages may range from 7th grade to 12th grade. If you are an adult, you may also
+                            become a mentor or coach for a team.</p>
+                        <a href="https://www.firstinspires.org/robotics/ftc" class="learn-more-link" target="_blank"
+                           rel="noopener noreferrer">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </Layout>
+
+<style>
+    .index-main {
+        padding-top: 0 !important;
+    }
+
+    .about-sections {
+        padding: 6rem 0;
+        background: linear-gradient(180deg, var(--black) 0%, #111111 100%);
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .about-card {
+        background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+        border: 2px solid #333;
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+
+    .about-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--light-red);
+        box-shadow: 0 8px 25px rgba(255, 26, 26, 0.15);
+    }
+
+    .card-image {
+        margin: -2rem -2rem 1.5rem -2rem;
+        overflow: hidden;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .about-card:hover .card-image img {
+        transform: scale(1.05);
+    }
+
+    .about-card h3 {
+        color: var(--light-red);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    .about-card p {
+        color: #ffffff90;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    .about-card em {
+        color: var(--light-red);
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    .learn-more-link {
+        color: var(--light-red);
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .learn-more-link:hover {
+        color: white;
+        text-shadow: 0 0 10px var(--light-red);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-card {
+            padding: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .about-card {
+            padding: 1rem;
+        }
+    }
+</style>

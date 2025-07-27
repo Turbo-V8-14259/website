@@ -1,0 +1,323 @@
+---
+//import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact">
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-subtitle">Get in touch with TurboV8</p>
+                <p class="hero-description">
+                    Have questions about our team, want to schedule an outreach event,
+                    or interested in sponsorship opportunities? We'd love to hear from you!
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="section-title">Send Us a Message</h2>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a topic</option>
+                                    <option value="outreach">Outreach Event Request</option>
+                                    <option value="sponsorship">Sponsorship Inquiry</option>
+                                    <option value="workshop">Steam Workshop Registration</option>
+                                    <option value="media">Media/Press Inquiry</option>
+                                    <option value="general">General Question</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required
+                                          placeholder="Tell us more about your inquiry..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class="col-md-6">
+                        <h2 class="section-title">Contact Information</h2>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <h3>Team Email</h3>
+                                <p>
+                                    <a href="mailto:team@ftcturbov8.com">team@ftcturbov8.com</a>
+                                </p>
+                            </div>
+                            <div class="contact-item">
+                                <h3>Location</h3>
+                                <p>
+                                    Pleasanton, California<br>
+                                    United States
+                                </p>
+                            </div>
+                            <div class="contact-item">
+                                <h3>Team Number</h3>
+                                <p>FTC Team #14259</p>
+                            </div>
+                            <div class="contact-item">
+                                <h3>Social Media</h3>
+                                <div class="social-links">
+                                    <a href="#" class="social-link">Instagram</a>
+                                    <a href="#" class="social-link">YouTube</a>
+                                    <a href="#" class="social-link">Twitter</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quick-links">
+                            <h3>Quick Links</h3>
+                            <ul>
+                                <li><a href="/src/pages/_steam-workshop">Steam Workshop Registration</a></li>
+                                <li><a href="/sponsors">Sponsorship Information</a></li>
+                                <li><a href="/outreach">Outreach Programs</a></li>
+                                <li><a href="/donate">Make a Donation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Frequently Asked Questions</h2>
+                        <div class="faq-grid">
+                            <div class="faq-item">
+                                <h3>How can I join TurboV8?</h3>
+                                <p>
+                                    We welcome new members! Visit our <a href="/apply">Apply page</a>
+                                    for information about joining our team. We typically recruit
+                                    new members at the beginning of each school year.
+                                </p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>Can you visit our school?</h3>
+                                <p>
+                                    Yes! We love doing outreach events. Contact us with details
+                                    about your school, preferred dates, and the type of presentation
+                                    you'd like. We'll do our best to accommodate your request.
+                                </p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>How do I register for the Steam Workshop?</h3>
+                                <p>
+                                    Visit our <a href="/src/pages/_steam-workshop">Steam Workshop page</a>
+                                    for current session information and registration details.
+                                    Workshops are free but space is limited.
+                                </p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>What sponsorship opportunities are available?</h3>
+                                <p>
+                                    We offer various sponsorship levels to fit different budgets.
+                                    Check out our <a href="/sponsors">Sponsors page</a> for detailed
+                                    information about benefits and recognition opportunities.
+                                </p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>When do you compete?</h3>
+                                <p>
+                                    The FTC season typically runs from September to April, with
+                                    regional competitions in winter and championships in spring.
+                                    Follow us on social media for competition updates!
+                                </p>
+                            </div>
+                            <div class="faq-item">
+                                <h3>Do you mentor other teams?</h3>
+                                <p>
+                                    Absolutely! We're passionate about helping other teams succeed.
+                                    Contact us if you're interested in mentorship, technical advice,
+                                    or collaboration opportunities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .contact-form {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-red);
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-red);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .contact-info {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 2rem;
+    }
+
+    .contact-item {
+        margin-bottom: 2rem;
+    }
+
+    .contact-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .contact-item h3 {
+        color: var(--color-red);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .contact-item a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .contact-item a:hover {
+        color: var(--color-red);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background: var(--color-red);
+        border-color: var(--color-red);
+    }
+
+    .quick-links {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .quick-links h3 {
+        color: var(--color-red);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .quick-links ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .quick-links li {
+        margin-bottom: 0.5rem;
+    }
+
+    .quick-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .quick-links a:hover {
+        color: var(--color-red);
+    }
+
+    .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .faq-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .faq-item h3 {
+        color: var(--color-red);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .faq-item a {
+        color: var(--color-red);
+        text-decoration: none;
+    }
+
+    .faq-item a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .faq-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .social-links {
+            flex-direction: column;
+        }
+    }
+</style>

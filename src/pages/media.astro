@@ -1,0 +1,256 @@
+---
+//import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Media">
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Media</h1>
+                <p class="hero-subtitle">Our journey in photos and videos</p>
+                <p class="hero-description">
+                    Explore our robotics journey through photos, videos, and highlights from
+                    competitions, outreach events, and team activities. See our robots in action
+                    and witness the passion that drives TurboV8.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Competition Highlights</h2>
+                        <div class="media-grid">
+                            <div class="media-card">
+                                <div class="media-placeholder">
+                                    <span>Competition Video</span>
+                                </div>
+                                <h3>2024-2025 Into The Deep</h3>
+                                <p>Watch our robot compete in the latest FTC season</p>
+                            </div>
+                            <div class="media-card">
+                                <div class="media-placeholder">
+                                    <span>Robot Reveal</span>
+                                </div>
+                                <h3>Robot Design Reveal</h3>
+                                <p>Behind the scenes look at our engineering process</p>
+                            </div>
+                            <div class="media-card">
+                                <div class="media-placeholder">
+                                    <span>Championship</span>
+                                </div>
+                                <h3>Championship Moments</h3>
+                                <p>Highlights from our championship performances</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Team Photos</h2>
+                        <div class="photo-gallery">
+                            <div class="photo-item">
+                                <div class="photo-placeholder">
+                                    <span>Team Photo</span>
+                                </div>
+                                <p>TurboV8 Team 2024-2025</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">
+                                    <span>Workshop</span>
+                                </div>
+                                <p>Steam Workshop Session</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">
+                                    <span>Outreach</span>
+                                </div>
+                                <p>Community Outreach Event</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">
+                                    <span>Build Season</span>
+                                </div>
+                                <p>Robot Build Process</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">
+                                    <span>Awards</span>
+                                </div>
+                                <p>Award Ceremony</p>
+                            </div>
+                            <div class="photo-item">
+                                <div class="photo-placeholder">
+                                    <span>Competition</span>
+                                </div>
+                                <p>At the Competition</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Social Media</h2>
+                        <p class="text-center text-lg">
+                            Follow us on social media for the latest updates, behind-the-scenes content,
+                            and real-time competition coverage.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <span>YouTube</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <span>Twitter</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Press & Recognition</h2>
+                        <div class="press-grid">
+                            <div class="press-item">
+                                <h3>Local News Features</h3>
+                                <p>TurboV8 featured in multiple local newspapers for outstanding outreach</p>
+                                <a href="https://www.amadorvalleytoday.org/57336/news/local-robotics-team-turbo-v8-reaches-internationals/"
+                                   class="btn btn-outline">Read Article</a>
+                                <a href="https://patch.com/california/pleasanton/tri-valley-schools-robotics-team-shines-3rd-place-win-their-division-ftc-world-nodx"
+                                   class="btn btn-outline">Read Other Article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .media-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+
+    .media-placeholder {
+        width: 100%;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1.1rem;
+    }
+
+    .media-card h3 {
+        color: var(--color-red);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .photo-item {
+        text-align: center;
+    }
+
+    .photo-placeholder {
+        width: 100%;
+        height: 180px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .social-link {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--color-red);
+    }
+
+    .press-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .press-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .press-item h3 {
+        color: var(--color-red);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .press-item p {
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-outline {
+        background: transparent;
+        border: 1px solid var(--color-red);
+        color: var(--color-red);
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+        background: var(--color-red);
+        color: white;
+    }
+</style>

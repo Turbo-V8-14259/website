@@ -1,25 +1,22 @@
 ---
+//import '../styles/global.css';
 import {getImage} from "astro:assets";
 import {type ImageMetadata} from "astro";
-interface props{
-    titleText:string;
-    subtitleText:string;
-    buttonText:string;
-    buttonURL:string;
-    bgImageData:ImageMetadata;
+interface props {
+    titleText: string;
+    subtitleText: string;
+    buttonText: string;
+    buttonURL: string;
+    bgImageData: ImageMetadata;
 }
 let {titleText, subtitleText, buttonText, buttonURL, bgImageData} = Astro.props;
-let bgImage:string;
+let bgImage: string;
 if (bgImageData) {
-    bgImage=(await getImage({src:bgImageData})).src;
-    bgImage="url("+bgImage+")";
+    bgImage = (await getImage({src: bgImageData, format: "avif"})).src;
+    bgImage = "url(" + bgImage + ")";
+} else {
+    bgImage = "none";
 }
-else {
-    bgImage="none";
-}
-
-
-
 ---
 <section class="title">
     <div class="title-content">
@@ -27,7 +24,7 @@ else {
         <p class="subtitle slide-up slide-up-delay-1">{subtitleText}</p>
         <a class="cta-button slide-up slide-up-delay-2" href={buttonURL}>{buttonText}</a>
     </div>
-    <div class="title-image" style={{ background: `${bgImage} center/cover no-repeat` }}></div>
+    <div class="title-image" style={{background: `${bgImage} center/cover no-repeat`}}></div>
 </section>
 
 <style>
@@ -100,7 +97,7 @@ else {
         .title {
             flex-direction: column !important;
         }
-        
+
         .title-content {
             width: 100% !important;
             text-align: center !important;

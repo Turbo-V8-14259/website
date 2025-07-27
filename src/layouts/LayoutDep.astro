@@ -1,63 +1,63 @@
 ---
+//import '../styles/global.css';
 interface Props {
     title: string;
     navIndex: number;
 }
 
 const {title} = Astro.props;
-const {navIndex}=Astro.props;
+const {navIndex} = Astro.props;
 
-const pages = ["Home","Test Page"];
-const urls = ["/","/testpage"]
+const pages = ["Home", "Test Page"];
+const urls = ["/", "/testpage"]
 const index = 0;
-
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width"/>
-        <meta name="generator" content={Astro.generator}/>
-        <meta name="title" content={title}>
-        <meta name="description"
-              content="We are TurboV8, a robotics team based in Pleasanton, California, participating in the FIRST Tech Challenge (FTC) since 2017. Our team is passionate about robotics and engineering, and we take pride in designing innovative robots. Beyond the competitions, we're committed to inspiring the next generation of STEM enthusiasts through outreach and mentorship in our community.">
-        <meta name="keywords" content="ftc first tech challenge turbo v8 turbov8 ">
-        <meta name="robots" content="index, follow">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="language" content="English">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="generator" content={Astro.generator}/>
+    <meta name="title" content={title}>
+    <meta name="description"
+          content="We are TurboV8, a robotics team based in Pleasanton, California, participating in the FIRST Tech Challenge (FTC) since 2017. Our team is passionate about robotics and engineering, and we take pride in designing innovative robots. Beyond the competitions, we're committed to inspiring the next generation of STEM enthusiasts through outreach and mentorship in our community.">
+    <meta name="keywords" content="ftc first tech challenge turbo v8 turbov8 ">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
 
-        <title>{title}</title>
+    <title>{title}</title>
 
-        <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-    </head>
-    <body>
-    <!-- hello there-->
-        <div id="topNav">
-            {navIndex==0 ? <a class="active" href={urls[0]}>{pages[0]}</a> : <a href={urls[0]}>{pages[0]}</a>}
-            {navIndex==1 ? <a class="active" href={urls[1]}>{pages[1]}</a> : <a href={urls[1]}>{pages[1]}</a>}
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+<!-- hello there-->
+<div id="topNav">
+    {navIndex == 0 ? <a class="active" href={urls[0]}>{pages[0]}</a> : <a href={urls[0]}>{pages[0]}</a>}
+    {navIndex == 1 ? <a class="active" href={urls[1]}>{pages[1]}</a> : <a href={urls[1]}>{pages[1]}</a>}
 
-        </div>
-        <slot/>
+</div>
+<slot/>
 
-    </body>
+</body>
 </html>
 <style>
     body {
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
-        background: rgb(138,0,0);
-        background: linear-gradient(90deg, rgba(138,0,0,1) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(138,0,0,1) 100%);
+        background: rgb(138, 0, 0);
+        background: linear-gradient(90deg, rgba(138, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(138, 0, 0, 1) 100%);
     }
 
     #topNav {
         overflow: hidden;
         background-color: #333;
-        position:sticky;
+        position: sticky;
         top: 0;
     }
 

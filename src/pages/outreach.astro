@@ -1,0 +1,170 @@
+---
+//import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Outreach">
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Outreach</h1>
+                <p class="hero-subtitle">Inspiring the next generation of STEM leaders</p>
+                <p class="hero-description">
+                    We are passionate about sharing our love for robotics and STEM with our community.
+                    Through workshops, demonstrations, and mentorship programs, we aim to inspire
+                    young minds to pursue careers in science, technology, engineering, and mathematics.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="section-title">Community Events</h2>
+                        <p class="text-lg">
+                            At Turbo V8, we bring STEM beyond the field—showcasing our robot at events like the Tri
+                            Valley Innovation Fair and Lobster Cup, inspiring future innovators, and testing new ideas.
+                            We promote inclusivity by engaging neurodivergent communities and hosting hands-on STEM
+                            workshops for younger students. With 15+ students impacted and counting, we're building a
+                            stronger, smarter STEM community.
+                        </p>
+                        <br/>
+                        <ul class="list-styled">
+                            <li>Tri-vally Innovation Fair</li>
+                            <li>Neurodivergent Partnerships</li>
+                            <li>Opensauce!</li>
+                            <li>STEM workshops for students</li>
+                        </ul>
+                    </div>
+                    <br/>
+                    <div class="col-md-6">
+                        <h2 class="section-title">Mentorship Programs</h2>
+                        <p class="text-lg">
+                            At Turbo V8, mentorship means sharing our knowledge to uplift others. We believe in
+                            empowering teams by fostering collaboration, encouraging innovation, and helping students
+                            grow through guidance and support. Mentorship is how we strengthen the STEM community
+                            together.
+                        </p>
+                        <br/>
+                        <ul class="list-styled">
+                            <li>FTC team mentoring
+                                <ul class="sub-list">
+                                    <li>Specifically worked in-person with Quantum Leapers #25810, Cyber Knights #23304,
+                                        and 18309 Dream Machines.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Technical workshops</li>
+                            <li>Competition strategy sessions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-6">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Our Impact</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h3 class="stat-number text-red">90,000+</h3>
+                                <p class="stat-label">People Reached</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3 class="stat-number text-red">8</h3>
+                                <p class="stat-label">Years Participated</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3 class="stat-number text-red">20+</h3>
+                                <p class="stat-label">FTC Teams Mentored</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3 class="stat-number text-red">800+</h3>
+                                <p class="stat-label">Community Hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-6">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Get Involved</h2>
+                        <p class="text-center text-lg">
+                            Interested in having TurboV8 visit your school or event?
+                            We'd love to share our passion for robotics with your community!
+                        </p>
+                        <div class="text-center mt-4">
+                            <a href="/contact" class="btn btn-primary">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .stat-card {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .list-styled {
+        list-style: none;
+        padding: 0;
+    }
+
+    .list-styled li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .list-styled li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--color-red);
+        font-weight: bold;
+    }
+
+    .sub-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+    }
+
+    .sub-list li {
+        padding: 0.25rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .sub-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--color-red);
+        font-weight: bold;
+    }
+</style>

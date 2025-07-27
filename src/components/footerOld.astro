@@ -19,23 +19,23 @@ const sponsorsHeight = 110;
         <h2 id="sponsor-title">SPONSORS</h2>
         <section class="sponsor-logos slider">
             <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={bytebridge} alt="Bytebridge Logo" height={sponsorsHeight}/>
+                <Image src={bytebridge} alt="Bytebridge Logo" height={sponsorsHeight} loading="eager"/>
             </a>
             <a href="https://www.haascnc.com/content/ghf/en/home.html" target="_blank" rel="noopener noreferrer"
                class="slide">
-                <Image src={haas} alt="Gene Haas Foundation Logo" height={sponsorsHeight}/>
+                <Image src={haas} alt="Gene Haas Foundation Logo" height={sponsorsHeight} loading="eager"/>
             </a>
             <a href="https://undergroundshirts.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={ugp} alt="Underground Printing Press Logo" height={sponsorsHeight}/>
+                <Image src={ugp} alt="Underground Printing Press Logo" height={sponsorsHeight} loading="eager"/>
             </a>
             <a href="https://polymaker.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={polymaker} alt="Polymaker Logo" height={sponsorsHeight}/>
+                <Image src={polymaker} alt="Polymaker Logo" height={sponsorsHeight} loading="eager"/>
             </a>
             <a href="https://www.vbeltguys.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={vbelt} alt="V-Belt Guys Logo" height={sponsorsHeight}/>
+                <Image src={vbelt} alt="V-Belt Guys Logo" height={sponsorsHeight} loading="eager"/>
             </a>
             <a href="https://www.pcbway.com/" target="_blank" rel="noopener noreferrer" class="slide">
-                <Image src={pcbway} alt="PCBWay Logo" height={sponsorsHeight}/>
+                <Image src={pcbway} alt="PCBWay Logo" height={sponsorsHeight} loading="eager"/>
             </a>
         </section>
     </div>
@@ -55,7 +55,8 @@ const sponsorsHeight = 110;
         document.getElementById("footer-year").innerText = new Date().getFullYear();
     </script>
     <script is:inline type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"/>
-    <script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"/>
+    <script is:inline type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"/>
     <script is:inline>
         $(document).ready(function () {
             $(".sponsor-logos").slick({

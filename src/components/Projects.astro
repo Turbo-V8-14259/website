@@ -1,15 +1,22 @@
 ---
+//import '../styles/global.css';
 import {getImage} from "astro:assets";
 import battleBotImg from '../images/battle-bot.jpg';
 import drone from '../images/drone.jpg';
 import robotArm from '../images/robot-arm.jpg';
 
 const projects = [{
-    title: "Battle Bot", description: "Our award-winning combat robot design", image: (await getImage({src:battleBotImg})).src
+    title: "Battle Bot",
+    description: "Our award-winning combat robot design",
+    image: (await getImage({src: battleBotImg, format: "avif"})).src
 }, {
-    title: "Autonomous Drone", description: "AI-powered aerial robotics platform", image: (await getImage({src:drone})).src
+    title: "Autonomous Drone",
+    description: "AI-powered aerial robotics platform",
+    image: (await getImage({src: drone, format: "avif"})).src
 }, {
-    title: "Robot Arm", description: "Precision robotic manipulation system", image: (await getImage({src:robotArm})).src
+    title: "Robot Arm",
+    description: "Precision robotic manipulation system",
+    image: (await getImage({src: robotArm, format: "avif"})).src
 }];
 ---
 <section id="projects" class="section-large">
@@ -19,7 +26,7 @@ const projects = [{
                 <div class="card-simple">
                     <div class="project-image" style={{backgroundImage: `url(${project.image})`}}></div>
                     <div class="project-info p-3">
-                        <h3 class="text-red mb-1">{project.title}</h3>
+                        <h3 class="text-red mb-2">{project.title}</h3>
                         <p class="text-muted">{project.description}</p>
                     </div>
                 </div>))}
