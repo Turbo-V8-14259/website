@@ -40,9 +40,9 @@ export default defineConfig({
         },
     },
 
-    output: 'server', integrations: [sitemap()],
+    output: 'static', integrations: [sitemap()],
 
-    adapter: node({
+    /*adapter: node({
         mode: 'standalone'
-    })
+    })*/
 });
