@@ -27,6 +27,7 @@ export const POST: APIRoute = async ({ request }) => {
     };
 
     // Call reCAPTCHA Enterprise assess API
+
     const verifyResponse = await fetch(
         `https://recaptchaenterprise.googleapis.com/v1/projects/${projectId}/assessments?key=${apiKey}`,
         {
@@ -39,6 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
     if (!verifyResponse.ok) {
         const errorText = await verifyResponse.text();
         console.error("reCAPTCHA Enterprise API error:", errorText);
+        console.log("reCAPTCHA Enterprise API error:", errorText);
         return new Response("Failed to verify reCAPTCHA", { status: 500 });
     }
 
