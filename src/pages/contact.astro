@@ -1,6 +1,7 @@
 ---
 //import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
+const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 ---
 
 <Layout title="Contact">
@@ -47,7 +48,9 @@ import Layout from '../layouts/Layout.astro';
                                 <textarea id="message" name="message" rows="6" required
                                           placeholder="Tell us more about your inquiry..."></textarea>
                             </div>
+                            <div class="g-recaptcha" data-sitekey={siteKey} data-action="LOGIN"></div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
+
                         </form>
                     </div>
                     <br/>
@@ -168,7 +171,7 @@ import Layout from '../layouts/Layout.astro';
     .form-group label {
         display: block;
         margin-bottom: 0.5rem;
-        color: var(--color-red);
+        color: var(--light-red);
         font-weight: 600;
     }
 
@@ -188,7 +191,7 @@ import Layout from '../layouts/Layout.astro';
     .form-group select:focus,
     .form-group textarea:focus {
         outline: none;
-        border-color: var(--color-red);
+        border-color: var(--light-red);
         background: rgba(255, 255, 255, 0.15);
     }
 
@@ -214,7 +217,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .contact-item h3 {
-        color: var(--color-red);
+        color: var(--light-red);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
     }
@@ -225,7 +228,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .contact-item a:hover {
-        color: var(--color-red);
+        color: var(--light-red);
     }
 
     .social-links {
@@ -246,8 +249,8 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .social-link:hover {
-        background: var(--color-red);
-        border-color: var(--color-red);
+        background: var(--light-red);
+        border-color: var(--light-red);
     }
 
     .quick-links {
@@ -258,7 +261,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .quick-links h3 {
-        color: var(--color-red);
+        color: var(--light-red);
         margin-bottom: 1rem;
         font-size: 1.2rem;
     }
@@ -279,7 +282,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .quick-links a:hover {
-        color: var(--color-red);
+        color: var(--light-red);
     }
 
     .faq-grid {
@@ -297,13 +300,13 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .faq-item h3 {
-        color: var(--color-red);
+        color: var(--light-red);
         margin-bottom: 1rem;
         font-size: 1.2rem;
     }
 
     .faq-item a {
-        color: var(--color-red);
+        color: var(--light-red);
         text-decoration: none;
     }
 

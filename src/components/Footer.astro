@@ -78,7 +78,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         padding: 20px 0;
         /* Add mask for smooth fade edges */
         mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
-        -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+        /*-webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);*/
     }
 
     .sponsor-track {
@@ -197,7 +197,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
             padding: 15px 0;
             /* Stronger mask for mobile to prevent edge cutoff */
             mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
-            -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+            /*-webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);*/
         }
 
         .sponsor-logos {
@@ -241,7 +241,9 @@ const astroLogo = await getImage({src: astro, format: "avif"});
             padding: 10px 0;
             /* Even stronger mask for small screens */
             mask: linear-gradient(90deg, transparent, white 3%, white 97%, transparent);
+            /*
             -webkit-mask: linear-gradient(90deg, transparent, white 3%, white 97%, transparent);
+            */
         }
 
         .sponsor-logos {
@@ -267,11 +269,5 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         }
     }
 
-    /* High contrast mode support */
-    @media (prefers-contrast: high) {
-        .sponsor-container {
-            border: 1px solid white;
-            border-radius: 8px;
-        }
-    }
+
 </style>

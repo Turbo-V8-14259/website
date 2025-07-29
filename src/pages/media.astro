@@ -1,6 +1,42 @@
 ---
 //import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
+import {Image} from 'astro:assets'
+import avt from '../images/news-articles/amadorvallytoday.jpeg'
+import patch from '../images/news-articles/patch.webp'
+
+const newsArticles:NewsArticle[] = [
+    {
+        title: "Tri-Valley Schools Robotics Team Shines with 3rd Place Win",
+        description: "In a stunning display of engineering excellence and strategic gameplay, TurboV8 secured third place in their division at the FTC World Championship, showcasing months of dedicated preparation and innovation.",
+        image: patch,
+        imageAlt: "TurboV8 team with third place trophy",
+        source: "Patch.com",
+        date: "2025-06-11",
+        url: "https://patch.com/california/pleasanton/tri-valley-schools-robotics-team-shines-3rd-place-win-their-division-ftc-world-nodx",
+        featured: true
+    },
+    {
+        title: "Local Robotics Team TurboV8 Reaches Internationals",
+        description: "TurboV8 robotics team from Tri-Valley area has made remarkable progress this season, advancing to international competition levels with their innovative robot design and exceptional teamwork.",
+        image: avt,
+        imageAlt: "TurboV8 team celebrating",
+        source: "Amador Valley Today",
+        date: "2024-03-24",
+        url: "https://www.amadorvalleytoday.org/57336/news/local-robotics-team-turbo-v8-reaches-internationals/",
+        featured: true
+    }
+]
+interface NewsArticle {
+    title: string;
+    description: string;
+    image: ImageMetadata;
+    imageAlt: string;
+    source: string;
+    date: string; //y-m-d
+    url: string;
+    featured: boolean;
+}
 ---
 
 <Layout title="Media">
@@ -116,16 +152,60 @@ import Layout from '../layouts/Layout.astro';
                 <div class="row mt-6">
                     <div class="col-12">
                         <h2 class="section-title text-center">Press & Recognition</h2>
-                        <div class="press-grid">
-                            <div class="press-item">
-                                <h3>Local News Features</h3>
-                                <p>TurboV8 featured in multiple local newspapers for outstanding outreach</p>
-                                <a href="https://www.amadorvalleytoday.org/57336/news/local-robotics-team-turbo-v8-reaches-internationals/"
-                                   class="btn btn-outline">Read Article</a>
-                                <a href="https://patch.com/california/pleasanton/tri-valley-schools-robotics-team-shines-3rd-place-win-their-division-ftc-world-nodx"
-                                   class="btn btn-outline">Read Other Article</a>
-                            </div>
+                        <p class="text-center text-lg mb-4">
+                            Discover how TurboV8 is making headlines and inspiring communities through robotics excellence.
+                        </p>
+                        
+                        <!-- Featured Articles -->
+                        <div class="featured-articles">
+                            {newsArticles.filter(article => article).map(article => (
+                                <article class="news-card featured">
+                                    <div class="news-image">
+                                        <Image src={article.image} alt={article.imageAlt} loading="eager" format="avif"/>
+                                        <!--<div class="news-badge">Featured</div>-->
+                                    </div>
+                                    <div class="news-content">
+                                        <div class="news-meta">
+                                            <span class="news-source">{article.source}</span>
+                                            <span class="news-date">{new Date(article.date + 'T12:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                        </div>
+                                        <h3 class="news-title">{article.title}</h3>
+                                        <p class="news-description">{article.description}</p>
+                                        <a href={article.url} class="news-link" target="_blank" rel="noopener noreferrer">
+                                            Read Full Article
+                                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </article>
+                            ))}
                         </div>
+
+                        <!-- Regular Articles
+                        <div class="news-grid">
+                            {newsArticles.filter(article => !article.featured).map(article => (
+                                <article class="news-card">
+                                    <div class="news-image">
+                                        <Image src={article.image} alt={article.imageAlt} />
+                                    </div>
+                                    <div class="news-content">
+                                        <div class="news-meta">
+                                            <span class="news-source">{article.source}</span>
+                                            <span class="news-date">{new Date(article.date + 'T12:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                                        </div>
+                                        <h3 class="news-title">{article.title}</h3>
+                                        <p class="news-description">{article.description}</p>
+                                        <a href={article.url} class="news-link" target="_blank" rel="noopener noreferrer">
+                                            Read More
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -163,7 +243,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .media-card h3 {
-        color: var(--color-red);
+        color: var(--light-red);
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
     }
@@ -211,7 +291,7 @@ import Layout from '../layouts/Layout.astro';
 
     .social-link:hover {
         background: rgba(255, 255, 255, 0.1);
-        border-color: var(--color-red);
+        border-color: var(--light-red);
     }
 
     .press-grid {
@@ -229,7 +309,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .press-item h3 {
-        color: var(--color-red);
+        color: var(--light-red);
         margin-bottom: 1rem;
         font-size: 1.2rem;
     }
@@ -240,8 +320,8 @@ import Layout from '../layouts/Layout.astro';
 
     .btn-outline {
         background: transparent;
-        border: 1px solid var(--color-red);
-        color: var(--color-red);
+        border: 1px solid var(--light-red);
+        color: var(--light-red);
         padding: 0.75rem 1.5rem;
         border-radius: 6px;
         text-decoration: none;
@@ -250,7 +330,226 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .btn-outline:hover {
-        background: var(--color-red);
+        background: var(--light-red);
         color: white;
+    }
+
+    /* News Articles Styles */
+    .featured-articles {
+        margin-top: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .news-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .news-card:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .news-card.featured {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        min-height: 400px;
+        margin-bottom: 2rem;
+    }
+
+    .news-image {
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .news-card:not(.featured) .news-image {
+        height: 220px;
+    }
+
+    .news-card.featured .news-image {
+        height: 100%;
+    }
+
+    .news-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    }
+
+    .news-card:hover .news-image img {
+        transform: scale(1.05);
+    }
+
+    .news-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--light-red);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        z-index: 2;
+    }
+
+    .news-content {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .news-card.featured .news-content {
+        justify-content: center;
+        padding: 3rem;
+    }
+
+    .news-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    .news-source {
+        color: var(--light-red);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .news-date {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .news-title {
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .news-card.featured .news-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .news-card:hover .news-title {
+        color: var(--light-red);
+    }
+
+    .news-description {
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+    }
+
+    .news-card.featured .news-description {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .news-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--light-red);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .news-link:hover {
+        color: white;
+        transform: translateX(4px);
+    }
+
+    .news-link svg {
+        transition: transform 0.3s ease;
+    }
+
+    .news-link:hover svg {
+        transform: translateX(2px);
+    }
+
+    .mb-4 {
+        margin-bottom: 2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .news-card.featured {
+            grid-template-columns: 1fr;
+            min-height: auto;
+        }
+
+        .news-card.featured .news-image {
+            height: 250px;
+        }
+
+        .news-card.featured .news-content {
+            padding: 2rem;
+        }
+
+        .news-card.featured .news-title {
+            font-size: 1.6rem;
+        }
+
+        .news-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .news-meta {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+    }
+
+    /* Fallback for missing images */
+    .news-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+            rgba(220, 38, 38, 0.2) 0%, 
+            rgba(220, 38, 38, 0.1) 50%, 
+            rgba(255, 255, 255, 0.05) 100%);
+        z-index: 1;
+    }
+
+    .news-image img {
+        position: relative;
+        z-index: 2;
     }
 </style>

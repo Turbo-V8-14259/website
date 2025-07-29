@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
+---
+
+<Layout title="test">
+    <form action="/api/submit" enctype="multipart/form-data" method="POST">
+        <input type="text" name="name" placeholder="Your name" required />
+
+        <div class="g-recaptcha" data-sitekey={siteKey} data-action="LOGIN"></div>
+
+        <button type="submit">Send</button>
+    </form>
+</Layout>
