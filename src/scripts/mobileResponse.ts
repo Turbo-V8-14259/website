@@ -1,4 +1,3 @@
-"use strict";
 document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.querySelector<HTMLElement>('.mobile-menu-toggle');
     const mobileNav = document.querySelector<HTMLElement>('.mobile-nav');

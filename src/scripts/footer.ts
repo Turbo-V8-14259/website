@@ -1,4 +1,3 @@
-"use strict";
 document.addEventListener("DOMContentLoaded", () => {
     const yearSpan = document.getElementById("footer-year");
     if (yearSpan) {
