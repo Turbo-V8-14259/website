@@ -54,7 +54,6 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
     <meta name="apple-mobile-web-app-title" content="TurbΩ V8"/>
     <link rel="manifest" href="/site.webmanifest"/>
     <link rel="preload" as="font" type="font/woff2" href={orbitronWoff2} crossorigin="anonymous"/>
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer />
     <!-- <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">-->
 
 
@@ -110,9 +109,11 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
 </nav>
 <slot/>
 <Footer/>
+<script src="../scripts/footer.ts"/>
+<script src="../scripts/mobileResponse.ts"/>
+<script src="../scripts/form.ts"/>
+<script src="https://web3forms.com/client/script.js"/>
 <script src="https://kit.fontawesome.com/b8a11f6bd5.js" crossorigin="anonymous"/>
-
-<script src="../scripts/mobileResponse.js"/>
 
 
 </body>
