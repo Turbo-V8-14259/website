@@ -5,26 +5,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Enhanced mobile interaction for sponsor carousel
-    const sponsorContainer = document.querySelector('.sponsor-container');
-    const sponsorLogos = document.querySelectorAll('.sponsor-logos');
+    const sponsorContainer = document.querySelector<HTMLElement>('.sponsor-container');
+    const sponsorLogos = document.querySelectorAll<HTMLElement>('.sponsor-logos');
 
     if (sponsorContainer && sponsorLogos.length > 0) {
         let isUserInteracting = false;
-        let interactionTimeout;
-        let animationId;
-        let startTime = null;
+        let interactionTimeout: number | undefined;
+        let animationId: number | undefined;
+        let startTime: number | null = null;
         const animationDuration = 15000; // 15 seconds in milliseconds
         let isPaused = false;
         let pausedProgress = 0;
 
         // Remove all CSS animations and handle with JavaScript
-        sponsorLogos.forEach(logo => {
+        sponsorLogos.forEach((logo) => {
             logo.style.animation = 'none';
             logo.style.transform = 'translateX(0)';
         });
 
         // JavaScript-based animation function
-        const animate = (currentTime) => {
+        const animate = (currentTime: number) => {
             if (!startTime) startTime = currentTime;
 
             if (!isPaused) {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const progress = (elapsed % animationDuration) / animationDuration;
                 const translateX = -progress * 100;
 
-                sponsorLogos.forEach(logo => {
+                sponsorLogos.forEach((logo) => {
                     logo.style.transform = `translateX(${translateX}%)`;
                 });
             }
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Function to pause animation
         const pauseAnimation = () => {
             isPaused = true;
-            if (startTime) {
+            if (startTime !== null) {
                 pausedProgress += performance.now() - startTime;
                 startTime = null;
             }
@@ -59,21 +59,31 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Touch events for mobile
-        sponsorContainer.addEventListener('touchstart', (e) => {
-            isUserInteracting = true;
-            pauseAnimation();
-            clearTimeout(interactionTimeout);
-        }, {passive: true});
-
-        sponsorContainer.addEventListener('touchend', () => {
-            isUserInteracting = false;
-            // Resume animation after a short delay
-            interactionTimeout = setTimeout(() => {
-                if (!isUserInteracting) {
-                    resumeAnimation();
+        sponsorContainer.addEventListener(
+            'touchstart',
+            (e: TouchEvent) => {
+                isUserInteracting = true;
+                pauseAnimation();
+                if (interactionTimeout !== undefined) {
+                    clearTimeout(interactionTimeout);
                 }
-            }, 1000);
-        }, {passive: true});
+            },
+            {passive: true}
+        );
+
+        sponsorContainer.addEventListener(
+            'touchend',
+            () => {
+                isUserInteracting = false;
+                // Resume animation after a short delay
+                interactionTimeout = window.setTimeout(() => {
+                    if (!isUserInteracting) {
+                        resumeAnimation();
+                    }
+                }, 1000);
+            },
+            {passive: true}
+        );
 
         // Mouse events for desktop (existing hover behavior)
         sponsorContainer.addEventListener('mouseenter', () => {
@@ -99,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Cleanup on page unload
         window.addEventListener('beforeunload', () => {
-            if (animationId) {
+            if (animationId !== undefined) {
                 cancelAnimationFrame(animationId);
             }
         });

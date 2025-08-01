@@ -5,7 +5,7 @@ import {Image} from 'astro:assets'
 import avt from '../images/news-articles/amadorvallytoday.jpeg'
 import patch from '../images/news-articles/patch.webp'
 
-const newsArticles:NewsArticle[] = [
+const newsArticles: NewsArticle[] = [
     {
         title: "Tri-Valley Schools Robotics Team Shines with 3rd Place Win",
         description: "In a stunning display of engineering excellence and strategic gameplay, TurboV8 secured third place in their division at the FTC World Championship, showcasing months of dedicated preparation and innovation.",
@@ -153,32 +153,40 @@ interface NewsArticle {
                     <div class="col-12">
                         <h2 class="section-title text-center">Press & Recognition</h2>
                         <p class="text-center text-lg mb-4">
-                            Discover how TurboV8 is making headlines and inspiring communities through robotics excellence.
+                            Discover how TurboV8 is making headlines and inspiring communities through robotics
+                            excellence.
                         </p>
-                        
+
                         <!-- Featured Articles -->
                         <div class="featured-articles">
                             {newsArticles.filter(article => article).map(article => (
-                                <article class="news-card featured">
-                                    <div class="news-image">
-                                        <Image src={article.image} alt={article.imageAlt} loading="eager" format="avif"/>
-                                        <!--<div class="news-badge">Featured</div>-->
-                                    </div>
-                                    <div class="news-content">
-                                        <div class="news-meta">
-                                            <span class="news-source">{article.source}</span>
-                                            <span class="news-date">{new Date(article.date + 'T12:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                    <article class="news-card featured">
+                                        <div class="news-image">
+                                            <Image src={article.image} alt={article.imageAlt} loading="eager"
+                                                   format="avif"/>
+                                            <!--<div class="news-badge">Featured</div>-->
                                         </div>
-                                        <h3 class="news-title">{article.title}</h3>
-                                        <p class="news-description">{article.description}</p>
-                                        <a href={article.url} class="news-link" target="_blank" rel="noopener noreferrer">
-                                            Read Full Article
-                                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </article>
+                                        <div class="news-content">
+                                            <div class="news-meta">
+                                                <span class="news-source">{article.source}</span>
+                                                <span class="news-date">{new Date(article.date + 'T12:00:00').toLocaleDateString('en-US', {
+                                                    year: 'numeric',
+                                                    month: 'long',
+                                                    day: 'numeric'
+                                                })}</span>
+                                            </div>
+                                            <h3 class="news-title">{article.title}</h3>
+                                            <p class="news-description">{article.description}</p>
+                                            <a href={article.url} class="news-link" target="_blank"
+                                               rel="noopener noreferrer">
+                                                Read Full Article
+                                                <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor"
+                                                     stroke-width="2">
+                                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </article>
                             ))}
                         </div>
 
@@ -541,10 +549,10 @@ interface NewsArticle {
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, 
-            rgba(220, 38, 38, 0.2) 0%, 
-            rgba(220, 38, 38, 0.1) 50%, 
-            rgba(255, 255, 255, 0.05) 100%);
+        background: linear-gradient(135deg,
+        rgba(220, 38, 38, 0.2) 0%,
+        rgba(220, 38, 38, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 100%);
         z-index: 1;
     }
 

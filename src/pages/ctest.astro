@@ -4,8 +4,10 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 ---
 
 <Layout title="test">
-    <form action="/api/submit" enctype="multipart/form-data" method="POST">
-        <input type="text" name="name" placeholder="Your name" required />
+    <form action="/functions/src/api/submit" enctype="multipart/form-data" method="POST">
+        <label>
+            <input type="text" name="name" placeholder="Your name" required/>
+        </label>
 
         <div class="g-recaptcha" data-sitekey={siteKey} data-action="LOGIN"></div>
 

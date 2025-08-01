@@ -22,7 +22,10 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
                 <div class="row">
                     <div class="col-md-6">
                         <h2 class="section-title">Send Us a Message</h2>
-                        <form class="contact-form">
+                        <div id="form-error" class="form-error" style="display:none;"></div>
+                        <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit"
+                              method="POST" novalidate>
+                            <input type="hidden" name="access_key" value="abce38c2-0b0d-40dd-9185-a07c8c56d63a">
                             <div class="form-group">
                                 <label for="name">Name *</label>
                                 <input type="text" id="name" name="name" required>
@@ -48,7 +51,7 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
                                 <textarea id="message" name="message" rows="6" required
                                           placeholder="Tell us more about your inquiry..."></textarea>
                             </div>
-                            <div class="g-recaptcha" data-sitekey={siteKey} data-action="LOGIN"></div>
+                            <div class="h-captcha" data-captcha="true"></div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
 
                         </form>
@@ -154,9 +157,22 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
             </div>
         </section>
     </main>
+
+
 </Layout>
 
 <style>
+    .form-error {
+        color: #ff4d4f;
+        background: rgba(255, 77, 79, 0.1);
+        border: 1px solid #ff4d4f;
+        border-radius: 6px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
     .contact-form {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
