@@ -1,6 +1,6 @@
-import type {NewsArticle} from "./types.ts";
-import avt from '../images/news-articles/amadorvallytoday.jpeg'
-import patch from '../images/news-articles/patch.webp'
+import type {NewsArticle} from "./types.d.ts";
+import avt from './images/news-articles/amadorvallytoday.jpeg'
+import patch from './images/news-articles/patch.webp'
 
 export const email = "ftcturbov8@gmail.com";
 

@@ -8,10 +8,27 @@ import vbelt from "../images/sponsor-logos/vbelt.png";
 import pcbway from "../images/sponsor-logos/pcbway.png";
 import fabworks from "../images/sponsor-logos/fabworks.png"
 import {Image} from "astro:assets";
+import type {ImageMetadata} from "astro";
+import type {Sponsor} from "../types.d.ts";
 
 const sponsorsHeight = 110;
+const sponsors: Sponsor[] = [{
+    name: "Bytebridge", logo: bytebridge, url: "https://www.bytebt.com/"
+}, {
+    name: "Gene Haas Foundation", logo: haas, url: "https://www.ghaasfoundation.org/"
+},{
+    name: "Underground Printing Press", logo: ugp, url: "https://undergroundshirts.com/"
+}, {
+    name: "V-Belt Guy", logo: vbelt, url: "https://www.vbeltguys.com/"
+}]
 ---
+{sponsors.filter(sponsors => sponsors).map(sponsor => (
+<a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-link">
+    <Image src={sponsor.logo} alt={sponsor.name + " Logo"} height={sponsorsHeight} class="sponsor-image" loading="eager"
+           format="avif"/>
+</a>
 
+    ))}
 <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
     <Image src={bytebridge} alt="Bytebridge Logo" height={sponsorsHeight} class="sponsor-image" loading="eager"
            format="avif"/>

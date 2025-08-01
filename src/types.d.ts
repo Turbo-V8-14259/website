@@ -1,3 +1,5 @@
+import type {ImageMetadata} from "astro";
+
 export type NewsArticle = {
     title: string;
     description: string;
@@ -7,4 +9,7 @@ export type NewsArticle = {
     date: string; //y-m-d
     url: string;
     featured: boolean;
+}
+export type Sponsor = {
+    name: string; logo: ImageMetadata; url: string;
 }
