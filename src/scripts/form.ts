@@ -1,3 +1,4 @@
+"use strict";
 const form = document.getElementById('contact-form') as HTMLFormElement | null;
 
 if (form) {

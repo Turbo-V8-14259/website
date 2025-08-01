@@ -1,6 +1,7 @@
 ---
 //import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout title="Contact">
@@ -50,8 +51,12 @@ import Layout from '../layouts/Layout.astro';
                                 <textarea id="message" name="message" rows="6" required
                                           placeholder="Tell us more about your inquiry..."></textarea>
                             </div>
-                            <div class="h-captcha" data-captcha="true"></div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <div class="center-flex">
+                                <div class="captcha-wrapper">
+                                    <div class="h-captcha" data-captcha="true"></div>
+                                </div>
+                                <Button type="submit">Send Message</Button>
+                            </div>
 
                         </form>
                     </div>
@@ -337,5 +342,21 @@ import Layout from '../layouts/Layout.astro';
         .social-links {
             flex-direction: column;
         }
+    }
+
+    .center-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .captcha-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

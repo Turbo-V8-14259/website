@@ -1,3 +1,4 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", () => {
     const yearSpan = document.getElementById("footer-year");
     if (yearSpan) {
@@ -61,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Touch events for mobile
         sponsorContainer.addEventListener(
             'touchstart',
-            (e: TouchEvent) => {
+            () => {
                 isUserInteracting = true;
                 pauseAnimation();
                 if (interactionTimeout !== undefined) {

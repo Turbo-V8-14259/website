@@ -1,4 +1,5 @@
-import type {NewsArticle} from "./types.d.ts";
+"use strict";
+import type {NewsArticle} from "./types";
 import avt from './images/news-articles/amadorvallytoday.jpeg'
 import patch from './images/news-articles/patch.webp'
 
