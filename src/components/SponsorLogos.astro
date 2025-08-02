@@ -8,7 +8,6 @@ import vbelt from "../images/sponsor-logos/vbelt.png";
 import pcbway from "../images/sponsor-logos/pcbway.png";
 import fabworks from "../images/sponsor-logos/fabworks.png"
 import {Image} from "astro:assets";
-import type {ImageMetadata} from "astro";
 import type {Sponsor} from "../types.d.ts";
 
 const sponsorsHeight = 110;
@@ -19,7 +18,13 @@ const sponsors: Sponsor[] = [{
 }, {
     name: "Underground Printing Press", logo: ugp, url: "https://undergroundshirts.com/"
 }, {
+    name: "Polymaker", logo: polymaker, url: "https://polymaker.com/"
+}, {
     name: "V-Belt Guy", logo: vbelt, url: "https://www.vbeltguys.com/"
+}, {
+    name: "PCBWay", logo: pcbway, url: "https://www.pcbway.com/"
+}, {
+    name: "Fabworks", logo: fabworks, url: "https://www.fabworks.com/"
 }]
 ---
 {sponsors.filter(sponsors => sponsors).map(sponsor => (
@@ -27,35 +32,7 @@ const sponsors: Sponsor[] = [{
     <Image src={sponsor.logo} alt={sponsor.name + " Logo"} height={sponsorsHeight} class="sponsor-image" loading="eager"
            format="avif"/>
 </a>
-
     ))}
-<a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-    <Image src={bytebridge} alt="Bytebridge Logo" height={sponsorsHeight} class="sponsor-image" loading="eager"
-           format="avif"/>
-</a>
-<a href="https://www.ghaasfoundation.org/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-    <Image src={haas} alt="Gene Haas Foundation Logo" height={sponsorsHeight} class="sponsor-image" loading="eager"
-           format="avif"/>
-</a>
-<a href="https://undergroundshirts.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-    <Image src={ugp} alt="Underground Printing Press Logo" height={sponsorsHeight} class="sponsor-image" loading="eager"
-           format="avif"/>
-</a>
-<a href="https://polymaker.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-    <Image src={polymaker} alt="Polymaker Logo" height={sponsorsHeight} class="sponsor-image" loading="eager"
-           format="avif"/>
-</a>
-<a href="https://www.vbeltguys.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-    <Image src={vbelt} alt="V-Belt Guys Logo" height={sponsorsHeight} class="sponsor-image" loading="eager"
-           format="avif"/>
-</a>
-<a href="https://www.pcbway.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-    <Image src={pcbway} alt="PCBWay Logo" height={sponsorsHeight} class="sponsor-image" loading="eager" format="avif"/>
-</a>
-<a href="https://www.fabworks.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-    <Image src={fabworks} alt="fabworks Logo" height={sponsorsHeight} class="sponsor-image" loading="eager"
-           format="avif"/>
-</a>
 <style>
     .sponsor-link {
         display: inline-block;
