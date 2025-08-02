@@ -1,12 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
+export {};
+if (document.readyState === "complete") {
+    run();
+} else {
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "complete") {
+            run();
+        }
+    });
+}
+
+function run(): void {
     const yearSpan = document.getElementById("footer-year");
     if (yearSpan) {
         yearSpan.innerText = new Date().getFullYear().toString();
     }
 
-    // Enhanced mobile interaction for sponsor carousel
-    const sponsorContainer = document.querySelector<HTMLElement>('.sponsor-container');
-    const sponsorLogos = document.querySelectorAll<HTMLElement>('.sponsor-logos');
+    const sponsorContainer: HTMLElement | null = document.querySelector<HTMLElement>('.partner-container');
+    const sponsorLogos: NodeListOf<HTMLElement> = document.querySelectorAll<HTMLElement>('.partner-logos');
 
     if (sponsorContainer && sponsorLogos.length > 0) {
         let isUserInteracting = false;
@@ -17,13 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let isPaused = false;
         let pausedProgress = 0;
 
-        // Remove all CSS animations and handle with JavaScript
         sponsorLogos.forEach((logo) => {
             logo.style.animation = 'none';
             logo.style.transform = 'translateX(0)';
         });
 
-        // JavaScript-based animation function
         const animate = (currentTime: number) => {
             if (!startTime) startTime = currentTime;
 
@@ -40,10 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
             animationId = requestAnimationFrame(animate);
         };
 
-        // Start the animation
         animationId = requestAnimationFrame(animate);
 
-        // Function to pause animation
         const pauseAnimation = () => {
             isPaused = true;
             if (startTime !== null) {
@@ -52,40 +58,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        // Function to resume animation
         const resumeAnimation = () => {
             isPaused = false;
             startTime = null;
         };
 
-        // Touch events for mobile
-        sponsorContainer.addEventListener(
-            'touchstart',
-            () => {
-                isUserInteracting = true;
-                pauseAnimation();
-                if (interactionTimeout !== undefined) {
-                    clearTimeout(interactionTimeout);
+        sponsorContainer.addEventListener('touchstart', () => {
+            isUserInteracting = true;
+            pauseAnimation();
+            if (interactionTimeout !== undefined) {
+                clearTimeout(interactionTimeout);
+            }
+        }, { passive: true });
+
+        sponsorContainer.addEventListener('touchend', () => {
+            isUserInteracting = false;
+            interactionTimeout = window.setTimeout(() => {
+                if (!isUserInteracting) {
+                    resumeAnimation();
                 }
-            },
-            {passive: true}
-        );
+            }, 1000);
+        }, { passive: true });
 
-        sponsorContainer.addEventListener(
-            'touchend',
-            () => {
-                isUserInteracting = false;
-                // Resume animation after a short delay
-                interactionTimeout = window.setTimeout(() => {
-                    if (!isUserInteracting) {
-                        resumeAnimation();
-                    }
-                }, 1000);
-            },
-            {passive: true}
-        );
-
-        // Mouse events for desktop (existing hover behavior)
         sponsorContainer.addEventListener('mouseenter', () => {
             if (!isUserInteracting) {
                 pauseAnimation();
@@ -98,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Handle visibility change (pause when tab is not visible)
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
                 pauseAnimation();
@@ -107,11 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Cleanup on page unload
         window.addEventListener('beforeunload', () => {
             if (animationId !== undefined) {
                 cancelAnimationFrame(animationId);
             }
         });
     }
-});
+}
