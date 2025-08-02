@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Touch events for mobile
         sponsorContainer.addEventListener(
             'touchstart',
-            (e: TouchEvent) => {
+            () => {
                 isUserInteracting = true;
                 pauseAnimation();
                 if (interactionTimeout !== undefined) {

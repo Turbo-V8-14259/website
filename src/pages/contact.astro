@@ -1,7 +1,7 @@
 ---
 //import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
-const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
+import Button from '../components/Button.astro';
 ---
 
 <Layout title="Contact">
@@ -22,10 +22,12 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
                 <div class="row">
                     <div class="col-md-6">
                         <h2 class="section-title">Send Us a Message</h2>
-                        <div id="form-error" class="form-error" style="display:none;"></div>
-                        <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit"
-                              method="POST" novalidate>
+
+                        <!--<form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit"-->
+                        <!--      method="POST" novalidate>-->
+                        <form id="contact-form" class="contact-form" novalidate>
                             <input type="hidden" name="access_key" value="abce38c2-0b0d-40dd-9185-a07c8c56d63a">
+                            <input type="hidden" name="subject" value="New Submission from Website ftcturbov8.com"></input>
                             <div class="form-group">
                                 <label for="name">Name *</label>
                                 <input type="text" id="name" name="name" required>
@@ -35,8 +37,8 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
                                 <input type="email" id="email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="subject">Subject *</label>
-                                <select id="subject" name="subject" required>
+                                <label for="reason-for-contact">Reason for contact *</label>
+                                <select id="reason-for-contact" name="reason for contact" required>
                                     <option value="">Select a topic</option>
                                     <option value="outreach">Outreach Event Request</option>
                                     <option value="sponsorship">Sponsorship Inquiry</option>
@@ -51,8 +53,13 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
                                 <textarea id="message" name="message" rows="6" required
                                           placeholder="Tell us more about your inquiry..."></textarea>
                             </div>
-                            <div class="h-captcha" data-captcha="true"></div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <div class="center-flex">
+                                <div class="captcha-wrapper">
+                                    <div class="h-captcha" data-captcha="true"></div>
+                                </div>
+                                <div id="form-info" style="display:none;"></div>
+                                <Button type="submit">Send Message</Button>
+                            </div>
 
                         </form>
                     </div>
@@ -162,15 +169,23 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 </Layout>
 
 <style>
-    .form-error {
-        color: #ff4d4f;
-        background: rgba(255, 77, 79, 0.1);
-        border: 1px solid #ff4d4f;
+    #form-info {
+
         border-radius: 6px;
         padding: 0.75rem 1rem;
         margin-bottom: 1.5rem;
         font-weight: 600;
         font-size: 1rem;
+    }
+    .good{
+        color: #52c41a;
+        background: rgba(82, 196, 26, 0.1);
+        border: 1px solid #52c41a;
+    }
+    .bad{
+        color: #ff4d4f;
+        background: rgba(255, 77, 79, 0.1);
+        border: 1px solid #ff4d4f;
     }
 
     .contact-form {
@@ -338,5 +353,21 @@ const siteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
         .social-links {
             flex-direction: column;
         }
+    }
+
+    .center-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .captcha-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
