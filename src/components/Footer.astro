@@ -9,15 +9,15 @@ const astroLogo = await getImage({src: astro, format: "avif"});
 ---
 
 <section id="footer">
-    <div class="sponsors mx-auto">
-        <h2 id="sponsor-title" class="mb-4 text-center">SPONSORS</h2>
-        <div class="sponsor-container">
-            <div class="sponsor-track">
-                <section class="sponsor-logos">
+    <div class="partners mx-auto">
+        <h2 id="partner-title" class="mb-4 text-center">SPONSORS</h2>
+        <div class="partner-container">
+            <div class="partner-track">
+                <section class="partner-logos">
                     <SponsorLogos/>
                 </section>
 
-                <section class="sponsor-logos">
+                <section class="partner-logos">
                     <SponsorLogos/>
                 </section>
             </div>
@@ -46,7 +46,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
     </footer>
 </section>
 <style>
-    #sponsor-title {
+    #partner-title {
         font-size: xx-large;
     }
 
@@ -62,14 +62,14 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         padding-top: 20px;
     }
 
-    .sponsors {
+    .partners {
         width: 65%;
         padding-top: 20px;
         text-align: center;
         margin: 0 auto 40px auto;
     }
 
-    .sponsor-container {
+    .partner-container {
         width: 100%;
         overflow: hidden;
         position: relative;
@@ -80,7 +80,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         /*-webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);*/
     }
 
-    .sponsor-track {
+    .partner-track {
         display: flex;
         width: max-content;
         align-items: center;
@@ -88,7 +88,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         will-change: transform;
     }
 
-    .sponsor-logos {
+    .partner-logos {
         display: flex;
         gap: 20px;
         padding: 0 15px;
@@ -120,7 +120,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         }
     }
 
-    .sponsor-container:hover .sponsor-logos {
+    .partner-container:hover .partner-logos {
         animation-play-state: paused;
     }
 
@@ -181,32 +181,32 @@ const astroLogo = await getImage({src: astro, format: "avif"});
 
     /* Mobile Responsive Improvements */
     @media (max-width: 768px) {
-        .sponsors {
+        .partners {
             width: 90%;
             padding-top: 15px;
             margin-bottom: 30px;
         }
 
-        #sponsor-title {
+        #partner-title {
             font-size: x-large;
             margin-bottom: 15px;
         }
 
-        .sponsor-container {
+        .partner-container {
             padding: 15px 0;
             /* Stronger mask for mobile to prevent edge cutoff */
             mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
             /*-webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);*/
         }
 
-        .sponsor-logos {
+        .partner-logos {
             gap: 15px;
             padding: 0 10px;
             /* Consistent animation speed across all devices */
         }
 
         /* Pause animation on touch for mobile users */
-        .sponsor-container:active .sponsor-logos {
+        .partner-container:active .partner-logos {
             animation-play-state: paused;
         }
 
@@ -225,18 +225,18 @@ const astroLogo = await getImage({src: astro, format: "avif"});
     }
 
     @media (max-width: 480px) {
-        .sponsors {
+        .partners {
             width: 95%;
             padding-top: 10px;
             margin-bottom: 25px;
         }
 
-        #sponsor-title {
+        #partner-title {
             font-size: large;
             margin-bottom: 10px;
         }
 
-        .sponsor-container {
+        .partner-container {
             padding: 10px 0;
             /* Even stronger mask for small screens */
             mask: linear-gradient(90deg, transparent, white 3%, white 97%, transparent);
@@ -245,7 +245,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
             */
         }
 
-        .sponsor-logos {
+        .partner-logos {
             gap: 12px;
             padding: 0 8px;
             /* Consistent animation speed across all devices */

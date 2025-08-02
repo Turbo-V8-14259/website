@@ -1,4 +1,5 @@
 export {};
+
 declare global {
     interface Window {
         hcaptcha?: {
@@ -7,27 +8,39 @@ declare global {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === "complete") {
+    run();
+} else {
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "complete") {
+            run();
+        }
+    });
+}
+
+function run(): void {
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
     const errorDiv = document.getElementById('form-info') as HTMLDivElement | null;
 
-    if (!form || !errorDiv) return;
+    if (!form || !errorDiv) {
+        return;
+    }
 
     const getInputValue = <T extends HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(selector: string): string => {
         return (form.querySelector(selector) as T | null)?.value.trim() || '';
     };
 
-    const showMessage = (msg: string, type: 'good' | 'bad') => {
+    const showMessage = (msg: string, type: 'good' | 'bad'): void => {
         errorDiv.textContent = msg;
         errorDiv.className = type;
         errorDiv.style.display = 'block';
-        errorDiv.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'nearest'});
+        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
     };
 
-    const showError = (msg: string) => showMessage(msg, 'bad');
-    const showSuccess = (msg: string) => showMessage(msg, 'good');
+    const showError = (msg: string): void => showMessage(msg, 'bad');
+    const showSuccess = (msg: string): void => showMessage(msg, 'good');
 
-    form.addEventListener('submit', (e: Event) => {
+    form.addEventListener('submit', (e: Event): void => {
         e.preventDefault();
 
         errorDiv.style.display = 'none';
@@ -41,24 +54,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!name) return showError('Please enter your name.');
-        if (!email) return showError('Please enter your email address.');
-        if (!emailRegex.test(email)) return showError('Please enter a valid email address.');
-        if (!reasonForContact) return showError('Please select a reason for contacting us.');
-        if (!message) return showError('Please enter your message.');
-        if (!hCaptcha) return showError('Please fill out the captcha field.');
+        if (!name) {
+            showError('Please enter your name.');
+            return;
+        }
+        if (!email) {
+            showError('Please enter your email address.');
+            return;
+        }
+        if (!emailRegex.test(email)) {
+            showError('Please enter a valid email address.');
+            return;
+        }
+        if (!reasonForContact) {
+            showError('Please select a reason for contacting us.');
+            return;
+        }
+        if (!message) {
+            showError('Please enter your message.');
+            return;
+        }
+        if (!hCaptcha) {
+            showError('Please fill out the captcha field.');
+            return;
+        }
 
         showSuccess('Sending...');
 
         const formData = new FormData(form);
         const dataObject = Object.fromEntries(formData.entries());
-        dataObject.subject = dataObject.subject + " from " + dataObject.name;
+
+        // Safely cast and concatenate subject and name
+        if (typeof dataObject.subject === 'string' && typeof dataObject.name === 'string') {
+            dataObject.subject = dataObject.subject + " from " + dataObject.name;
+        }
+
         const jsonBody = JSON.stringify(dataObject);
 
         fetch('https://api.web3forms.com/submit', {
-            method: 'POST', headers: {
-                'Content-Type': 'application/json', 'Accept': 'application/json',
-            }, body: jsonBody,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: jsonBody,
         })
             .then(async (response) => {
                 const result = await response.json();
@@ -84,4 +123,4 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 5000);
             });
     });
-});
+}
