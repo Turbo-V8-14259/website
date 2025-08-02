@@ -1,6 +1,13 @@
-import type {NewsArticle} from "./types";
+import type {NewsArticle, Sponsor} from "./types";
 import avt from './images/news-articles/amadorvallytoday.jpeg'
 import patch from './images/news-articles/patch.webp'
+import bytebridge from "./images/sponsor-logos/bytebridge.png";
+import haas from "./images/sponsor-logos/haas.png";
+import ugp from "./images/sponsor-logos/ugp.png";
+import polymaker from "./images/sponsor-logos/polymaker.png";
+import vbelt from "./images/sponsor-logos/vbelt.png";
+import pcbway from "./images/sponsor-logos/pcbway.png";
+import fabworks from "./images/sponsor-logos/fabworks.png";
 
 export const email = "ftcturbov8@gmail.com";
 
@@ -26,3 +33,20 @@ export const newsArticles: NewsArticle[] = [
         featured: true
     }
 ]
+export const sponsorsHeight = 110;
+
+export const sponsors: Sponsor[] = [{
+    name: "Bytebridge", logo: bytebridge, url: "https://www.bytebt.com/"
+}, {
+    name: "Gene Haas Foundation", logo: haas, url: "https://www.ghaasfoundation.org/"
+}, {
+    name: "Underground Printing Press", logo: ugp, url: "https://undergroundshirts.com/"
+}, {
+    name: "Polymaker", logo: polymaker, url: "https://polymaker.com/"
+}, {
+    name: "V-Belt Guy", logo: vbelt, url: "https://www.vbeltguys.com/"
+}, {
+    name: "PCBWay", logo: pcbway, url: "https://www.pcbway.com/"
+}, {
+    name: "Fabworks", logo: fabworks, url: "https://www.fabworks.com/"
+}]

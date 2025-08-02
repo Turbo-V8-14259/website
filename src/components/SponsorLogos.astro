@@ -1,31 +1,6 @@
 ---
-//import '../styles/global.css';
-import bytebridge from "../images/sponsor-logos/bytebridge.png";
-import haas from "../images/sponsor-logos/haas.png";
-import ugp from "../images/sponsor-logos/ugp.png";
-import polymaker from "../images/sponsor-logos/polymaker.png";
-import vbelt from "../images/sponsor-logos/vbelt.png";
-import pcbway from "../images/sponsor-logos/pcbway.png";
-import fabworks from "../images/sponsor-logos/fabworks.png"
 import {Image} from "astro:assets";
-import type {Sponsor} from "../types.d.ts";
-
-const sponsorsHeight = 110;
-const sponsors: Sponsor[] = [{
-    name: "Bytebridge", logo: bytebridge, url: "https://www.bytebt.com/"
-}, {
-    name: "Gene Haas Foundation", logo: haas, url: "https://www.ghaasfoundation.org/"
-}, {
-    name: "Underground Printing Press", logo: ugp, url: "https://undergroundshirts.com/"
-}, {
-    name: "Polymaker", logo: polymaker, url: "https://polymaker.com/"
-}, {
-    name: "V-Belt Guy", logo: vbelt, url: "https://www.vbeltguys.com/"
-}, {
-    name: "PCBWay", logo: pcbway, url: "https://www.pcbway.com/"
-}, {
-    name: "Fabworks", logo: fabworks, url: "https://www.fabworks.com/"
-}]
+import {sponsors, sponsorsHeight} from "../constants";
 ---
 {sponsors.filter(sponsors => sponsors).map(sponsor => (
 <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-link">
