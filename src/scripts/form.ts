@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const name = getInputValue<HTMLInputElement>('input[name="name"]');
         const email = getInputValue<HTMLInputElement>('input[name="email"]');
-        const subject = getInputValue<HTMLSelectElement>('select[name="subject"]');
+        const reasonForContact = getInputValue<HTMLSelectElement>('select[name="reason for contact"]');
         const message = getInputValue<HTMLTextAreaElement>('textarea[name="message"]');
         const hCaptcha = getInputValue<HTMLTextAreaElement>('textarea[name="h-captcha-response"]');
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!name) return showError('Please enter your name.');
         if (!email) return showError('Please enter your email address.');
         if (!emailRegex.test(email)) return showError('Please enter a valid email address.');
-        if (!subject) return showError('Please select a subject.');
+        if (!reasonForContact) return showError('Please select a reason for contacting us.');
         if (!message) return showError('Please enter your message.');
         if (!hCaptcha) return showError('Please fill out the captcha field.');
 
@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = new FormData(form);
         const dataObject = Object.fromEntries(formData.entries());
+        dataObject.subject = dataObject.subject + " from " + dataObject.name;
         const jsonBody = JSON.stringify(dataObject);
 
         fetch('https://api.web3forms.com/submit', {
