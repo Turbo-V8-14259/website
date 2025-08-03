@@ -83,8 +83,7 @@ function run(): void {
 
         const formData = new FormData(form);
         const dataObject = Object.fromEntries(formData.entries());
-
-        // Safely cast and concatenate subject and name
+        
         if (typeof dataObject.subject === 'string' && typeof dataObject.name === 'string') {
             dataObject.subject = dataObject.subject + " from " + dataObject.name;
         }
