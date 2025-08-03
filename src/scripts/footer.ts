@@ -23,7 +23,7 @@ function run(): void {
         let interactionTimeout: number | undefined;
         let animationId: number | undefined;
         let startTime: number | null = null;
-        const animationDuration = 15000; // 15 seconds in milliseconds
+        const animationDuration = 15e3;
         let isPaused = false;
         let pausedProgress = 0;
 
@@ -69,7 +69,7 @@ function run(): void {
             if (interactionTimeout !== undefined) {
                 clearTimeout(interactionTimeout);
             }
-        }, { passive: true });
+        }, {passive: true});
 
         sponsorContainer.addEventListener('touchend', () => {
             isUserInteracting = false;
@@ -78,7 +78,7 @@ function run(): void {
                     resumeAnimation();
                 }
             }, 1000);
-        }, { passive: true });
+        }, {passive: true});
 
         sponsorContainer.addEventListener('mouseenter', () => {
             if (!isUserInteracting) {

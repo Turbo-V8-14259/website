@@ -34,7 +34,7 @@ function run(): void {
         errorDiv.textContent = msg;
         errorDiv.className = type;
         errorDiv.style.display = 'block';
-        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        errorDiv.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'nearest'});
     };
 
     const showError = (msg: string): void => showMessage(msg, 'bad');
@@ -84,7 +84,6 @@ function run(): void {
         const formData = new FormData(form);
         const dataObject = Object.fromEntries(formData.entries());
 
-        // Safely cast and concatenate subject and name
         if (typeof dataObject.subject === 'string' && typeof dataObject.name === 'string') {
             dataObject.subject = dataObject.subject + " from " + dataObject.name;
         }
@@ -92,12 +91,9 @@ function run(): void {
         const jsonBody = JSON.stringify(dataObject);
 
         fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            body: jsonBody,
+            method: 'POST', headers: {
+                'Content-Type': 'application/json', 'Accept': 'application/json',
+            }, body: jsonBody,
         })
             .then(async (response) => {
                 const result = await response.json();
