@@ -69,7 +69,7 @@ function run(): void {
             if (interactionTimeout !== undefined) {
                 clearTimeout(interactionTimeout);
             }
-        }, { passive: true });
+        }, {passive: true});
 
         sponsorContainer.addEventListener('touchend', () => {
             isUserInteracting = false;
@@ -78,7 +78,7 @@ function run(): void {
                     resumeAnimation();
                 }
             }, 1000);
-        }, { passive: true });
+        }, {passive: true});
 
         sponsorContainer.addEventListener('mouseenter', () => {
             if (!isUserInteracting) {

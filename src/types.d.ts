@@ -6,7 +6,7 @@ export type NewsArticle = {
     image: ImageMetadata;
     imageAlt: string;
     source: string;
-    date: string; //y-m-d
+    date: string;
     url: string;
     featured: boolean;
 }
