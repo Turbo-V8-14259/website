@@ -32,36 +32,6 @@ function run(): void {
             logo.style.transform = 'translateX(0)';
         });
 
-        const animate = (currentTime: number) => {
-            if (!startTime) startTime = currentTime;
-
-            if (!isPaused) {
-                const elapsed = currentTime - startTime + pausedProgress;
-                const progress = (elapsed % animationDuration) / animationDuration;
-                const translateX = -progress * 100;
-
-                sponsorLogos.forEach((logo) => {
-                    logo.style.transform = `translateX(${translateX}%)`;
-                });
-            }
-
-            animationId = requestAnimationFrame(animate);
-        };
-
-        animationId = requestAnimationFrame(animate);
-
-        const pauseAnimation = () => {
-            isPaused = true;
-            if (startTime !== null) {
-                pausedProgress += performance.now() - startTime;
-                startTime = null;
-            }
-        };
-
-        const resumeAnimation = () => {
-            isPaused = false;
-            startTime = null;
-        };
 
         sponsorContainer.addEventListener('touchstart', () => {
             isUserInteracting = true;
@@ -105,5 +75,36 @@ function run(): void {
                 cancelAnimationFrame(animationId);
             }
         });
+
+        function animate(currentTime: number): void {
+            if (!startTime) startTime = currentTime;
+
+            if (!isPaused) {
+                const elapsed = currentTime - startTime + pausedProgress;
+                const progress = (elapsed % animationDuration) / animationDuration;
+                const translateX = -progress * 100;
+
+                sponsorLogos.forEach((logo) => {
+                    logo.style.transform = `translateX(${translateX}%)`;
+                });
+            }
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        animationId = requestAnimationFrame(animate);
+
+        function pauseAnimation(): void {
+            isPaused = true;
+            if (startTime !== null) {
+                pausedProgress += performance.now() - startTime;
+                startTime = null;
+            }
+        }
+
+        function resumeAnimation(): void {
+            isPaused = false;
+            startTime = null;
+        }
     }
 }

@@ -22,8 +22,8 @@ import Button from '../components/Button.astro';
                     <div class="col-md-6">
                         <h2 class="section-title">Send Us a Message</h2>
                         <form id="contact-form" class="contact-form" novalidate>
-                            <input type="hidden" name="access_key" value="abce38c2-0b0d-40dd-9185-a07c8c56d63a">
-                            <input type="hidden" name="subject" value="New Submission from Website ftcturbov8.com"></input>
+                            <!--<input type="hidden" name="access_key" value="abce38c2-0b0d-40dd-9185-a07c8c56d63a">
+                            <input type="hidden" name="subject" value="New Submission from Website ftcturbov8.com"></input>-->
                             <div class="form-group">
                                 <label for="name">Name *</label>
                                 <input type="text" id="name" name="name" required>
@@ -51,7 +51,9 @@ import Button from '../components/Button.astro';
                             </div>
                             <div class="center-flex">
                                 <div class="captcha-wrapper">
-                                    <div class="h-captcha" data-captcha="true"></div>
+                                    <!--<div class="h-captcha" data-captcha="true"></div>-->
+                                    <div class="g-recaptcha" data-theme="dark"
+                                         data-sitekey="6Le185wrAAAAAFhel_aoTssK915nRuBYlr_gYZCz"></div>
                                 </div>
                                 <div id="form-info" style="display:none;"></div>
                                 <Button type="submit">Send Message</Button>
@@ -160,7 +162,8 @@ import Button from '../components/Button.astro';
             </div>
         </section>
     </main>
-
+    <script src="https://www.google.com/recaptcha/api.js"/>
+    <script src="../scripts/contactForm.ts"/>
 
 </Layout>
 
@@ -173,12 +176,14 @@ import Button from '../components/Button.astro';
         font-weight: 600;
         font-size: 1rem;
     }
-    .good{
+
+    .good {
         color: #52c41a;
         background: rgba(82, 196, 26, 0.1);
         border: 1px solid #52c41a;
     }
-    .bad{
+
+    .bad {
         color: #ff4d4f;
         background: rgba(255, 77, 79, 0.1);
         border: 1px solid #ff4d4f;

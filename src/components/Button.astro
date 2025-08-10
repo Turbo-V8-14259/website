@@ -1,11 +1,12 @@
 ---
 export interface Props {
+    href?: string;
     type?: "submit" | "reset" | "button" | null | undefined;
     class?: string;
 }
-const {type = null, class: className = ""} = Astro.props;
+const {href = null, type = null, class: className = ""} = Astro.props;
 ---
-<button type={type} class={`custom-btn ${className}`}>
+<button onclick={href===null?"":"location.href="+href+";"} type={type} class={`custom-btn ${className}`}>
     <slot/>
 </button>
 
