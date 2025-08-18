@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.3.2",
-    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/sitemap": "^3.5.0",
     "@fontsource-variable/orbitron": "^5.2.6",
     "astro": "^5.12.7",
     "autoprefixer": "^10.4.21",
