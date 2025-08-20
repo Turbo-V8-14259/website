@@ -47,3 +47,5 @@ export const sponsors: Sponsor[] = [{
 }, {
     name: "Fabworks", logo: fabworks, url: "https://www.fabworks.com/"
 }]
+
+export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

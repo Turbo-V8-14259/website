@@ -22,11 +22,16 @@ import Button from '../components/Button.astro';
                     <div class="col-md-6">
                         <h2 class="section-title">Send Us a Message</h2>
                         <form id="contact-form" class="contact-form" novalidate>
-                            <!--<input type="hidden" name="access_key" value="abce38c2-0b0d-40dd-9185-a07c8c56d63a">
-                            <input type="hidden" name="subject" value="New Submission from Website ftcturbov8.com"></input>-->
-                            <div class="form-group">
-                                <label for="name">Name *</label>
-                                <input type="text" id="name" name="name" required>
+                            <div class="form-group" style="color: var(--light-red)">* Indicates required question</div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email *</label>
@@ -162,7 +167,7 @@ import Button from '../components/Button.astro';
             </div>
         </section>
     </main>
-    <script src="https://www.google.com/recaptcha/api.js"/>
+    <script src="https://www.google.com/recaptcha/api.js" async defer/>
     <script src="../scripts/contactForm.ts"/>
 
 </Layout>
@@ -198,6 +203,11 @@ import Button from '../components/Button.astro';
 
     .form-group {
         margin-bottom: 1.5rem;
+    }
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
 
     .form-group label {
