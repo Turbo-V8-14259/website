@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import {Image} from 'astro:assets'
-import {newsArticles} from '../constants';
+import Layout from "../layouts/Layout.astro";
+import {Image} from "astro:assets";
+import {newsArticles} from "../constants";
 ---
 
 <Layout title="Media">
@@ -134,10 +134,10 @@ import {newsArticles} from '../constants';
                                         <div class="news-content">
                                             <div class="news-meta">
                                                 <span class="news-source">{article.source}</span>
-                                                <span class="news-date">{new Date(article.date + 'T12:00:00').toLocaleDateString('en-US', {
-                                                    year: 'numeric',
-                                                    month: 'long',
-                                                    day: 'numeric'
+                                                <span class="news-date">{new Date(article.date + "T12:00:00").toLocaleDateString("en-US", {
+                                                    year: "numeric",
+                                                    month: "long",
+                                                    day: "numeric"
                                                 })}</span>
                                             </div>
                                             <h3 class="news-title">{article.title}</h3>

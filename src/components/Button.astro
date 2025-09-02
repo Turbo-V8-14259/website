@@ -6,7 +6,7 @@ export interface Props {
 }
 const {href = null, type = null, class: className = ""} = Astro.props;
 ---
-<button onclick={href===null?"":"location.href="+href+";"} type={type} class={`custom-btn ${className}`}>
+<button onclick={href === null ? "" : "location.href=" + href + ";"} type={type} class={`custom-btn ${className}`}>
     <slot/>
 </button>
 

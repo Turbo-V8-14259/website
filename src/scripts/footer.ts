@@ -15,8 +15,8 @@ function run(): void {
         yearSpan.innerText = new Date().getFullYear().toString();
     }
 
-    const sponsorContainer: HTMLElement | null = document.querySelector<HTMLElement>('.partner-container');
-    const sponsorLogos: NodeListOf<HTMLElement> = document.querySelectorAll<HTMLElement>('.partner-logos');
+    const sponsorContainer: HTMLElement | null = document.querySelector<HTMLElement>(".partner-container");
+    const sponsorLogos: NodeListOf<HTMLElement> = document.querySelectorAll<HTMLElement>(".partner-logos");
 
     if (sponsorContainer && sponsorLogos.length > 0) {
         let isUserInteracting = false;
@@ -28,12 +28,12 @@ function run(): void {
         let pausedProgress = 0;
 
         sponsorLogos.forEach((logo) => {
-            logo.style.animation = 'none';
-            logo.style.transform = 'translateX(0)';
+            logo.style.animation = "none";
+            logo.style.transform = "translateX(0)";
         });
 
 
-        sponsorContainer.addEventListener('touchstart', () => {
+        sponsorContainer.addEventListener("touchstart", () => {
             isUserInteracting = true;
             pauseAnimation();
             if (interactionTimeout !== undefined) {
@@ -41,7 +41,7 @@ function run(): void {
             }
         }, {passive: true});
 
-        sponsorContainer.addEventListener('touchend', () => {
+        sponsorContainer.addEventListener("touchend", () => {
             isUserInteracting = false;
             interactionTimeout = window.setTimeout(() => {
                 if (!isUserInteracting) {
@@ -50,19 +50,19 @@ function run(): void {
             }, 1000);
         }, {passive: true});
 
-        sponsorContainer.addEventListener('mouseenter', () => {
+        sponsorContainer.addEventListener("mouseenter", () => {
             if (!isUserInteracting) {
                 pauseAnimation();
             }
         });
 
-        sponsorContainer.addEventListener('mouseleave', () => {
+        sponsorContainer.addEventListener("mouseleave", () => {
             if (!isUserInteracting) {
                 resumeAnimation();
             }
         });
 
-        document.addEventListener('visibilitychange', () => {
+        document.addEventListener("visibilitychange", () => {
             if (document.hidden) {
                 pauseAnimation();
             } else if (!isUserInteracting) {
@@ -70,7 +70,7 @@ function run(): void {
             }
         });
 
-        window.addEventListener('beforeunload', () => {
+        window.addEventListener("beforeunload", () => {
             if (animationId !== undefined) {
                 cancelAnimationFrame(animationId);
             }

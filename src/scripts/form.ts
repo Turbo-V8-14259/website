@@ -29,27 +29,27 @@ export class Form {
 
     public run(): void {
         if (!this.form || !this.errorDiv) return;
-        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+        this.form.addEventListener("submit", (e) => this.handleSubmit(e));
     }
 
     private getInputValue<T extends HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(selector: string): string {
-        return (this.form?.querySelector(selector) as T | null)?.value.trim() || '';
+        return (this.form?.querySelector(selector) as T | null)?.value.trim() || "";
     }
 
-    private showMessage(msg: string, type: 'good' | 'bad'): void {
+    private showMessage(msg: string, type: "good" | "bad"): void {
         if (!this.errorDiv) return;
         this.errorDiv.textContent = msg;
         this.errorDiv.className = type;
-        this.errorDiv.style.display = 'block';
-        this.errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        this.errorDiv.style.display = "block";
+        this.errorDiv.scrollIntoView({behavior: "smooth", block: "nearest"});
     }
 
     private showError(msg: string): void {
-        this.showMessage(msg, 'bad');
+        this.showMessage(msg, "bad");
     }
 
     private showSuccess(msg: string): void {
-        this.showMessage(msg, 'good');
+        this.showMessage(msg, "good");
     }
 
     private validate(): boolean {
@@ -71,40 +71,40 @@ export class Form {
         e.preventDefault();
         if (!this.errorDiv || !this.form) return;
 
-        this.errorDiv.style.display = 'none';
-        this.errorDiv.textContent = '';
+        this.errorDiv.style.display = "none";
+        this.errorDiv.textContent = "";
 
         if (!this.validate()) return;
 
-        this.showSuccess('Sending...');
+        this.showSuccess("Sending...");
 
         const formData = Object.fromEntries(new FormData(this.form).entries());
 
         try {
             const response = await fetch(this.options.submitUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                method: "POST",
+                headers: {"Content-Type": "application/json", "Accept": "application/json"},
                 body: JSON.stringify(formData),
             });
 
             const result = await response.json();
             if (response.ok) {
-                console.log('Success:', result.message);
-                this.showSuccess('Success! Your message has been sent.');
+                console.log("Success:", result.message);
+                this.showSuccess("Success! Your message has been sent.");
             } else {
-                console.error('Error response:', result);
-                this.showError('There was a problem submitting the form.');
+                console.error("Error response:", result);
+                this.showError("There was a problem submitting the form.");
             }
         } catch (error) {
-            console.error('Fetch error:', error);
-            this.showError('A network error occurred. Please try again later.');
+            console.error("Fetch error:", error);
+            this.showError("A network error occurred. Please try again later.");
         } finally {
             this.form.reset();
-            if (typeof grecaptcha !== 'undefined') {
+            if (typeof grecaptcha !== "undefined") {
                 grecaptcha.reset();
             }
             setTimeout(() => {
-                if (this.errorDiv) this.errorDiv.style.display = 'none';
+                if (this.errorDiv) this.errorDiv.style.display = "none";
             }, 5000);
         }
     }

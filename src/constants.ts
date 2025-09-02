@@ -1,6 +1,6 @@
 import type {NewsArticle, Sponsor} from "./types";
-import avt from './images/news-articles/amadorvallytoday.jpeg'
-import patch from './images/news-articles/patch.webp'
+import avt from "./images/news-articles/amadorvallytoday.jpeg";
+import patch from "./images/news-articles/patch.webp";
 import bytebridge from "./images/sponsor-logos/bytebridge.png";
 import haas from "./images/sponsor-logos/haas.png";
 import ugp from "./images/sponsor-logos/ugp.png";
@@ -29,7 +29,7 @@ export const newsArticles: NewsArticle[] = [{
     date: "2024-03-24",
     url: "https://www.amadorvalleytoday.org/57336/news/local-robotics-team-turbo-v8-reaches-internationals/",
     featured: true
-}]
+}];
 export const sponsorsHeight = 110;
 
 export const sponsors: Sponsor[] = [{
@@ -46,6 +46,6 @@ export const sponsors: Sponsor[] = [{
     name: "PCBWay", logo: pcbway, url: "https://www.pcbway.com/"
 }, {
     name: "Fabworks", logo: fabworks, url: "https://www.fabworks.com/"
-}]
+}];
 
 export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
