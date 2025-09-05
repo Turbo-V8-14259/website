@@ -1,16 +1,22 @@
-import {Form} from "./form";
+import {contactFormUrl} from "../constants.ts";
+import {FormHandler} from "./form-handler.ts";
+import {emailFieldValidator, requiredFieldValidator} from "./validation.ts";
 
-const form: Form = new Form({
-    formId: "contact-form", errorDivId: "form-info", submitUrl: "https://formspree.io/f/mzzvkpln", fieldValidations: {
-        firstName: [(v) => v ? null : "Please enter your first name."],
-        email: [(v) => v ? null : "Please enter your email address.", (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? null : "Please enter a valid email address."],
-        "reason for contact": [(v) => v ? null : "Please select a reason for contacting us."],
-        message: [(v) => v ? null : "Please enter your message."],
-        "g-recaptcha-response": [(v) => v ? null : "Please complete the reCAPTCHA challenge."],
-    }
+const form = new FormHandler({
+    formId: "contact-form",
+    errorDivId: "form-info",
+    submitUrl: contactFormUrl,
+    fieldValidations: {
+        firstName: [requiredFieldValidator("Please enter your name.")],
+        email: [requiredFieldValidator("Please enter your email address."), emailFieldValidator()],
+        "reason for contact": [requiredFieldValidator("Please select a reason for contacting us.")],
+        message: [requiredFieldValidator("Please enter your message.")],
+        "g-recaptcha-response": [requiredFieldValidator("Please complete the reCAPTCHA challenge.")],
+    },
 });
 
-function run() {
+
+function run(): void {
     form.run();
 }
 

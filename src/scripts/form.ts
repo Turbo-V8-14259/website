@@ -1,8 +1,7 @@
 export {};
 
 declare const grecaptcha: {
-    reset: () => void;
-    getResponse: () => string;
+    reset: () => void; getResponse: () => string;
 };
 
 type ValidationRule = (value: string) => string | null;
@@ -12,6 +11,10 @@ export interface FormHandlerOptions {
     errorDivId: string;
     submitUrl: string;
     fieldValidations: Record<string, ValidationRule[]>;
+}
+
+interface FormspreeResponse {
+    message: string;
 }
 
 export class Form {
@@ -29,7 +32,7 @@ export class Form {
 
     public run(): void {
         if (!this.form || !this.errorDiv) return;
-        this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+        this.form.addEventListener("submit", (e: SubmitEvent): Promise<void> => this.handleSubmit(e));
     }
 
     private getInputValue<T extends HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(selector: string): string {
@@ -54,10 +57,10 @@ export class Form {
 
     private validate(): boolean {
         for (const [fieldName, rules] of Object.entries(this.options.fieldValidations)) {
-            const selector = `[name="${fieldName}"]`;
-            const value = this.getInputValue(selector);
+            const selector: string = `[name="${fieldName}"]`;
+            const value: string = this.getInputValue(selector);
             for (const rule of rules) {
-                const errorMsg = rule(value);
+                const errorMsg: string | null = rule(value);
                 if (errorMsg) {
                     this.showError(errorMsg);
                     return false;
@@ -78,16 +81,16 @@ export class Form {
 
         this.showSuccess("Sending...");
 
-        const formData = Object.fromEntries(new FormData(this.form).entries());
+        const formData: Record<string, FormDataEntryValue> = Object.fromEntries(new FormData(this.form).entries());
 
         try {
-            const response = await fetch(this.options.submitUrl, {
+            const response: Response = await fetch(this.options.submitUrl, {
                 method: "POST",
                 headers: {"Content-Type": "application/json", "Accept": "application/json"},
                 body: JSON.stringify(formData),
             });
 
-            const result = await response.json();
+            const result: FormspreeResponse = await response.json() as FormspreeResponse;
             if (response.ok) {
                 console.log("Success:", result.message);
                 this.showSuccess("Success! Your message has been sent.");
@@ -95,9 +98,12 @@ export class Form {
                 console.error("Error response:", result);
                 this.showError("There was a problem submitting the form.");
             }
-        } catch (error) {
-            console.error("Fetch error:", error);
-            this.showError("A network error occurred. Please try again later.");
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                console.error("Fetch error:", error.message);
+            } else {
+                console.error("Fetch error:", error);
+            }
         } finally {
             this.form.reset();
             if (typeof grecaptcha !== "undefined") {

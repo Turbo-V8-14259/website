@@ -9,7 +9,11 @@ import vbelt from "./images/sponsor-logos/vbelt.png";
 import pcbway from "./images/sponsor-logos/pcbway.png";
 import fabworks from "./images/sponsor-logos/fabworks.png";
 
-export const email = "ftcturbov8@gmail.com";
+export const email: string = "ftcturbov8@gmail.com";
+
+export const contactFormUrl: string = "https://formspree.io/f/mzzvkpln";
+
+export const applyFormUrl: string = "https://formspree.io/f/mzzvkpln";
 
 export const newsArticles: NewsArticle[] = [{
     title: "Tri-Valley Schools Robotics Team Shines with 3rd Place Win",
@@ -30,7 +34,7 @@ export const newsArticles: NewsArticle[] = [{
     url: "https://www.amadorvalleytoday.org/57336/news/local-robotics-team-turbo-v8-reaches-internationals/",
     featured: true
 }];
-export const sponsorsHeight = 110;
+export const sponsorsHeight: number = 110;
 
 export const sponsors: Sponsor[] = [{
     name: "Bytebridge", logo: bytebridge, url: "https://www.bytebt.com/"
@@ -48,4 +52,4 @@ export const sponsors: Sponsor[] = [{
     name: "Fabworks", logo: fabworks, url: "https://www.fabworks.com/"
 }];
 
-export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
