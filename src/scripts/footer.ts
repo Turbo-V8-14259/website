@@ -2,7 +2,7 @@ export {};
 if (document.readyState === "complete") {
     run();
 } else {
-    document.addEventListener("readystatechange", () => {
+    document.addEventListener("readystatechange", (): void => {
         if (document.readyState === "complete") {
             run();
         }
@@ -10,7 +10,7 @@ if (document.readyState === "complete") {
 }
 
 function run(): void {
-    const yearSpan = document.getElementById("footer-year");
+    const yearSpan: HTMLElement | null = document.getElementById("footer-year");
     if (yearSpan) {
         yearSpan.innerText = new Date().getFullYear().toString();
     }
@@ -19,21 +19,21 @@ function run(): void {
     const sponsorLogos: NodeListOf<HTMLElement> = document.querySelectorAll<HTMLElement>(".partner-logos");
 
     if (sponsorContainer && sponsorLogos.length > 0) {
-        let isUserInteracting = false;
+        let isUserInteracting: boolean = false;
         let interactionTimeout: number | undefined;
         let animationId: number | undefined;
         let startTime: number | null = null;
         const animationDuration = 15e3;
-        let isPaused = false;
-        let pausedProgress = 0;
+        let isPaused: boolean = false;
+        let pausedProgress: number = 0;
 
-        sponsorLogos.forEach((logo) => {
+        sponsorLogos.forEach((logo: HTMLElement): void => {
             logo.style.animation = "none";
             logo.style.transform = "translateX(0)";
         });
 
 
-        sponsorContainer.addEventListener("touchstart", () => {
+        sponsorContainer.addEventListener("touchstart", (): void => {
             isUserInteracting = true;
             pauseAnimation();
             if (interactionTimeout !== undefined) {
@@ -41,7 +41,7 @@ function run(): void {
             }
         }, {passive: true});
 
-        sponsorContainer.addEventListener("touchend", () => {
+        sponsorContainer.addEventListener("touchend", (): void => {
             isUserInteracting = false;
             interactionTimeout = window.setTimeout(() => {
                 if (!isUserInteracting) {
@@ -50,19 +50,19 @@ function run(): void {
             }, 1000);
         }, {passive: true});
 
-        sponsorContainer.addEventListener("mouseenter", () => {
+        sponsorContainer.addEventListener("mouseenter", (): void => {
             if (!isUserInteracting) {
                 pauseAnimation();
             }
         });
 
-        sponsorContainer.addEventListener("mouseleave", () => {
+        sponsorContainer.addEventListener("mouseleave", (): void => {
             if (!isUserInteracting) {
                 resumeAnimation();
             }
         });
 
-        document.addEventListener("visibilitychange", () => {
+        document.addEventListener("visibilitychange", (): void => {
             if (document.hidden) {
                 pauseAnimation();
             } else if (!isUserInteracting) {
@@ -70,7 +70,7 @@ function run(): void {
             }
         });
 
-        window.addEventListener("beforeunload", () => {
+        window.addEventListener("beforeunload", (): void => {
             if (animationId !== undefined) {
                 cancelAnimationFrame(animationId);
             }
@@ -80,11 +80,11 @@ function run(): void {
             if (!startTime) startTime = currentTime;
 
             if (!isPaused) {
-                const elapsed = currentTime - startTime + pausedProgress;
-                const progress = (elapsed % animationDuration) / animationDuration;
-                const translateX = -progress * 100;
+                const elapsed: number = currentTime - startTime + pausedProgress;
+                const progress: number = (elapsed % animationDuration) / animationDuration;
+                const translateX: number = -progress * 100;
 
-                sponsorLogos.forEach((logo) => {
+                sponsorLogos.forEach((logo: HTMLElement): void => {
                     logo.style.transform = `translateX(${translateX}%)`;
                 });
             }

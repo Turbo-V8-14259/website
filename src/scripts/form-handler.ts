@@ -40,12 +40,7 @@ export class FormHandler {
 
     private getInputValue(selector: string): string {
         const element = this.form?.querySelector(selector) as | HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null;
-
-        if (element) {
-            return element.value.trim();
-        } else {
-            return "";
-        }
+        return element ? element.value.trim() : "";
     }
 
     private validate(): boolean {
@@ -63,7 +58,6 @@ export class FormHandler {
                 }
             }
         }
-
         return true;
     }
 
@@ -117,9 +111,9 @@ export class FormHandler {
         }
     }
 
-    private hideMessagesLater(): void {
+    private hideMessagesLater(time: number = 5000): void {
         setTimeout((): void => {
             this.messages.hide();
-        }, 5000);
+        }, time);
     }
 }
