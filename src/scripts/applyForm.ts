@@ -11,7 +11,7 @@ const form: Form = new Form({
     }
 });
 
-function run():void {
+function run(): void {
     form.run();
 }
 

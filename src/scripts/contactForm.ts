@@ -7,10 +7,10 @@ const form = new FormHandler({
     errorDivId: "form-info",
     submitUrl: contactFormUrl,
     fieldValidations: {
-        firstName: [requiredFieldValidator("Please enter your name.")],
-        email: [requiredFieldValidator("Please enter your email address."), emailFieldValidator()],
+        "firstName": [requiredFieldValidator("Please enter your name.")],
+        "email": [requiredFieldValidator("Please enter your email address."), emailFieldValidator()],
         "reason for contact": [requiredFieldValidator("Please select a reason for contacting us.")],
-        message: [requiredFieldValidator("Please enter your message.")],
+        "message": [requiredFieldValidator("Please enter your message.")],
         "g-recaptcha-response": [requiredFieldValidator("Please complete the reCAPTCHA challenge.")],
     },
 });

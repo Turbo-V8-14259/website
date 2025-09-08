@@ -1,4 +1,4 @@
-import { emailRegex } from "../constants.ts";
+import {emailRegex} from "../constants.ts";
 
 export type ValidationFunction = (value: string) => string | null;
 
@@ -13,7 +13,7 @@ export function requiredFieldValidator(message: string): ValidationFunction {
     };
 }
 
-export function emailFieldValidator (message = "Please enter a valid email address."): ValidationFunction {
+export function emailFieldValidator(message = "Please enter a valid email address."): ValidationFunction {
     return function (value: string): string | null {
         if (emailRegex.test(value)) {
             return null;
