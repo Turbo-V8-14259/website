@@ -1,5 +1,5 @@
 ---
-import astro from "../images/astro-icon-light.png"
+import astro from "../images/astro-icon-light.png";
 import SponsorLogos from "./SponsorLogos.astro";
 import {Image, getImage} from "astro:assets";
 import {email} from "../constants";
@@ -43,6 +43,8 @@ const astroLogo = await getImage({src: astro, format: "avif"});
             </a>
         </div>
     </footer>
+    <script src="https://kit.fontawesome.com/b8a11f6bd5.js" async defer crossorigin="anonymous"/>
+    <script src="../scripts/footer.ts"/>
 </section>
 <style>
     #partner-title {

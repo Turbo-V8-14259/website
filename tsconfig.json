@@ -5,6 +5,7 @@
      "strictNullChecks": true,
      "noImplicitAny": true,
      "alwaysStrict": true,
+     
      "plugins": [
        {
          "name": "@astrojs/ts-plugin"

@@ -1,32 +1,18 @@
-import { defineConfig } from 'astro/config';
+import {defineConfig} from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import autoprefixer from 'autoprefixer';
-import dotenv from 'dotenv';
-import node from '@astrojs/node';
-import { fileURLToPath } from 'url';
 
-dotenv.config();
+
 
 export default defineConfig({
     site: 'https://testing.ftcturbov8.com',
     base: '/',
     trailingSlash: 'ignore',
     output: 'static',
+    cacheDir: './build_cache',
 
     build: {
         inlineStylesheets: 'never',
-        /*rollupOptions: {
-            output: {
-                assetFileNames: (assetInfo) => {
-                    const original = assetInfo.name ?? '';
-                    if (original.endsWith('.css')) {
-                        return 'assets/style-[hash][extname]';
-                    }
-
-                    return 'assets/[name]-[hash][extname]';
-                },
-            },
-        },*/
     },
 
     vite: {
@@ -34,8 +20,7 @@ export default defineConfig({
             postcss: {
                 plugins: [autoprefixer()],
             },
-        },
-        build: {
+        }, build: {
             rollupOptions: {
                 output: {
                     assetFileNames: (assetInfo) => {
@@ -43,7 +28,6 @@ export default defineConfig({
                         if (original.endsWith('.css')) {
                             return 'assets/style-[hash][extname]';
                         }
-
                         return 'assets/[name]-[hash][extname]';
                     },
                 },
@@ -51,8 +35,7 @@ export default defineConfig({
         }
     },
 
-    integrations: [sitemap()],
-    /*adapter: node({
+    integrations: [sitemap()], /*adapter: node({
         mode: 'standalone',
     }),*/
 });

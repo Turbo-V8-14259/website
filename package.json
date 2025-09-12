@@ -12,23 +12,22 @@
     "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
-    "@astrojs/node": "^9.3.2",
-    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/node": "^9.4.2",
+    "@astrojs/sitemap": "^3.5.0",
     "@fontsource-variable/orbitron": "^5.2.6",
-    "astro": "^5.12.7",
+    "astro": "^5.13.2",
     "autoprefixer": "^10.4.21",
-    "dotenv": "^17.2.1",
     "postcss": "^8.5.6",
     "sharp": "^0.34.3"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.4",
-    "@eslint/js": "^9.32.0",
-    "eslint": "^9.32.0",
-    "firebase-tools": "^14.11.2",
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "firebase-tools": "^14.12.1",
     "globals": "^16.3.0",
     "jiti": "^2.5.1",
-    "typescript-eslint": "^8.38.0"
+    "typescript-eslint": "^8.39.1"
   },
   "browserslist": [
     ">0.5%",

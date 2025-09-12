@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Apply">
@@ -117,96 +117,6 @@ import Layout from '../layouts/Layout.astro';
                         </div>
                     </div>
                 </div>
-
-                <div class="row mt-6 px-2">
-                    <div class="col-12">
-                        <h2 class="section-title text-center mb-4">Application Form</h2>
-                        <div class="application-form-container">
-                            <form class="application-form">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="firstName">First Name *</label>
-                                        <input type="text" id="firstName" name="firstName" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastName">Last Name *</label>
-                                        <input type="text" id="lastName" name="lastName" required>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="email">Email *</label>
-                                        <input type="email" id="email" name="email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number</label>
-                                        <input type="tel" id="phone" name="phone">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="grade">Current Grade *</label>
-                                        <select id="grade" name="grade" required>
-                                            <option value="">Select grade</option>
-                                            <option value="7">7th Grade</option>
-                                            <option value="8">8th Grade</option>
-                                            <option value="9">9th Grade</option>
-                                            <option value="10">10th Grade</option>
-                                            <option value="11">11th Grade</option>
-                                            <option value="12">12th Grade</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="school">School *</label>
-                                        <input type="text" id="school" name="school" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="interests">Areas of Interest *</label>
-                                    <div class="checkbox-group">
-                                        <label class="checkbox-label">
-                                            <input type="checkbox" name="interests" value="hardware">
-                                            <span>Hardware/Mechanical</span>
-                                        </label>
-                                        <label class="checkbox-label">
-                                            <input type="checkbox" name="interests" value="software">
-                                            <span>Software/Programming</span>
-                                        </label>
-                                        <label class="checkbox-label">
-                                            <input type="checkbox" name="interests" value="outreach">
-                                            <span>Outreach/Community</span>
-                                        </label>
-                                        <label class="checkbox-label">
-                                            <input type="checkbox" name="interests" value="business">
-                                            <span>Business/Marketing</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="experience">Previous Robotics/STEM Experience</label>
-                                    <textarea id="experience" name="experience" rows="4"
-                                              placeholder="Tell us about any robotics, programming, or engineering experience you have..."></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="motivation">Why do you want to join TurboV8? *</label>
-                                    <textarea id="motivation" name="motivation" rows="4" required
-                                              placeholder="What motivates you to join our team?"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="availability">Availability *</label>
-                                    <textarea id="availability" name="availability" rows="3" required
-                                              placeholder="What days/times are you typically available for meetings and events?"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="parentEmail">Parent/Guardian Email *</label>
-                                    <input type="email" id="parentEmail" name="parentEmail" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="row mt-6 px-2">
                     <div class="col-12">
                         <h2 class="section-title text-center mb-4">Important Information</h2>
@@ -226,22 +136,112 @@ import Layout from '../layouts/Layout.astro';
                                 </p>
                             </div>
                             <div class="info-card">
-                                <h3>Costs</h3>
-                                <p>
-                                    Team membership is free! We cover competition fees, travel, and materials.
-                                    Optional team merchandise is available for purchase.
-                                </p>
-                            </div>
-                            <div class="info-card">
                                 <h3>Questions?</h3>
                                 <p>
-                                    Have questions about joining? <a href="/contact">Contact us</a>
-                                    or attend one of our information sessions.
+                                    Have questions about joining? <a href="/contact">Contact us</a>!
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row mt-6 px-2">
+                    <div class="col-12">
+                        <h2 class="section-title text-center mb-4">Application Form</h2>
+                        <div class="application-form-container">
+                            <form id="application-form" class="application-form">
+                                <div class="form-group" style="color: var(--light-red)">* Indicates required question
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" name="lastName">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone">
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="parentEmail">Parent/Guardian Email *</label>
+                                    <input type="email" id="parentEmail" name="parentEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City of Residence *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="grade">Current Grade *</label>
+                                        <select id="grade" name="grade" required>
+                                            <option value="">Select grade</option>
+                                            <option value="7">6th Grade</option>
+                                            <option value="7">7th Grade</option>
+                                            <option value="8">8th Grade</option>
+                                            <option value="9">9th Grade</option>
+                                            <option value="10">10th Grade</option>
+                                            <option value="11">11th Grade</option>
+                                            <option value="12">12th Grade</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="school">School</label>
+                                        <input type="text" id="school" name="school">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="interests">Areas of Interest *</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="hardware">
+                                            <span>Hardware/Mechanical</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="software">
+                                            <span>Software/Programming</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="outreach">
+                                            <span>Outreach/Community</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="availability">How much are time are you willing to commit to team
+                                        activities? *</label>
+                                    <textarea id="availability" name="availability" rows="3" required
+                                              placeholder="We usually meet (in-person) at least once a week for around 3-4 hours."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="experience">Previous Robotics/STEM Experience *</label>
+                                    <textarea id="experience" name="experience" rows="4" required
+                                              placeholder="We accept members of all experience levels!"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="motivation">What are some things you like to do outside of robotics?
+                                        *</label>
+                                    <textarea id="motivation" name="motivation" rows="4" required
+                                              placeholder=""></textarea>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </section>
     </main>
@@ -338,7 +338,6 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .application-form-container {
-        max-width: 600px;
         margin: 0 auto;
     }
 

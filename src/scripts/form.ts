@@ -1,122 +1,117 @@
 export {};
 
-declare global {
-    interface Window {
-        hcaptcha?: {
-            reset: () => void;
-        };
-    }
+declare const grecaptcha: {
+    reset: () => void; getResponse: () => string;
+};
+
+type ValidationRule = (value: string) => string | null;
+
+export interface FormHandlerOptions {
+    formId: string;
+    errorDivId: string;
+    submitUrl: string;
+    fieldValidations: Record<string, ValidationRule[]>;
 }
 
-if (document.readyState === "complete") {
-    run();
-} else {
-    document.addEventListener("readystatechange", () => {
-        if (document.readyState === "complete") {
-            run();
+interface FormspreeResponse {
+    message: string;
+}
+
+export class Form {
+    private form: HTMLFormElement | null;
+    private errorDiv: HTMLDivElement | null;
+    private options: FormHandlerOptions;
+
+    constructor(options: FormHandlerOptions) {
+        this.options = options;
+        this.form = document.getElementById(options.formId) as HTMLFormElement | null;
+        this.errorDiv = document.getElementById(options.errorDivId) as HTMLDivElement | null;
+
+
+    }
+
+    public run(): void {
+        if (!this.form || !this.errorDiv) return;
+        this.form.addEventListener("submit", (e: SubmitEvent): Promise<void> => this.handleSubmit(e));
+    }
+
+    private getInputValue<T extends HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(selector: string): string {
+        return (this.form?.querySelector(selector) as T | null)?.value.trim() || "";
+    }
+
+    private showMessage(msg: string, type: "good" | "bad"): void {
+        if (!this.errorDiv) return;
+        this.errorDiv.textContent = msg;
+        this.errorDiv.className = type;
+        this.errorDiv.style.display = "block";
+        this.errorDiv.scrollIntoView({behavior: "smooth", block: "nearest"});
+    }
+
+    private showError(msg: string): void {
+        this.showMessage(msg, "bad");
+    }
+
+    private showSuccess(msg: string): void {
+        this.showMessage(msg, "good");
+    }
+
+    private validate(): boolean {
+        for (const [fieldName, rules] of Object.entries(this.options.fieldValidations)) {
+            const selector: string = `[name="${fieldName}"]`;
+            const value: string = this.getInputValue(selector);
+            for (const rule of rules) {
+                const errorMsg: string | null = rule(value);
+                if (errorMsg) {
+                    this.showError(errorMsg);
+                    return false;
+                }
+            }
         }
-    });
-}
-
-function run(): void {
-    const form = document.getElementById('contact-form') as HTMLFormElement | null;
-    const errorDiv = document.getElementById('form-info') as HTMLDivElement | null;
-
-    if (!form || !errorDiv) {
-        return;
+        return true;
     }
 
-    const getInputValue = <T extends HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(selector: string): string => {
-        return (form.querySelector(selector) as T | null)?.value.trim() || '';
-    };
-
-    const showMessage = (msg: string, type: 'good' | 'bad'): void => {
-        errorDiv.textContent = msg;
-        errorDiv.className = type;
-        errorDiv.style.display = 'block';
-        errorDiv.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'nearest'});
-    };
-
-    const showError = (msg: string): void => showMessage(msg, 'bad');
-    const showSuccess = (msg: string): void => showMessage(msg, 'good');
-
-    form.addEventListener('submit', (e: Event): void => {
+    private async handleSubmit(e: Event): Promise<void> {
         e.preventDefault();
+        if (!this.errorDiv || !this.form) return;
 
-        errorDiv.style.display = 'none';
-        errorDiv.textContent = '';
+        this.errorDiv.style.display = "none";
+        this.errorDiv.textContent = "";
 
-        const name = getInputValue<HTMLInputElement>('input[name="name"]');
-        const email = getInputValue<HTMLInputElement>('input[name="email"]');
-        const reasonForContact = getInputValue<HTMLSelectElement>('select[name="reason for contact"]');
-        const message = getInputValue<HTMLTextAreaElement>('textarea[name="message"]');
-        const hCaptcha = getInputValue<HTMLTextAreaElement>('textarea[name="h-captcha-response"]');
+        if (!this.validate()) return;
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        this.showSuccess("Sending...");
 
-        if (!name) {
-            showError('Please enter your name.');
-            return;
-        }
-        if (!email) {
-            showError('Please enter your email address.');
-            return;
-        }
-        if (!emailRegex.test(email)) {
-            showError('Please enter a valid email address.');
-            return;
-        }
-        if (!reasonForContact) {
-            showError('Please select a reason for contacting us.');
-            return;
-        }
-        if (!message) {
-            showError('Please enter your message.');
-            return;
-        }
-        if (!hCaptcha) {
-            showError('Please fill out the captcha field.');
-            return;
-        }
+        const formData: Record<string, FormDataEntryValue> = Object.fromEntries(new FormData(this.form).entries());
 
-        showSuccess('Sending...');
-
-        const formData = new FormData(form);
-        const dataObject = Object.fromEntries(formData.entries());
-
-        if (typeof dataObject.subject === 'string' && typeof dataObject.name === 'string') {
-            dataObject.subject = dataObject.subject + " from " + dataObject.name;
-        }
-
-        const jsonBody = JSON.stringify(dataObject);
-
-        fetch('https://api.web3forms.com/submit', {
-            method: 'POST', headers: {
-                'Content-Type': 'application/json', 'Accept': 'application/json',
-            }, body: jsonBody,
-        })
-            .then(async (response) => {
-                const result = await response.json();
-                if (response.ok) {
-                    console.log('Success:', result.message);
-                    showSuccess('Success! Your message has been sent.');
-                } else {
-                    console.error('Error response:', result);
-                    showError('There was a problem submitting the form.');
-                }
-            })
-            .catch((error) => {
-                console.error('Fetch error:', error);
-                showError('A network error occurred. Please try again later.');
-            })
-            .finally(() => {
-                form.reset();
-                if (window.hcaptcha) {
-                    window.hcaptcha.reset();
-                }
-                setTimeout(() => {
-                    errorDiv.style.display = 'none';
-                }, 5000);
+        try {
+            const response: Response = await fetch(this.options.submitUrl, {
+                method: "POST",
+                headers: {"Content-Type": "application/json", "Accept": "application/json"},
+                body: JSON.stringify(formData),
             });
-    });
+
+            const result: FormspreeResponse = await response.json() as FormspreeResponse;
+            if (response.ok) {
+                console.log("Success:", result.message);
+                this.showSuccess("Success! Your message has been sent.");
+            } else {
+                console.error("Error response:", result);
+                this.showError("There was a problem submitting the form.");
+            }
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                console.error("Fetch error:", error.message);
+            } else {
+                console.error("Fetch error:", error);
+            }
+        } finally {
+            this.form.reset();
+            if (typeof grecaptcha !== "undefined") {
+                grecaptcha.reset();
+            }
+            setTimeout(() => {
+                if (this.errorDiv) this.errorDiv.style.display = "none";
+            }, 5000);
+        }
+    }
 }

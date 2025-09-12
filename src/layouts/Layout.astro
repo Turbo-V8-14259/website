@@ -1,14 +1,13 @@
 ---
-import Footer from "../components/Footer.astro"
-import '@fontsource-variable/orbitron'
-import orbitronWoff2 from "@fontsource-variable/orbitron/files/orbitron-latin-wght-normal.woff2"
+import Footer from "../components/Footer.astro";
+import "@fontsource-variable/orbitron";
+import orbitronWoff2 from "@fontsource-variable/orbitron/files/orbitron-latin-wght-normal.woff2";
 interface Props {
     title: string;
 }
 
 var {title} = Astro.props;
 title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
-
 ---
 
 <!DOCTYPE html>
@@ -24,7 +23,7 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
-    <meta name='generator' content={Astro.generator}>
+    <meta name="generator" content={Astro.generator}>
     <link rel="sitemap" href="/sitemap-index.xml"/>
 
     <!-- Facebook Meta Tags -->
@@ -72,7 +71,7 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
             <a href="/contact">Contact</a>
             <a href="/apply">Apply</a>
             <div class="dropdown">
-                <a href="#" class="dropdown-toggle">Seasons ▼</a>
+                <a class="dropdown-toggle">Seasons ▼</a>
                 <div class="dropdown-menu">
                     <a href="/2024-2025-into-the-deep">2024-2025 Into the Deep</a>
                     <a href="/2023-2024-centerstage">2023-2024 Centerstage</a>
@@ -108,11 +107,11 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
 </nav>
 <slot/>
 <Footer/>
-<script src="../scripts/footer.ts"/>
+
 <script src="../scripts/mobileResponse.ts"/>
-<script src="../scripts/form.ts"/>
-<script src="https://web3forms.com/client/script.js" crossorigin="anonymous"/>
-<script src="https://kit.fontawesome.com/b8a11f6bd5.js" crossorigin="anonymous"/>
+
+
+<!--<script src="https://web3forms.com/client/script.js" crossorigin="anonymous"/>-->
 
 
 </body>
@@ -123,6 +122,7 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
         --light-red: #ff1a1a;
         --dark-red: #631d1fff;
         --red-shadow: #aa0000;
+        --white: #FAFAFA;
     }
 
     * {
@@ -504,7 +504,7 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
     /* Typography Utilities */
     .section-title {
         font-size: 2.5rem;
-        color: var(--light-red);
+        color: var(--white);
         text-align: center;
         margin-bottom: 3rem;
         font-weight: bold;
