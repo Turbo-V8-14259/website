@@ -1,7 +1,7 @@
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import eslintPluginAstro from 'eslint-plugin-astro';
+import js from "@eslint/js";
+import typescript from "@typescript-eslint/eslint-plugin";
 
-export default tseslint.config(
-    eslint.configs.recommended,
-    tseslint.configs.recommended,
-);
+export default [js.configs.recommended, typescript.configs.recommended, ...eslintPluginAstro.configs.recommended, {
+    rules: {}
+}];
