@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/node": "^9.4.3",
     "@astrojs/sitemap": "^3.5.1",
-    "@fontsource-variable/orbitron": "^5.2.6",
+    "@fontsource-variable/orbitron": "^5.2.8",
     "astro": "^5.14.1",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
