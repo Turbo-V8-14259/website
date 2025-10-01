@@ -4,7 +4,7 @@ export type ValidationFunction = (value: string) => string | null;
 
 export function requiredFieldValidator(message: string): ValidationFunction {
     return function (value: string): string | null {
-        console.log(value)
+        console.log(value);
         if (value) {
             return null;
         } else {
