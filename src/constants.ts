@@ -15,6 +15,7 @@ export const contactFormUrl: string = "https://formspree.io/f/mzzvkpln";
 
 export const applyFormUrl: string = "https://formspree.io/f/mzzvkpln";
 
+
 export const newsArticles: NewsArticle[] = [{
     title: "Tri-Valley Schools Robotics Team Shines with 3rd Place Win",
     description: "In a stunning display of engineering excellence and strategic gameplay, TurboV8 secured third place in their division at the FTC World Championship, showcasing months of dedicated preparation and innovation.",
