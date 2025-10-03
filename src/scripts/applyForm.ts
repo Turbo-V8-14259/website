@@ -1,15 +1,20 @@
-import {Form} from "./form.ts";
-import {applyFormUrl, emailRegex} from "../constants.ts";
+import {applyFormUrl} from "../constants.ts";
+import {FormHandler} from "./form-handler.ts";
+import {emailFieldValidator, requiredFieldValidator} from "./validation.ts";
 
-const form: Form = new Form({
-    formId: "contact-form", errorDivId: "form-info", submitUrl: applyFormUrl, fieldValidations: {
-        name: [(v) => v ? null : "Please enter your name."],
-        email: [(v) => v ? null : "Please enter your email address.", (v) => emailRegex.test(v) ? null : "Please enter a valid email address."],
-        "reason for contact": [(v) => v ? null : "Please select a reason for contacting us."],
-        message: [(v) => v ? null : "Please enter your message."],
-        "g-recaptcha-response": [(v) => v ? null : "Please complete the reCAPTCHA challenge."],
-    }
+const form = new FormHandler({
+    formId: "application-form",
+    errorDivId: "form-info",
+    submitUrl: applyFormUrl,
+    fieldValidations: {
+        "firstName": [requiredFieldValidator("Please enter your name.")],
+        "email": [requiredFieldValidator("Please enter your email address."), emailFieldValidator()],
+        "reason for contact": [requiredFieldValidator("Please select a reason for contacting us.")],
+        "message": [requiredFieldValidator("Please enter your message.")],
+        "g-recaptcha-response": [requiredFieldValidator("Please complete the reCAPTCHA challenge.")],
+    },
 });
+
 
 function run(): void {
     form.run();
