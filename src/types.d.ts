@@ -10,7 +10,6 @@ export type NewsArticle = {
     url: string;
     featured: boolean;
 }
-
 export type Sponsor = {
     name: string; logo: ImageMetadata; url: string;
 }
