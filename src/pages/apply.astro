@@ -165,11 +165,11 @@ import Button from "../components/Button.astro";
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="email">Email *</label>
-                                        <input type="email" id="email" name="email" required>
+                                        <input type="email" id="email" name="email" autocomplete="email" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">Phone Number</label>
-                                        <input type="tel" id="phone" name="phone">
+                                        <input type="tel" id="phone" autocomplete="tel" name="phone">
                                     </div>
 
                                 </div>
@@ -200,8 +200,8 @@ import Button from "../components/Button.astro";
                                         <input type="text" id="school" name="school">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="interests">Areas of Interest *</label>
+                                <fieldset class="form-group">
+                                    <legend>Areas of Interest *</legend>
                                     <div class="checkbox-group">
                                         <label class="checkbox-label">
                                             <input type="checkbox" name="interests" value="hardware">
@@ -216,7 +216,7 @@ import Button from "../components/Button.astro";
                                             <span>Outreach/Community</span>
                                         </label>
                                     </div>
-                                </div>
+                                </fieldset>
                                 <div class="form-group">
                                     <label for="availability">How much are time are you willing to commit to team
                                         activities? *</label>
@@ -234,6 +234,7 @@ import Button from "../components/Button.astro";
                                     <textarea id="motivation" name="motivation" rows="4" required
                                               placeholder=""></textarea>
                                 </div>
+                                <div id="form-info" style="display:none;"></div>
 
                                 <div class="center-flex">
                                     <Button type="submit">Submit Application</Button>
@@ -250,6 +251,41 @@ import Button from "../components/Button.astro";
 </Layout>
 
 <style>
+    fieldset {
+        border: none;
+    }
+    #grade {
+        background-color: var(--light-gray); /* background of the select box */
+        color: white; /* text color */
+        //padding: 5px;
+        border-radius: 5px;
+    }
+
+    #grade option {
+        background-color: var(--light-gray);
+    }
+
+    #form-info {
+
+        border-radius: 6px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    .good {
+        color: #52c41a;
+        background: rgba(82, 196, 26, 0.1);
+        border: 1px solid #52c41a;
+    }
+
+    .bad {
+        color: #ff4d4f;
+        background: rgba(255, 77, 79, 0.1);
+        border: 1px solid #ff4d4f;
+    }
+
     .qualities-list {
         display: flex;
         flex-direction: column;
@@ -272,7 +308,7 @@ import Button from "../components/Button.astro";
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--light-gray);
     }
 
     .role-card h3 {
@@ -316,7 +352,7 @@ import Button from "../components/Button.astro";
         padding: 2rem;
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--light-gray);
     }
 
     .step-number {
@@ -347,8 +383,8 @@ import Button from "../components/Button.astro";
         background: rgba(255, 255, 255, 0.05);
         border-radius: 12px;
         padding: 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        max-width: 800px;
+        border: 1px solid var(--light-gray);
+        max-width: 900px;
         margin: 0 auto;
     }
 
@@ -375,12 +411,19 @@ import Button from "../components/Button.astro";
     .form-group textarea {
         width: 100%;
         padding: 0.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid var(--lightest-gray);
         border-radius: 6px;
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--light-gray);
         color: white;
         font-size: 1rem;
         transition: all 0.2s ease;
+    }
+
+    .form-group input:hover,
+    .form-group select:hover,
+    .form-group textarea:hover {
+        outline: none;
+        border-color: var(--red-shadow);
     }
 
     .form-group input:focus,
@@ -388,11 +431,12 @@ import Button from "../components/Button.astro";
     .form-group textarea:focus {
         outline: none;
         border-color: var(--light-red);
-        background: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 0 0 2px rgba(255, 59, 48, 0.1);
+        background: var(--lighter-gray);
+
     }
 
     .checkbox-group {
+        margin-top: 20px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 1rem;
