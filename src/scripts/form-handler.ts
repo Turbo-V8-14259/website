@@ -28,19 +28,43 @@ export class FormHandler {
     constructor(options: FormHandlerOptions) {
         this.options = options;
         this.form = document.getElementById(options.formId) as HTMLFormElement | null;
+
         this.messages = new MessageHandler(options.errorDivId);
     }
 
     public run(): void {
         if (!this.form) return;
+
         this.form.addEventListener("submit", (event: SubmitEvent): void => {
             void this.handleSubmit(event);
         });
     }
 
     private getInputValue(selector: string): string {
-        const element = this.form?.querySelector(selector) as | HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null;
-        return element ? element.value.trim() : "";
+        if (!this.form) return "";
+
+        // Only select input, textarea, or select elements
+        const elements: NodeListOf<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement> = this.form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(
+            `${selector}:is(input, textarea, select)`
+        );
+
+        if (!elements || elements.length === 0) return "";
+
+        const first: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement = elements[0];
+
+        // Handle checkbox or radio group
+        if (first instanceof HTMLInputElement && (first.type === "checkbox" || first.type === "radio")) {
+            console.log("awefwa");
+            const checked: string = Array.from(elements)
+                .filter((el: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement) => el instanceof HTMLInputElement && el.checked)
+                .map((el: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement) => (el as HTMLInputElement).value)
+                .join(", ");
+            console.log(checked);
+            return checked;
+        }
+
+        // Handle single value fields (input, textarea, select)
+        return first.value.trim();
     }
 
     private validate(): boolean {
@@ -62,6 +86,7 @@ export class FormHandler {
     }
 
     private async handleSubmit(event: Event): Promise<void> {
+
         event.preventDefault();
         if (!this.form) return;
 
