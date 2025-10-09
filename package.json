@@ -12,7 +12,7 @@
     "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
-    "@astrojs/node": "^9.4.4",
+    "@astrojs/node": "^9.4.5",
     "@astrojs/sitemap": "^3.5.1",
     "@fontsource-variable/orbitron": "^5.2.8",
     "astro": "^5.14.1",
