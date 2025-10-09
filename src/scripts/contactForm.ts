@@ -8,6 +8,7 @@ const form = new FormHandler({
     submitUrl: contactFormUrl,
     fieldValidations: {
         "firstName": [requiredFieldValidator("Please enter your name.")],
+        "lastName": [],
         "email": [requiredFieldValidator("Please enter your email address."), emailFieldValidator()],
         "reason for contact": [requiredFieldValidator("Please select a reason for contacting us.")],
         "message": [requiredFieldValidator("Please enter your message.")],
@@ -19,7 +20,6 @@ const form = new FormHandler({
 function run(): void {
     form.run();
 }
-
 if (document.readyState === "complete" || document.readyState === "interactive") {
     run();
 } else {
