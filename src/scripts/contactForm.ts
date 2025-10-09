@@ -20,6 +20,7 @@ const form = new FormHandler({
 function run(): void {
     form.run();
 }
+
 if (document.readyState === "complete" || document.readyState === "interactive") {
     run();
 } else {

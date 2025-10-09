@@ -18,5 +18,6 @@
     <orderEntry type="library" name="font-awesome" level="application" />
     <orderEntry type="library" name="script" level="application" />
     <orderEntry type="library" name="ts-external-references" level="project" />
+    <orderEntry type="library" name="api" level="application" />
   </component>
 </module>
