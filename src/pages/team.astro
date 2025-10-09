@@ -1,6 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import placeholderAvatar from "../images/team/placeholder-avatar.svg";
+import {teamMembers} from "../constants";
+import type {TeamMember} from "../types";
+
+const bySubTeam = (subTeam: "Team Captain" | "Hardware" | "Software" | "Outreach" | "Mentor") => teamMembers.filter((m: TeamMember): boolean => m.subTeam === subTeam);
+const teamCaptain: TeamMember[] = bySubTeam("Team Captain");
+const hardwareTeam: TeamMember[] = bySubTeam("Hardware");
+const softwareTeam: TeamMember[] = bySubTeam("Software");
+const outreachTeam: TeamMember[] = bySubTeam("Outreach");
+const mentors: TeamMember[] = bySubTeam("Mentor");
 ---
 
 <Layout title="Our Team">
@@ -18,152 +26,106 @@ import placeholderAvatar from "../images/team/placeholder-avatar.svg";
 
         <section class="section">
             <div class="container">
-                <!-- Team Captain -->
-                <div class="team-category mb-6 px-2">
-                    <h2 class="section-title mb-4">Team Captain</h2>
-                    <div class="grid-auto-fit">
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Veer Nanda" loading="eager"/>
+                {teamCaptain.length > 0 && (
+                        <div class="team-category mb-6 px-2">
+                            <h2 class="section-title mb-4">Team Captain</h2>
+                            <div class="grid-auto-fit team-grid">
+                                {teamCaptain.map((m) => (
+                                        <div class="card card-hover team-member p-4">
+                                            <div class="member-photo circular-image mb-3">
+                                                <img class="image-cover" src={(m.image as any).src ?? (m.image as any)}
+                                                     alt={m.name} loading="eager"/>
+                                            </div>
+                                            <div class="member-text">
+                                                <p class="member-role text-red text-uppercase mb-0"
+                                                   title={m.role}>{m.role}</p>
+                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
+                                            </div>
+                                        </div>
+                                ))}
                             </div>
-                            <h3 class="member-name mb-2">Veer Nanda</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Team Captain</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Hardware Team -->
-                <div class="team-category mb-6 px-2">
-                    <h2 class="section-title mb-4">Hardware Team</h2>
-                    <div class="grid-auto-fit">
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Devesh" loading="eager"/>
+                )}
+                {hardwareTeam.length > 0 && (
+                        <div class="team-category mb-6 px-2">
+                            <h2 class="section-title mb-4">Hardware Team</h2>
+                            <div class="grid-auto-fit team-grid">
+                                {hardwareTeam.map((m) => (
+                                        <div class="card card-hover team-member p-4">
+                                            <div class="member-photo circular-image image-hover-scale mb-3">
+                                                <img class="image-cover" src={(m.image as any).src ?? (m.image as any)}
+                                                     alt={m.name} loading="eager"/>
+                                            </div>
+                                            <div class="member-text">
+                                                <p class="member-role text-red text-uppercase mb-0"
+                                                   title={m.role}>{m.role}</p>
+                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
+                                            </div>
+                                        </div>
+                                ))}
                             </div>
-                            <h3 class="member-name mb-2">Devesh</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Hardware Lead</p>
                         </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Rukshana" loading="eager"/>
+                )}
+                {softwareTeam.length > 0 && (
+                        <div class="team-category mb-6 px-2">
+                            <h2 class="section-title mb-4">Software Team</h2>
+                            <div class="grid-auto-fit team-grid">
+                                {softwareTeam.map((m) => (
+                                        <div class="card card-hover team-member p-4">
+                                            <div class="member-photo circular-image image-hover-scale mb-3">
+                                                <img class="image-cover" src={(m.image as any).src ?? (m.image as any)}
+                                                     alt={m.name} loading="eager"/>
+                                            </div>
+                                            <div class="member-text">
+                                                <p class="member-role text-red text-uppercase mb-0"
+                                                   title={m.role}>{m.role}</p>
+                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
+                                            </div>
+                                        </div>
+                                ))}
                             </div>
-                            <h3 class="member-name mb-2">Rukshana</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Hardware Team</p>
                         </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Amber" loading="eager"/>
+                )}
+                {outreachTeam.length > 0 && (
+                        <div class="team-category mb-6 px-2">
+                            <h2 class="section-title mb-4">Outreach Team</h2>
+                            <div class="grid-auto-fit team-grid">
+                                {outreachTeam.map((m) => (
+                                        <div class="card card-hover team-member p-4">
+                                            <div class="member-photo circular-image image-hover-scale mb-3">
+                                                <img class="image-cover" src={(m.image as any).src ?? (m.image as any)}
+                                                     alt={m.name} loading="eager"/>
+                                            </div>
+                                            <div class="member-text">
+                                                <p class="member-role text-red text-uppercase mb-0"
+                                                   title={m.role}>{m.role}</p>
+                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
+                                            </div>
+                                        </div>
+                                ))}
                             </div>
-                            <h3 class="member-name mb-2">Amber</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Hardware Team</p>
                         </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Prathik" loading="eager"/>
+                )}
+                {mentors.length > 0 && (
+                        <div class="team-category px-2">
+                            <h2 class="section-title mb-4">Mentors</h2>
+                            <div class="grid-auto-fit team-grid">
+                                {mentors.map((m) => (
+                                        <div class="card card-hover team-member p-4">
+                                            <div class="member-photo circular-image image-hover-scale mb-3">
+                                                <img class="image-cover" src={(m.image as any).src ?? (m.image as any)}
+                                                     alt={m.name} loading="eager"/>
+                                            </div>
+                                            <div class="member-text">
+                                                <p class="member-role text-red text-uppercase mb-0"
+                                                   title={m.role}>{m.role}</p>
+                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
+                                            </div>
+                                        </div>
+                                ))}
                             </div>
-                            <h3 class="member-name mb-2">Prathik</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Hardware Team</p>
                         </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Ariane" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Ariane</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Hardware Team</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Software Team -->
-                <div class="team-category mb-6 px-2">
-                    <h2 class="section-title mb-4">Software Team</h2>
-                    <div class="grid-auto-fit">
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Sushant" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Sushant</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Software Lead</p>
-                        </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Joy" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Joy</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Software Team</p>
-                        </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Aarav" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Aarav</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Software Team</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Outreach Team -->
-                <div class="team-category mb-6 px-2">
-                    <h2 class="section-title mb-4">Outreach Team</h2>
-                    <div class="grid-auto-fit">
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Abhay" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Abhay</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Outreach Lead</p>
-                        </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Rachel" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Rachel</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Outreach Team</p>
-                        </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Sai" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Sai</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Outreach Team</p>
-                        </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Anish" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Anish</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Outreach Team</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mentors -->
-                <div class="team-category px-2">
-                    <h2 class="section-title mb-4">Mentors</h2>
-                    <div class="grid-auto-fit">
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Peter" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Peter</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Mentor</p>
-                        </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Steven" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Steven</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Mentor</p>
-                        </div>
-                        <div class="card card-hover team-member p-4">
-                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                <img class="image-cover" src={placeholderAvatar.src} alt="Levi" loading="eager"/>
-                            </div>
-                            <h3 class="member-name mb-2">Levi</h3>
-                            <p class="member-role text-red text-uppercase mb-0">Mentor</p>
-                        </div>
-                    </div>
-                </div>
+                )}
             </div>
         </section>
     </main>
@@ -175,24 +137,57 @@ import placeholderAvatar from "../images/team/placeholder-avatar.svg";
         text-align: center;
         width: 100%;
         max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+    }
+
+    /* Stretch items in team grids to equal height */
+    .team-grid {
+        align-items: stretch;
     }
 
     .member-photo {
         width: 120px;
         height: 120px;
         margin: 0 auto 1.5rem;
+        flex: 0 0 auto;
+    }
+
+    .member-text {
+        margin-top: auto; /* push text block to the bottom for consistent alignment */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .member-name {
         font-size: 1.3rem;
         color: white;
-        margin-bottom: 0.5rem;
         font-weight: bold;
+        margin: 0.5rem 0 0;
+        /* two-line clamp for consistent heights */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.2;
+        min-height: 3.2rem; /* ~2 lines at 1.3rem * 1.2 */
+        max-height: 3.2rem; /* enforce two-line cap across browsers */
+        word-break: break-word;
     }
 
     .member-role {
         font-size: 1rem;
         font-weight: 600;
+        /* reserve at least one line of height to avoid shifting */
+        min-height: 1.4rem;
+        /* prevent wrapping that causes stacked lines */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     /* Responsive adjustments */
@@ -200,6 +195,11 @@ import placeholderAvatar from "../images/team/placeholder-avatar.svg";
         .member-photo {
             width: 100px;
             height: 100px;
+        }
+
+        /* keep two-line height on mobile as well */
+        .member-name {
+            min-height: 3rem;
         }
     }
 </style>

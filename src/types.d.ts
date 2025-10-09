@@ -13,3 +13,9 @@ export type NewsArticle = {
 export type Sponsor = {
     name: string; logo: ImageMetadata; url: string;
 }
+export type TeamMember = {
+    name: string;
+    subTeam: "Team Captain" | "Hardware" | "Software" | "Outreach" | "Mentor" | "Alumni";
+    role: "Team Captain" | "Hardware Lead" | "Hardware Member" | "Software Lead" | "Software Member" | "Outreach Lead" | "Outreach Member" | "Mentor" | "Alumni";
+    image: ImageMetadata;
+}
