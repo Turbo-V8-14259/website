@@ -1,4 +1,4 @@
-import type {NewsArticle, Sponsor} from "./types";
+import type {NewsArticle, Sponsor, TeamMember} from "./types";
 import avt from "./images/news-articles/amadorvallytoday.jpeg";
 import patch from "./images/news-articles/patch.webp";
 import bytebridge from "./images/sponsor-logos/bytebridge.png";
@@ -8,6 +8,7 @@ import polymaker from "./images/sponsor-logos/polymaker.png";
 import vbelt from "./images/sponsor-logos/vbelt.png";
 import pcbway from "./images/sponsor-logos/pcbway.png";
 import fabworks from "./images/sponsor-logos/fabworks.png";
+import placeholderAvatar from "./images/team/placeholder-avatar.svg";
 
 export const email: string = "ftcturbov8@gmail.com";
 
@@ -15,6 +16,88 @@ export const contactFormUrl: string = "https://formspree.io/f/mzzvkpln";
 
 export const applyFormUrl: string = "https://formspree.io/f/mzzvkpln";
 
+export const teamMembers: TeamMember[] = [{
+    name: "Veer Nanda",
+    subTeam: "Team Captain",
+    role: "Team Captain",
+    image: placeholderAvatar
+}, {
+    name: "Devesh Senthilraja ",
+    subTeam: "Hardware",
+    role: "Hardware Lead",
+    image: placeholderAvatar
+}, {
+    name:"Rukshana Yowvanaraj",
+    subTeam: "Hardware",
+    role: "Hardware Member",
+    image: placeholderAvatar
+}, {
+    name: "Amber Mo",
+    subTeam: "Hardware",
+    role: "Hardware Member",
+    image: placeholderAvatar
+} ,{
+    name: "Prathik Prasanna",
+    subTeam: "Hardware",
+    role: "Hardware Member",
+    image: placeholderAvatar
+}, {
+    name: "Ariane",
+    subTeam: "Hardware",
+    role: "Hardware Member",
+    image: placeholderAvatar
+}, {
+    name: "Sushant Indupuru",
+    subTeam: "Software",
+    role: "Software Lead",
+    image: placeholderAvatar
+}, {
+    name: "Joy Wang",
+    subTeam: "Software",
+    role: "Software Member",
+    image: placeholderAvatar
+}, {
+    name: "Aarav Shah",
+    subTeam: "Software",
+    role: "Software Member",
+    image: placeholderAvatar
+}, {
+    name: "Abhay Girish",
+    subTeam: "Outreach",
+    role: "Outreach Lead",
+    image: placeholderAvatar
+}, {
+    name: "Rachel Dong",
+    subTeam: "Outreach",
+    role: "Outreach Member",
+    image: placeholderAvatar
+}, {
+    name: "Sai Kata",
+    subTeam: "Outreach",
+    role: "Outreach Member",
+    image: placeholderAvatar
+}, {
+    name: "Anish Dhamjia",
+    subTeam: "Outreach",
+    role: "Outreach Member",
+    image: placeholderAvatar
+}, {
+    name: "Peter Wetherell",
+    subTeam: "Mentor",
+    role: "Mentor",
+    image: placeholderAvatar
+}, {
+    name: "Steven Szczeszynski",
+    subTeam: "Mentor",
+    role: "Mentor",
+    image: placeholderAvatar
+}, {
+    name: "Levi",
+    subTeam: "Mentor",
+    role: "Mentor",
+    image: placeholderAvatar
+}
+];
 
 export const newsArticles: NewsArticle[] = [{
     title: "Tri-Valley Schools Robotics Team Shines with 3rd Place Win",

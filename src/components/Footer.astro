@@ -61,6 +61,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         text-align: center;
         padding-bottom: 15px;
         padding-top: 20px;
+        overflow-x:hidden;
     }
 
     .partners {
@@ -105,7 +106,7 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         /* Improve touch targets for mobile */
         min-width: 44px;
         min-height: 44px;
-        transition: transform 0.2s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     a:hover {
@@ -168,7 +169,6 @@ const astroLogo = await getImage({src: astro, format: "avif"});
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        transition: opacity 0.3s ease;
     }
 
     #astro-credit a:hover {
