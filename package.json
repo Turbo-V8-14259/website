@@ -22,7 +22,7 @@
     "firebase-tools": "^14.19.1"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.10.4",
+    "@astrojs/ts-plugin": "^1.10.5",
     "@eslint/js": "^9.37.0",
     "@typescript-eslint/parser": "^8.46.1",
     "eslint": "^9.37.0",
