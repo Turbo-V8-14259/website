@@ -9,18 +9,18 @@ import vbelt from "./images/sponsor-logos/vbelt.png";
 import pcbway from "./images/sponsor-logos/pcbway.png";
 import fabworks from "./images/sponsor-logos/fabworks.png";
 import placeholderAvatar from "./images/team/placeholder-avatar.svg";
+import placeholderAvatar1 from "./images/team/placeholder-avatar.svg";
 
 export const email: string = "ftcturbov8@gmail.com";
 
 export const contactFormUrl: string = "https://formspree.io/f/mzzvkpln";
 
 export const applyFormUrl: string = "https://formspree.io/f/mzzvkpln";
-
 export const teamMembers: TeamMember[] = [{
     name: "Veer Nanda",
     subTeam: "Team Captain",
     role: "Team Captain",
-    image: placeholderAvatar
+    image: (placeholderAvatar1)
 }, {
     name: "Devesh Senthilraja ",
     subTeam: "Hardware",

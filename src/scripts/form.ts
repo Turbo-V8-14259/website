@@ -92,7 +92,6 @@ export class Form {
 
             const result: FormspreeResponse = await response.json() as FormspreeResponse;
             if (response.ok) {
-                console.log("Success:", result.message);
                 this.showSuccess("Success! Your message has been sent.");
             } else {
                 console.error("Error response:", result);
