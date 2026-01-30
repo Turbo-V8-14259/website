@@ -4,7 +4,7 @@ import {teamMembers} from "../constants";
 import type {TeamMember} from "../types";
 import Image from "astro/components/Image.astro";
 import Logo from '../images/team/placeholder-avatar.svg';
-import type { SvgComponent } from "astro/types";
+import type {SvgComponent} from "astro/types";
 
 
 const bySubTeam = (subTeam: "Team Captain" | "Hardware" | "Software" | "Outreach" | "Mentor") => teamMembers.filter((m: TeamMember): boolean => m.subTeam === subTeam);
@@ -34,33 +34,35 @@ const mentors: TeamMember[] = bySubTeam("Mentor");
                         <div class="team-category mb-6 px-2">
                             <h2 class="section-title mb-4">Team Captain</h2>
                             <div class="grid-auto-fit team-grid">
-                                {teamCaptain.map((m) =>  {return (
-                                        <div class="card card-hover team-member p-4">
-                                            <div class="member-photo circular-image mb-3">
-                                                {
-                                                    m.image.format === "svg" ? (
-                                                            <m.image
-                                                                    class="image-cover"
-                                                                    role="img"
-                                                                    aria-label={m.name}
-                                                            />
-                                                    ) : (
-                                                            <Image
-                                                                    src={m.image}
-                                                                    alt={m.name}
-                                                                    class="image-cover"
-                                                                    loading="eager"
-                                                            />
-                                                    )
-                                                }
+                                {teamCaptain.map((m) => {
+                                    return (
+                                            <div class="card card-hover team-member p-4">
+                                                <div class="member-photo circular-image mb-3">
+                                                    {
+                                                        m.image.format === "svg" ? (
+                                                                <m.image
+                                                                        class="image-cover"
+                                                                        role="img"
+                                                                        aria-label={m.name}
+                                                                />
+                                                        ) : (
+                                                                <Image
+                                                                        src={m.image}
+                                                                        alt={m.name}
+                                                                        class="image-cover"
+                                                                        loading="eager"
+                                                                />
+                                                        )
+                                                    }
+                                                </div>
+                                                <div class="member-text">
+                                                    <p class="member-role text-red text-uppercase mb-0"
+                                                       title={m.role}>{m.role}</p>
+                                                    <h3 class="member-name" title={m.name}>{m.name}</h3>
+                                                </div>
                                             </div>
-                                            <div class="member-text">
-                                                <p class="member-role text-red text-uppercase mb-0"
-                                                   title={m.role}>{m.role}</p>
-                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
-                                            </div>
-                                        </div>
-                                )})}
+                                    )
+                                })}
                             </div>
                         </div>
                 )}

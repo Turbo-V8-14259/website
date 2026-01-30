@@ -9,7 +9,6 @@ import vbelt from "./images/sponsor-logos/vbelt.png";
 import pcbway from "./images/sponsor-logos/pcbway.png";
 import fabworks from "./images/sponsor-logos/fabworks.png";
 import placeholderAvatar from "./images/team/placeholder-avatar.svg";
-import placeholderAvatar1 from "./images/team/placeholder-avatar.svg";
 
 export const email: string = "ftcturbov8@gmail.com";
 
@@ -20,7 +19,7 @@ export const teamMembers: TeamMember[] = [{
     name: "Veer Nanda",
     subTeam: "Team Captain",
     role: "Team Captain",
-    image: (placeholderAvatar1)
+    image: placeholderAvatar
 }, {
     name: "Devesh Senthilraja ",
     subTeam: "Hardware",

@@ -1,5 +1,4 @@
 import type {ImageMetadata} from "astro";
-import type {SvgComponent} from "astro/types";
 
 export type NewsArticle = {
     title: string;

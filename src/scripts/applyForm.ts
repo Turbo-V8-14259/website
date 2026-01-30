@@ -3,7 +3,6 @@ import {FormHandler} from "./form-handler.ts";
 import {atLeastOneSelectedValidator, emailFieldValidator, requiredFieldValidator} from "./validation.ts";
 
 
-
 const form = new FormHandler({
     formId: "application-form",
     errorDivId: "form-info",
