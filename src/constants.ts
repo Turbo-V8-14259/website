@@ -27,7 +27,7 @@ export const teamMembers: TeamMember[] = [{
     role: "Hardware Lead",
     image: placeholderAvatar
 }, {
-    name:"Rukshana Yowvanaraj",
+    name: "Rukshana Yowvanaraj",
     subTeam: "Hardware",
     role: "Hardware Member",
     image: placeholderAvatar
@@ -36,13 +36,18 @@ export const teamMembers: TeamMember[] = [{
     subTeam: "Hardware",
     role: "Hardware Member",
     image: placeholderAvatar
-} ,{
+}, {
     name: "Prathik Prasanna",
     subTeam: "Hardware",
     role: "Hardware Member",
     image: placeholderAvatar
 }, {
-    name: "Ariane",
+    name: "Meet Bhanushali",
+    subTeam: "Hardware",
+    role: "Hardware Member",
+    image: placeholderAvatar
+}, {
+    name: "Vedant Yelluru",
     subTeam: "Hardware",
     role: "Hardware Member",
     image: placeholderAvatar
@@ -52,7 +57,17 @@ export const teamMembers: TeamMember[] = [{
     role: "Software Lead",
     image: placeholderAvatar
 }, {
-    name: "Joy Wang",
+    name: "Ethan Wang",
+    subTeam: "Software",
+    role: "Software Member",
+    image: placeholderAvatar
+}, {
+    name: "Parv Surjan",
+    subTeam: "Software",
+    role: "Software Member",
+    image: placeholderAvatar
+}, {
+    name: "Yuvan Ramesh",
     subTeam: "Software",
     role: "Software Member",
     image: placeholderAvatar
@@ -65,6 +80,11 @@ export const teamMembers: TeamMember[] = [{
     name: "Abhay Girish",
     subTeam: "Outreach",
     role: "Outreach Lead",
+    image: placeholderAvatar
+}, {
+    name: "Atharv Dua",
+    subTeam: "Outreach",
+    role: "Outreach Member",
     image: placeholderAvatar
 }, {
     name: "Rachel Dong",
