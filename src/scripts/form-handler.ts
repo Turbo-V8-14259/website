@@ -54,13 +54,10 @@ export class FormHandler {
 
         // Handle checkbox or radio group
         if (first instanceof HTMLInputElement && (first.type === "checkbox" || first.type === "radio")) {
-            console.log("awefwa");
-            const checked: string = Array.from(elements)
+            return Array.from(elements)
                 .filter((el: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement) => el instanceof HTMLInputElement && el.checked)
                 .map((el: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement) => (el as HTMLInputElement).value)
                 .join(", ");
-            console.log(checked);
-            return checked;
         }
 
         // Handle single value fields (input, textarea, select)

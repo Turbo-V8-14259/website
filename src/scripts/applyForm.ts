@@ -2,8 +2,6 @@ import {applyFormUrl} from "../constants.ts";
 import {FormHandler} from "./form-handler.ts";
 import {atLeastOneSelectedValidator, emailFieldValidator, requiredFieldValidator} from "./validation.ts";
 
-// Add debugging to see if script is loaded
-console.log("Apply form script loaded");
 
 const form = new FormHandler({
     formId: "application-form",

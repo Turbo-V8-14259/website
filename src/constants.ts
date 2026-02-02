@@ -15,7 +15,6 @@ export const email: string = "ftcturbov8@gmail.com";
 export const contactFormUrl: string = "https://formspree.io/f/mzzvkpln";
 
 export const applyFormUrl: string = "https://formspree.io/f/mzzvkpln";
-
 export const teamMembers: TeamMember[] = [{
     name: "Veer Nanda",
     subTeam: "Team Captain",
