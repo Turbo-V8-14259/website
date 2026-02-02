@@ -20,19 +20,7 @@ export default defineConfig({
             postcss: {
                 plugins: [autoprefixer()],
             },
-        }, build: {
-            rollupOptions: {
-                output: {
-                    assetFileNames: (assetInfo) => {
-                        const original = assetInfo.names[0] ?? '';
-                        if (original.endsWith('.css')) {
-                            return 'assets/style-[hash][extname]';
-                        }
-                        return 'assets/[name]-[hash][extname]';
-                    },
-                },
-            },
-        }
+        },
     },
 
     integrations: [sitemap()], /*adapter: node({
