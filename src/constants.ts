@@ -9,6 +9,7 @@ import vbelt from "./images/sponsor-logos/vbelt.png";
 import pcbway from "./images/sponsor-logos/pcbway.png";
 import fabworks from "./images/sponsor-logos/fabworks.png";
 import placeholderAvatar from "./images/team/placeholder-avatar.svg";
+import devesh from "./images/team/devesh.jpg"
 
 export const email: string = "ftcturbov8@gmail.com";
 
@@ -24,7 +25,7 @@ export const teamMembers: TeamMember[] = [{
     name: "Devesh Senthilraja ",
     subTeam: "Hardware",
     role: "Hardware Lead",
-    image: placeholderAvatar
+    image: devesh
 }, {
     name: "Rukshana Yowvanaraj",
     subTeam: "Hardware",
