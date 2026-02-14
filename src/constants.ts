@@ -10,6 +10,19 @@ import pcbway from "./images/sponsor-logos/pcbway.png";
 import fabworks from "./images/sponsor-logos/fabworks.png";
 import placeholderAvatar from "./images/team/placeholder-avatar.svg";
 import devesh from "./images/team/devesh.jpg"
+import amber from "./images/team/amber.jpg"
+import anish from "./images/team/anish.jpg"
+import atharv from "./images/team/atharv.jpg"
+import ethan from "./images/team/ethan.jpg"
+import meet from "./images/team/meet.jpg"
+import parv from "./images/team/parv.jpg"
+import prathik from "./images/team/prathik.jpg"
+import rachel from "./images/team/rachel.jpg"
+import sai from "./images/team/sai.jpg"
+import sushant from "./images/team/sushant.jpg"
+import vedant from "./images/team/vedant.jpg"
+import veer from "./images/team/veer.jpg"
+import yuvan from "./images/team/yuvan.jpg"
 
 export const email: string = "ftcturbov8@gmail.com";
 
@@ -20,7 +33,7 @@ export const teamMembers: TeamMember[] = [{
     name: "Veer Nanda",
     subTeam: "Team Captain",
     role: "Team Captain",
-    image: placeholderAvatar
+    image: veer
 }, {
     name: "Devesh Senthilraja ",
     subTeam: "Hardware",
@@ -35,42 +48,42 @@ export const teamMembers: TeamMember[] = [{
     name: "Amber Mo",
     subTeam: "Hardware",
     role: "Hardware Member",
-    image: placeholderAvatar
+    image: amber
 }, {
     name: "Prathik Prasanna",
     subTeam: "Hardware",
     role: "Hardware Member",
-    image: placeholderAvatar
+    image: prathik
 }, {
     name: "Meet Bhanushali",
     subTeam: "Hardware",
     role: "Hardware Member",
-    image: placeholderAvatar
+    image: meet
 }, {
     name: "Vedant Yelluru",
     subTeam: "Hardware",
     role: "Hardware Member",
-    image: placeholderAvatar
+    image: vedant
 }, {
     name: "Sushant Indupuru",
     subTeam: "Software",
     role: "Software Lead",
-    image: placeholderAvatar
+    image: sushant
 }, {
     name: "Ethan Wang",
     subTeam: "Software",
     role: "Software Member",
-    image: placeholderAvatar
+    image: ethan
 }, {
     name: "Parv Surjan",
     subTeam: "Software",
     role: "Software Member",
-    image: placeholderAvatar
+    image: parv
 }, {
     name: "Yuvan Ramesh",
     subTeam: "Software",
     role: "Software Member",
-    image: placeholderAvatar
+    image: yuvan
 }, {
     name: "Aarav Shah",
     subTeam: "Software",
@@ -85,22 +98,22 @@ export const teamMembers: TeamMember[] = [{
     name: "Atharv Dua",
     subTeam: "Outreach",
     role: "Outreach Member",
-    image: placeholderAvatar
+    image: atharv
 }, {
     name: "Rachel Dong",
     subTeam: "Outreach",
     role: "Outreach Member",
-    image: placeholderAvatar
+    image: rachel
 }, {
     name: "Sai Kata",
     subTeam: "Outreach",
     role: "Outreach Member",
-    image: placeholderAvatar
+    image: sai
 }, {
     name: "Anish Dhamjia",
     subTeam: "Outreach",
     role: "Outreach Member",
-    image: placeholderAvatar
+    image: anish
 }, {
     name: "Peter Wetherell",
     subTeam: "Mentor",
