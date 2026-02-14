@@ -1,13 +1,39 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import {Image} from "astro:assets";
-import bytebridge from "../images/sponsor-logos/bytebridge.png";
-import haas from "../images/sponsor-logos/haas.png";
-import ugp from "../images/sponsor-logos/ugp.png";
-import polymaker from "../images/sponsor-logos/polymaker.png";
-import vbelt from "../images/sponsor-logos/vbelt.png";
-import pcbway from "../images/sponsor-logos/pcbway.png";
-import fabworks from "../images/sponsor-logos/fabworks.png";
+import {sponsors} from "../constants.ts";
+import {Tier} from "../types.ts";
+
+// Group sponsors by tier
+const sponsorsByTier = sponsors.reduce((acc, sponsor) => {
+    if (!acc[sponsor.tier]) {
+        acc[sponsor.tier] = [];
+    }
+    acc[sponsor.tier].push(sponsor);
+    return acc;
+}, {} as Record<string, typeof sponsors>);
+
+// Define tier order
+const tierOrder = [Tier.Diamond, Tier.Gold, Tier.Silver];
+
+// Tier display configuration (hardcoded)
+const tierConfig: Record<string, {displayName: string; gridClass: string; logoHeight: number}> = {
+    [Tier.Diamond]: {
+        displayName: "Diamond",
+        gridClass: "platinum",
+        logoHeight: 120
+    },
+    [Tier.Gold]: {
+        displayName: "Gold",
+        gridClass: "gold",
+        logoHeight: 100
+    },
+    [Tier.Silver]: {
+        displayName: "Silver",
+        gridClass: "silver",
+        logoHeight: 100
+    }
+};
 ---
 
 <Layout title="Sponsors">
@@ -108,107 +134,107 @@ import fabworks from "../images/sponsor-logos/fabworks.png";
                     <div class="col-12">
                         <h2 class="section-title text-center">Thank You to Our Sponsors</h2>
 
-                        <!-- Platinum Sponsors -->
-                        <div class="sponsor-tier">
-                            <h3 class="tier-title">Platinum Sponsors</h3>
-                            <div class="sponsor-grid platinum">
-                                <div class="sponsor-card">
-                                    <div class="sponsor-logo-image">
-                                        <Image src={haas} alt="Gene Haas Foundation Logo" height={120} loading="eager"
-                                               format="avif"/>
-                                    </div>
-                                    <h4>Gene Haas Foundation</h4>
-                                    <p>Supporting STEM education and manufacturing careers</p>
-                                    <a href="https://www.ghaasfoundation.org/" target="_blank" rel="noopener noreferrer"
-                                       class="sponsor-link">Visit
-                                        Website</a>
+                        {tierOrder.map(tier => sponsorsByTier[tier] && sponsorsByTier[tier].length > 0 && (
+                            <div class="sponsor-tier">
+                                <h3 class="tier-title">{tierConfig[tier].displayName} Sponsors</h3>
+                                <div class={`sponsor-grid ${tierConfig[tier].gridClass}`}>
+                                    {sponsorsByTier[tier].map(sponsor => (
+                                        <div class="sponsor-card">
+                                            <div class="sponsor-logo-image">
+                                                <Image src={sponsor.logo} alt={`${sponsor.name} Logo`} 
+                                                       height={tierConfig[tier].logoHeight} 
+                                                       loading="eager" format="avif"/>
+                                            </div>
+                                            <h4>{sponsor.name}</h4>
+                                            <p>{sponsor.description}</p>
+                                            <a href={sponsor.url} target="_blank" rel="noopener noreferrer"
+                                               class="sponsor-link">Visit Website</a>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
-                        </div>
+                        ))}
+                    </div>
+                </div>
 
-                        <!-- Gold Sponsors -->
-                        <div class="sponsor-tier">
-                            <h3 class="tier-title">Gold Sponsors</h3>
-                            <div class="sponsor-grid gold">
-                                <div class="sponsor-card">
-                                    <div class="sponsor-logo-image">
-                                        <Image src={polymaker} alt="Polymaker Logo" height={120} loading="eager"
-                                               format="avif"/>
+                <div class="row mt-6">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Become a Sponsor</h2>
+                        <div class="sponsorship-info">
+                            <p class="text-center text-lg">
+                                Join our mission to inspire the next generation of STEM leaders.
+                                Your sponsorship helps us compete, learn, and give back to our community.
+                            </p>
+
+                            <div class="sponsorship-benefits">
+                                <h3>Sponsorship Benefits</h3>
+                                <div class="benefits-grid">
+                                    <div class="benefit-item">
+                                        <h4>Brand Visibility</h4>
+                                        <p>Logo placement on robot, team shirts, and promotional materials</p>
                                     </div>
-                                    <h4>Polymaker</h4>
-                                    <p>3D printing materials and solutions</p>
-                                    <a href="https://polymaker.com/" target="_blank" rel="noopener noreferrer"
-                                       class="sponsor-link">Visit
-                                        Website</a>
-                                </div>
-                                <div class="sponsor-card">
-                                    <div class="sponsor-logo-image">
-                                        <Image src={ugp} alt="Underground Printing Press Logo" height={120}
-                                               loading="eager" format="avif"/>
+                                    <div class="benefit-item">
+                                        <h4>Community Impact</h4>
+                                        <p>Support STEM education and inspire young minds in your community</p>
                                     </div>
-                                    <h4>Underground Printing Press</h4>
-                                    <p>Custom apparel and team merchandise</p>
-                                    <a href="https://undergroundshirts.com/" target="_blank" rel="noopener noreferrer"
-                                       class="sponsor-link">Visit
-                                        Website</a>
+                                    <div class="benefit-item">
+                                        <h4>Networking</h4>
+                                        <p>Connect with other sponsors and the FIRST robotics community</p>
+                                    </div>
+                                    <div class="benefit-item">
+                                        <h4>Recognition</h4>
+                                        <p>Featured on our website, social media, and at competitions</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Silver Sponsors -->
-                        <div class="sponsor-tier">
-                            <h3 class="tier-title">Silver Sponsors</h3>
-                            <div class="sponsor-grid silver">
-                                <div class="sponsor-card">
-                                    <div class="sponsor-logo-image">
-                                        <Image src={fabworks} alt="FabWorks Logo" height={100} loading="eager"
-                                               format="avif"/>
+                            <div class="sponsorship-tiers">
+                                <h3>Sponsorship Levels</h3>
+                                <div class="tiers-grid">
+                                    <div class="tier-card">
+                                        <h4>Diamond - $1000+</h4>
+                                        <ul>
+                                            <li>Large logo on robot</li>
+                                            <li>Featured website placement</li>
+                                            <li>Social media recognition</li>
+                                            <li>Team presentation opportunity</li>
+                                        </ul>
                                     </div>
-                                    <h4>FabWorks</h4>
-                                    <p>Manufacturing and fabrication services</p>
-                                    <a href="https://www.fabworks.com/" target="_blank" rel="noopener noreferrer"
-                                       class="sponsor-link">Visit
-                                        Website</a>
-                                </div>
-                                <div class="sponsor-card">
-                                    <div class="sponsor-logo-image">
-                                        <Image src={vbelt} alt="V-Belt Guys Logo" height={100} loading="eager"
-                                               format="avif"/>
+                                    <div class="tier-card">
+                                        <h4>Gold - $500+</h4>
+                                        <ul>
+                                            <li>Medium logo on robot</li>
+                                            <li>Website listing</li>
+                                            <li>Social media mentions</li>
+                                            <li>Competition updates</li>
+                                        </ul>
                                     </div>
-                                    <h4>V-Belt Guys</h4>
-                                    <p>Industrial belts and power transmission</p>
-                                    <a href="https://www.vbeltguys.com/" target="_blank" rel="noopener noreferrer"
-                                       class="sponsor-link">Visit
-                                        Website</a>
-                                </div>
-                                <div class="sponsor-card">
-                                    <div class="sponsor-logo-image">
-                                        <Image src={bytebridge} alt="ByteBridge Logo" height={100} loading="eager"
-                                               format="avif"/>
+                                    <div class="tier-card">
+                                        <h4>Silver - $250+</h4>
+                                        <ul>
+                                            <li>Small logo on robot</li>
+                                            <li>Website recognition</li>
+                                            <li>Thank you letter</li>
+                                        </ul>
                                     </div>
-                                    <h4>ByteBridge</h4>
-                                    <p>Technology solutions and consulting</p>
-                                    <a href="https://www.bytebt.com/" target="_blank" rel="noopener noreferrer"
-                                       class="sponsor-link">Visit
-                                        Website</a>
-                                </div>
-                                <div class="sponsor-card">
-                                    <div class="sponsor-logo-image">
-                                        <Image src={pcbway} alt="PCBWay Logo" height={100} loading="eager"
-                                               format="avif"/>
+                                    <div class="tier-card">
+                                        <h4>Bronze - $100+</h4>
+                                        <ul>
+                                            <li>Name on team banner</li>
+                                            <li>Website listing</li>
+                                            <li>Appreciation certificate</li>
+                                        </ul>
                                     </div>
-                                    <h4>PCBWay</h4>
-                                    <p>PCB manufacturing and assembly services</p>
-                                    <a href="https://www.pcbway.com/" target="_blank" rel="noopener noreferrer"
-                                       class="sponsor-link">Visit
-                                        Website</a>
                                 </div>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <a href="/contact" class="btn btn-primary btn-lg px-4 py-2">Become a Sponsor</a>
+                                <p class="mt-2 mb-0">Contact us to discuss sponsorship opportunities</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         </section>
     </main>

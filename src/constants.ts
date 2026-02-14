@@ -1,4 +1,4 @@
-import type {NewsArticle, Sponsor, TeamMember} from "./types";
+import {type NewsArticle, type Sponsor, type TeamMember, Tier} from "./types.ts";
 import avt from "./images/news-articles/amadorvallytoday.jpeg";
 import patch from "./images/news-articles/patch.webp";
 import bytebridge from "./images/sponsor-logos/bytebridge.png";
@@ -23,12 +23,17 @@ import sushant from "./images/team/sushant.jpg"
 import vedant from "./images/team/vedant.jpg"
 import veer from "./images/team/veer.jpg"
 import yuvan from "./images/team/yuvan.jpg"
+import levi from "./images/team/levi.jpg"
+import peter from "./images/team/peter.jpg"
+import steven from "./images/team/steven.jpg"
 
 export const email: string = "ftcturbov8@gmail.com";
 
 export const contactFormUrl: string = "https://formspree.io/f/mzzvkpln";
 
 export const applyFormUrl: string = "https://formspree.io/f/mzzvkpln";
+
+
 export const teamMembers: TeamMember[] = [{
     name: "Veer Nanda",
     subTeam: "Team Captain",
@@ -118,17 +123,17 @@ export const teamMembers: TeamMember[] = [{
     name: "Peter Wetherell",
     subTeam: "Mentor",
     role: "Mentor",
-    image: placeholderAvatar
+    image: peter
 }, {
     name: "Steven Szczeszynski",
     subTeam: "Mentor",
     role: "Mentor",
-    image: placeholderAvatar
+    image: steven
 }, {
     name: "Levi",
     subTeam: "Mentor",
     role: "Mentor",
-    image: placeholderAvatar
+    image: levi
 }
 ];
 
@@ -148,25 +153,53 @@ export const newsArticles: NewsArticle[] = [{
     imageAlt: "TurbΩ V8 team celebrating",
     source: "Amador Valley Today",
     date: "2024-03-24",
-    url: "https://www.amadorvalleytoday.org/57336/news/local-robotics-team-turbo-v8-reaches-internationals/",
+    url: "https://www.amadorvalleytoday.org/57336/news/local-robotics-team-turbo-v8-reaches-internationals",
     featured: true
 }];
 export const sponsorsHeight: number = 110;
 
 export const sponsors: Sponsor[] = [{
-    name: "Bytebridge", logo: bytebridge, url: "https://www.bytebt.com/"
+    name: "Bytebridge",
+    logo: bytebridge,
+    url: "https://www.bytebt.com/",
+    tier: Tier.Silver,
+    description: "Technology solutions and consulting"
 }, {
-    name: "Gene Haas Foundation", logo: haas, url: "https://www.ghaasfoundation.org/"
+    name: "Gene Haas Foundation",
+    logo: haas,
+    url: "https://www.ghaasfoundation.org/",
+    tier: Tier.Diamond,
+    description: "Supporting STEM education and manufacturing careers"
 }, {
-    name: "Underground Printing Press", logo: ugp, url: "https://undergroundshirts.com/"
+    name: "Underground Printing Press",
+    logo: ugp,
+    url: "https://undergroundshirts.com/",
+    tier: Tier.Gold,
+    description: "Custom apparel and team merchandise"
 }, {
-    name: "Polymaker", logo: polymaker, url: "https://polymaker.com/"
+    name: "Polymaker",
+    logo: polymaker,
+    url: "https://polymaker.com/",
+    tier: Tier.Gold,
+    description: "3D printing materials and solutions"
 }, {
-    name: "V-Belt Guy", logo: vbelt, url: "https://www.vbeltguys.com/"
+    name: "V-Belt Guy",
+    logo: vbelt,
+    url: "https://www.vbeltguys.com/",
+    tier: Tier.Silver,
+    description: "Industrial belts and power transmission"
 }, {
-    name: "PCBWay", logo: pcbway, url: "https://www.pcbway.com/"
+    name: "PCBWay",
+    logo: pcbway,
+    url: "https://www.pcbway.com/",
+    tier: Tier.Silver,
+    description: "PCB manufacturing and assembly services"
 }, {
-    name: "Fabworks", logo: fabworks, url: "https://www.fabworks.com/"
+    name: "Fabworks",
+    logo: fabworks,
+    url: "https://www.fabworks.com/",
+    tier: Tier.Silver,
+    description: "Manufacturing and fabrication services"
 }];
 
 export const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
