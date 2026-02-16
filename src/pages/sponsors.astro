@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import {Image} from "astro:assets";
 import {sponsors} from "../constants.ts";
 import {Tier} from "../types.ts";
+import OutlineButton from "../components/OutlineButton.astro";
 
 // Group sponsors by tier
 const sponsorsByTier = sponsors.reduce((acc, sponsor) => {
@@ -123,7 +124,7 @@ const tierConfig: Record<string, {displayName: string; gridClass: string; logoHe
                             </div>
 
                             <div class="text-center mt-4">
-                                <a href="/contact" class="btn btn-primary btn-lg px-4 py-2">Become a Sponsor</a>
+                                <OutlineButton href="/contact" class="btn-lg px-4 py-2">Become a Sponsor</OutlineButton>
                                 <p class="mt-2 mb-0">Contact us to discuss sponsorship opportunities</p>
                             </div>
                         </div>
@@ -179,8 +180,7 @@ const tierConfig: Record<string, {displayName: string; gridClass: string; logoHe
     }
 
     .sponsor-grid.platinum {
-        grid-template-columns: 1fr;
-        max-width: 400px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         margin: 0 auto 2rem;
     }
 

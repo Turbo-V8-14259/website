@@ -1,13 +1,11 @@
 import {type NewsArticle, type Sponsor, type TeamMember, Tier} from "./types.ts";
-import avt from "./images/news-articles/amadorvallytoday.jpeg";
-import patch from "./images/news-articles/patch.webp";
-import bytebridge from "./images/sponsor-logos/bytebridge.png";
+import avt from "./images/amadorvallytoday.jpeg";
+import patch from "./images/patch.webp";
 import haas from "./images/sponsor-logos/haas.png";
-import ugp from "./images/sponsor-logos/ugp.png";
 import polymaker from "./images/sponsor-logos/polymaker.png";
 import vbelt from "./images/sponsor-logos/vbelt.png";
-import pcbway from "./images/sponsor-logos/pcbway.png";
 import fabworks from "./images/sponsor-logos/fabworks.png";
+import createit from "./images/sponsor-logos/createit.png";
 import placeholderAvatar from "./images/team/placeholder-avatar.svg";
 import devesh from "./images/team/devesh.jpg"
 import amber from "./images/team/amber.jpg"
@@ -158,48 +156,55 @@ export const newsArticles: NewsArticle[] = [{
 }];
 export const sponsorsHeight: number = 110;
 
-export const sponsors: Sponsor[] = [{
+export const sponsors: Sponsor[] = [/*{
     name: "Bytebridge",
     logo: bytebridge,
     url: "https://www.bytebt.com/",
     tier: Tier.Silver,
     description: "Technology solutions and consulting"
-}, {
+},*/ {
     name: "Gene Haas Foundation",
     logo: haas,
     url: "https://www.ghaasfoundation.org/",
     tier: Tier.Diamond,
     description: "Supporting STEM education and manufacturing careers"
-}, {
+}, /*{
     name: "Underground Printing Press",
     logo: ugp,
     url: "https://undergroundshirts.com/",
     tier: Tier.Gold,
     description: "Custom apparel and team merchandise"
-}, {
+},*/ {
     name: "Polymaker",
     logo: polymaker,
     url: "https://polymaker.com/",
-    tier: Tier.Gold,
+    tier: Tier.Diamond,
     description: "3D printing materials and solutions"
 }, {
     name: "V-Belt Guy",
     logo: vbelt,
     url: "https://www.vbeltguys.com/",
-    tier: Tier.Silver,
+    tier: Tier.Gold,
     description: "Industrial belts and power transmission"
-}, {
+}, /*{
     name: "PCBWay",
     logo: pcbway,
     url: "https://www.pcbway.com/",
     tier: Tier.Silver,
     description: "PCB manufacturing and assembly services"
-}, {
+}, */{
     name: "Fabworks",
     logo: fabworks,
     url: "https://www.fabworks.com/",
-    tier: Tier.Silver,
+    tier: Tier.Gold,
     description: "Manufacturing and fabrication services"
+}, {
+    name: "Create It Factory",
+    logo: createit,
+    url: "https://www.createitfactory.com/",
+    tier: Tier.Diamond,
+    description: "STEM education and enrichment programs"
+    
 }];
 
 export const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
