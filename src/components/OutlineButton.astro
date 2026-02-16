@@ -1,0 +1,33 @@
+---
+interface Props {
+    href: string;
+    class?: string;
+}
+
+const {
+    href,
+    class: className = "",
+}: Props = Astro.props;
+---
+<a href={href} class={`btn-outline ${className}`}>
+    <slot/>
+</a>
+
+<style>
+    .btn-outline {
+        background: transparent;
+        border: 1px solid var(--light-red);
+        color: var(--light-red);
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+        background: var(--light-red);
+        color: white;
+    }
+</style>
+

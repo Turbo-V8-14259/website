@@ -7,6 +7,9 @@ import battleBot from "../images/battle-bot.jpg";
 import drone from "../images/drone.jpg";
 import placeholderAvatar from "../images/team/placeholder-avatar.svg";
 import {Image} from "astro:assets";
+import first from "../images/first.jpg"
+import team from "../images/team.jpg"
+import bot from "../images/bot.webp"
 ---
 
 <Layout title="">
@@ -20,7 +23,7 @@ import {Image} from "astro:assets";
                 <div class="about-grid">
                     <div class="about-card p-4 mb-4">
                         <div class="card-image mb-3">
-                            <Image src={bgImage} alt="TurbΩ V8 Team" loading="eager" format="avif"/>
+                            <Image src={team} alt="TurbΩ V8 Team" loading="eager" format="avif"/>
                         </div>
                         <h3 class="mb-3 text-red">Who we are</h3>
                         <p class="mb-0">We are TurbΩ V8, a robotics team based in Pleasanton, California, participating
@@ -45,7 +48,7 @@ import {Image} from "astro:assets";
 
                     <div class="about-card p-4 mb-4">
                         <div class="card-image mb-3">
-                            <Image src={bgImage} alt="What we do" loading="eager" format="avif"/>
+                            <Image src={bot} alt="What we do" loading="eager" format="avif"/>
                         </div>
                         <h3 class="mb-3 text-red">What we do</h3>
                         <p class="mb-0">We often passionately interact with community members both locally and
@@ -56,7 +59,7 @@ import {Image} from "astro:assets";
 
                     <div class="about-card p-4 mb-4">
                         <div class="card-image mb-3">
-                            <Image src={bgImage} alt="FIRST and FTC" loading="eager" format="avif"/>
+                            <Image src={first} alt="FIRST and FTC" loading="eager" format="avif"/>
                         </div>
                         <h3 class="mb-3 text-red">What is FIRST and FTC?</h3>
                         <p class="mb-3"><em>FIRST</em> is a nonprofit organization that supports youth in their journey
