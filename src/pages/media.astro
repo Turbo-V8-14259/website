@@ -128,7 +128,7 @@ import {newsArticles} from "../constants";
                                     <article class="news-card featured">
                                         <div class="news-image">
                                             <Image src={article.image} alt={article.imageAlt} loading="eager"
-                                                   format="avif"/>
+                                                   format="avif" height={400} widths={[400, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw"/>
                                             <!--<div class="news-badge">Featured</div>-->
                                         </div>
                                         <div class="news-content">
