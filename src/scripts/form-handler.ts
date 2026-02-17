@@ -94,8 +94,31 @@ export class FormHandler {
         this.messages.showSuccess("Sending...");
 
         const formDataObj: Record<string, FormDataEntryValue> = {};
-        for (const [key, value] of new FormData(this.form).entries()) {
-            formDataObj[key] = value;
+        const formData = new FormData(this.form);
+        const processedFields = new Set<string>();
+
+        // First pass: identify all checkbox fields
+        const checkboxFields = new Set<string>();
+        for (const [key] of formData.entries()) {
+            // Query specifically for input elements to avoid matching fieldsets or other elements
+            const element = this.form.querySelector(`input[name="${key}"]`);
+            if (element instanceof HTMLInputElement && element.type === "checkbox") {
+                checkboxFields.add(key);
+            }
+        }
+
+        // Second pass: process all fields
+        for (const [key, value] of formData.entries()) {
+            if (processedFields.has(key)) continue;
+
+            // Check if this is a checkbox field
+            if (checkboxFields.has(key)) {
+                // Use getInputValue to get comma-separated list of all checked values
+                formDataObj[key] = this.getInputValue(`[name="${key}"]`);
+                processedFields.add(key);
+            } else {
+                formDataObj[key] = value;
+            }
         }
 
         await this.sendFormData(formDataObj);
