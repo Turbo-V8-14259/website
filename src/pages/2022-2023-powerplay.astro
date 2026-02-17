@@ -24,6 +24,17 @@ import powerplayImg from "../images/powerplay.png";
                     <div class="col-12">
                         <h2 class="section-title text-center">Season Highlights</h2>
                         <div class="achievements-grid">
+                            <div class="achievement-card featured">
+                                <h3>Maryland Tech Invitational</h3>
+                                <div class="achievement-details">
+                                    <p class="achievement-rank">Tournament Champions</p>
+                                </div>
+                                <p class="achievement-description">
+                                    Won the highly competitive Maryland Tech Invitational (MTI),
+                                    an elite off-season competition, demonstrating our team's
+                                    capabilities on a national stage.
+                                </p>
+                            </div>
                             <div class="achievement-card">
                                 <h3>League Championship</h3>
                                 <div class="achievement-details">
@@ -46,17 +57,7 @@ import powerplayImg from "../images/powerplay.png";
                                     outstanding outreach efforts and community connections.
                                 </p>
                             </div>
-                            <div class="achievement-card">
-                                <h3>Maryland Tech Invitational</h3>
-                                <div class="achievement-details">
-                                    <p class="achievement-rank">Tournament Champions</p>
-                                </div>
-                                <p class="achievement-description">
-                                    Won the highly competitive Maryland Tech Invitational (MTI),
-                                    an elite off-season competition, demonstrating our team's
-                                    capabilities on a national stage.
-                                </p>
-                            </div>
+
                             <div class="achievement-card">
                                 <h3>Team Growth</h3>
                                 <div class="achievement-details">
@@ -279,6 +280,11 @@ import powerplayImg from "../images/powerplay.png";
         color: var(--light-red);
         margin-bottom: 1rem;
         font-size: 1.3rem;
+    }
+
+    .achievement-card.featured {
+        border-color: var(--light-red);
+        background: rgba(255, 0, 0, 0.1);
     }
 
     .achievement-details {
