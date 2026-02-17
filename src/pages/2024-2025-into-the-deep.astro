@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import intothedeep2 from "../images/intothedeep2.jpg";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="2024-2025 Into the Deep">
@@ -59,12 +61,22 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-md-6">
-                        <h2 class="section-title">Robot Design</h2>
+                        <h3 class="text-red mb-4" style="font-size: 1.8rem;">Robot Design</h3>
                         <div class="robot-info">
-                            <div class="robot-image-placeholder">
-                                <span>Robot Photo</span>
+                            <div class="robot-images">
+                                <div class="robot-image">
+                                    <Image
+                                        src={intothedeep2}
+                                        alt="Into the Deep robot detail"
+                                        width={640}
+                                        sizes="(max-width: 768px) 100vw, 320px"
+                                        height={320}
+                                        format="avif"
+                                        loading="eager"
+                                    />
+                                </div>
                             </div>
                             <h3>Design Philosophy</h3>
                             <p>
@@ -81,9 +93,8 @@ import Layout from "../layouts/Layout.astro";
                             </ul>
                         </div>
                     </div>
-                    <br/>
                     <div class="col-md-6">
-                        <h2 class="section-title">Game Strategy</h2>
+                        <h3 class="text-red mb-4" style="font-size: 1.8rem;">Game Strategy</h3>
                         <div class="strategy-info">
                             <h3>Into the Deep Challenge</h3>
                             <p>
@@ -102,7 +113,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="section-title text-center">Competition Timeline</h2>
                         <div class="timeline">
@@ -145,9 +156,9 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
-                        <h2 class="section-title text-center">Team Growth</h2>
+                        <h2 class="section-title text-center">Team Achievements</h2>
                         <div class="growth-stats">
                             <div class="stat-card">
                                 <h3>Technical Skills</h3>
@@ -226,17 +237,30 @@ import Layout from "../layouts/Layout.astro";
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .robot-image-placeholder {
-        width: 100%;
-        height: 200px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
+    .robot-images {
         display: flex;
-        align-items: center;
         justify-content: center;
         margin-bottom: 2rem;
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 1.1rem;
+    }
+
+    .robot-image {
+        width: 100%;
+        max-width: 320px;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    }
+
+    .robot-image img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .robot-image:hover img {
+        transform: scale(1.05);
     }
 
     .robot-info h3,
@@ -393,6 +417,10 @@ import Layout from "../layouts/Layout.astro";
 
         .timeline-content::before {
             left: -2rem !important;
+        }
+
+        .robot-images {
+            grid-template-columns: 1fr;
         }
     }
 </style>

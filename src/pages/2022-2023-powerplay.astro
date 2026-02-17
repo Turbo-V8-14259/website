@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import powerplayImg from "../images/powerplay.png";
 ---
 
 <Layout title="2022-2023 Powerplay">
@@ -58,12 +60,18 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-md-6">
-                        <h2 class="section-title">Robot Evolution</h2>
+                        <h3 class="text-red mb-4" style="font-size: 1.8rem;">Robot Engineering</h3>
                         <div class="robot-info">
-                            <div class="robot-image-placeholder">
-                                <span>Powerplay Robot</span>
+                            <div class="robot-image">
+                                <Image
+                                    src={powerplayImg}
+                                    alt="Powerplay Robot"
+                                    width={600}
+                                    height={400}
+                                    format="avif"
+                                />
                             </div>
                             <h3>Design Journey</h3>
                             <p>
@@ -81,9 +89,8 @@ import Layout from "../layouts/Layout.astro";
                             </ul>
                         </div>
                     </div>
-                    <br/>
                     <div class="col-md-6">
-                        <h2 class="section-title">Game Mastery</h2>
+                        <h3 class="text-red mb-4" style="font-size: 1.8rem;">Game Mastery</h3>
                         <div class="strategy-info">
                             <h3>Powerplay Challenge</h3>
                             <p>
@@ -110,7 +117,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="section-title text-center">Season Progression</h2>
                         <div class="progression-timeline">
@@ -157,7 +164,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="section-title text-center">Impact and Growth</h2>
                         <div class="impact-grid">
@@ -201,7 +208,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="section-title text-center">Looking Forward</h2>
                         <div class="forward-looking">
@@ -286,19 +293,43 @@ import Layout from "../layouts/Layout.astro";
         border-radius: 12px;
         padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .robot-info:hover,
+    .strategy-info:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .robot-image-placeholder,
+    .robot-image {
+        width: 100%;
+        border-radius: 8px;
+        margin: -2rem -2rem 2rem -2rem;
+        overflow: hidden;
     }
 
     .robot-image-placeholder {
-        width: 100%;
         height: 200px;
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 2rem;
         color: rgba(255, 255, 255, 0.6);
         font-size: 1.1rem;
+    }
+
+    .robot-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .robot-info:hover .robot-image img {
+        transform: scale(1.05);
     }
 
     .robot-info h3,
@@ -412,7 +443,7 @@ import Layout from "../layouts/Layout.astro";
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 2rem;
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
 
     .legacy-stat {

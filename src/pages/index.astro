@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/Heading.astro";
-import bgImage from "../images/robot-bg.jpg";
+import bgImage from "../images/cover.jpg";
+import teaching from "../images/teaching.jpg"
 import first from "../images/first.jpg";
 import team from "../images/team.jpg";
 import bot from "../images/bot.webp";
@@ -13,13 +14,13 @@ import { Image } from "astro:assets";
         <Heading
                 titleText="BUILDING THE FUTURE"
                 subtitleText="Innovating through robotics and technology"
-                buttonText="View Our Projects"
-                buttonURL="#projects"
+                buttonText="Meet the Team"
+                buttonURL="/team/"
                 bgImageData={bgImage}
         />
 
         <!-- About Sections -->
-        <section class="about-sections py-6">
+        <section class="about-sections py-5">
             <div class="container">
                 <div class="about-grid">
 
@@ -51,7 +52,7 @@ import { Image } from "astro:assets";
                     <div class="about-card">
                         <div class="card-image">
                             <Image
-                                    src={bgImage}
+                                    src={teaching}
                                     alt="Our Goal"
                                     widths={[400, 800]}
                                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -134,7 +135,7 @@ import { Image } from "astro:assets";
     }
 
     .about-sections {
-        padding: 6rem 0;
+        padding: 4rem 0;
     }
 
     .about-grid {
