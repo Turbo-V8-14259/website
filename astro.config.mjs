@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer';
 
 
 export default defineConfig({
-    site: 'https://testing.ftcturbov8.com',
+    site: 'https://ftcturbov8.com',
     base: '/',
     trailingSlash: 'ignore',
     output: 'static',
