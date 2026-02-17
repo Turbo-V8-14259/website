@@ -27,9 +27,9 @@ import steven from "./images/team/steven.jpg"
 
 export const email: string = "ftcturbov8@gmail.com";
 
-export const contactFormUrl: string = "https://formspree.io/f/mzzvkpln";
+export const contactFormUrl: string = "https://formspree.io/f/mjkopvbp";
 
-export const applyFormUrl: string = "https://formspree.io/f/mzzvkpln";
+export const applyFormUrl: string = "https://formspree.io/f/mnnzoqqz";
 
 
 export const teamMembers: TeamMember[] = [{
