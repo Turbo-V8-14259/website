@@ -66,7 +66,7 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
             <a href="/">Home</a>
             <a href="/team">Our Team</a>
             <a href="/outreach">Outreach</a>
-            <a href="/media">Media</a>
+            <!--<a href="/src/pages/_media">Media</a>-->
             <a href="/donate" class="donate-link">DONATE</a>
             <a href="/sponsors">Sponsors</a>
             <a href="/contact">Contact</a>
@@ -90,7 +90,7 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
         <a href="/">Home</a>
         <a href="/team">Our Team</a>
         <a href="/outreach">Outreach</a>
-        <a href="/media">Media</a>
+        <!--<a href="/src/pages/_media">Media</a>-->
         <a href="/donate" class="donate-link">DONATE</a>
         <a href="/sponsors">Sponsors</a>
         <a href="/contact">Contact</a>
@@ -392,6 +392,17 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
         padding-top: 60px;
     }
 
+    /* Column utilities for better spacing */
+    .col-md-6 + .col-md-6 {
+        margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+        .col-md-6 + .col-md-6 {
+            margin-top: 2rem;
+        }
+    }
+
     /* Hero Section Components */
     .hero {
         background: linear-gradient(135deg, var(--black) 0%, var(--dark-red) 100%);
@@ -504,12 +515,23 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
         margin: 0 auto;
     }
 
+    .section-spacing {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .subsection-spacing {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
     /* Typography Utilities */
     .section-title {
         font-size: 2.5rem;
         color: var(--white);
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
+        margin-top: 0;
         font-weight: bold;
         text-shadow: 0 0 15px var(--red-shadow);
         position: relative;
@@ -597,6 +619,15 @@ title = (title ? title + " | TurbΩ V8 FTC 14259" : "TurbΩ V8 FTC 14259");
     }
 
     /* Spacing Utilities */
+
+    /* Row Spacing */
+    .row {
+        margin-bottom: 2.5rem;
+    }
+
+    .row:last-child {
+        margin-bottom: 0;
+    }
 
     /* Margin Bottom */
     .mb-1 {

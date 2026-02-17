@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import centerStageImg from "../images/center-stage.png";
 ---
 
 <Layout title="2023-2024 Centerstage">
@@ -58,12 +60,18 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-md-6">
-                        <h2 class="section-title">Robot Design</h2>
+                        <h3 class="text-red mb-4" style="font-size: 1.8rem;">Robot Design</h3>
                         <div class="robot-info">
-                            <div class="robot-image-placeholder">
-                                <span>Centerstage Robot</span>
+                            <div class="robot-image">
+                                <Image
+                                    src={centerStageImg}
+                                    alt="Centerstage Robot"
+                                    width={600}
+                                    height={400}
+                                    format="avif"
+                                />
                             </div>
                             <h3>Design Highlights</h3>
                             <p>
@@ -81,9 +89,8 @@ import Layout from "../layouts/Layout.astro";
                             </ul>
                         </div>
                     </div>
-                    <br/>
                     <div class="col-md-6">
-                        <h2 class="section-title">Game Analysis</h2>
+                        <h3 class="text-red mb-4" style="font-size: 1.8rem;">Game Analysis</h3>
                         <div class="strategy-info">
                             <h3>Centerstage Challenge</h3>
                             <p>
@@ -110,7 +117,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="section-title text-center">Season Journey</h2>
                         <div class="journey-timeline">
@@ -138,7 +145,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="section-title text-center">Team Development</h2>
                         <div class="development-grid">
@@ -178,7 +185,7 @@ import Layout from "../layouts/Layout.astro";
                     </div>
                 </div>
 
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="section-title text-center">Lessons Learned</h2>
                         <div class="lessons-container">
@@ -263,19 +270,43 @@ import Layout from "../layouts/Layout.astro";
         border-radius: 12px;
         padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .robot-info:hover,
+    .strategy-info:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .robot-image-placeholder,
+    .robot-image {
+        width: 100%;
+        border-radius: 8px;
+        margin: -2rem -2rem 2rem -2rem;
+        overflow: hidden;
     }
 
     .robot-image-placeholder {
-        width: 100%;
         height: 200px;
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 2rem;
         color: rgba(255, 255, 255, 0.6);
         font-size: 1.1rem;
+    }
+
+    .robot-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .robot-info:hover .robot-image img {
+        transform: scale(1.05);
     }
 
     .robot-info h3,

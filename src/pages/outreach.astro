@@ -25,10 +25,9 @@ import stemworkshops from "../images/stemworkshops.jpg";
         <section class="section">
             <div class="container">
                 <div class="row">
-                    <div class="row mt-6">
-                        <div class="col-12">
-                            <h2 class="section-title text-center">Our Impact</h2>
-                            <div class="stats-grid">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Our Impact</h2>
+                        <div class="stats-grid">
                                 <div class="stat-card">
                                     <h3 class="stat-number text-red">100,000+</h3>
                                     <p class="stat-label">People Reached</p>
@@ -46,63 +45,61 @@ import stemworkshops from "../images/stemworkshops.jpg";
                                     <p class="stat-label">Community Hours</p>
                                 </div>
                             </div>
-                        </div>
                     </div>
-                    
-                    
-                    <div class="row mt-6">
-                        <div class="col-12">
-                            <h2 class="section-title text-center">Community Events</h2>
-                            <p class="text-lg">
-                                At TurbΩ V8, we bring STEM beyond the field—showcasing our robot at events like the Tri
-                                Valley Innovation Fair and Lobster Cup, inspiring future innovators, and testing new ideas.
-                                We promote inclusivity by engaging neurodivergent communities and hosting hands-on STEM
-                                workshops for younger students. With 100k+ students impacted and 2k+ volunteer hours, we're building a
-                                stronger, smarter STEM community.
-                            </p>
-                            <div class="media-grid">
-                                <div class="media-card">
-                                    <div class="media-image">
-                                        <Image src={trivalley} alt="Tri-Valley Innovation Fair" loading="eager" format="avif"/>
-                                    </div>
-                                    <h3>Tri-Valley Innovation Fair</h3>
-                                    <p>Showcasing our robot and sparking curiosity in STEM careers</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Community Events</h2>
+                        <p class="text-lg text-center mb-4">
+                            At TurbΩ V8, we bring STEM beyond the field—showcasing our robot at events like the Tri
+                            Valley Innovation Fair and Lobster Cup, inspiring future innovators, and testing new ideas.
+                            We promote inclusivity by engaging neurodivergent communities and hosting hands-on STEM
+                            workshops for younger students. With 100k+ students impacted and 2k+ volunteer hours, we're building a
+                            stronger, smarter STEM community.
+                        </p>
+                        <div class="media-grid">
+                            <div class="media-card">
+                                <div class="media-image">
+                                    <Image src={trivalley} alt="Tri-Valley Innovation Fair" loading="eager" format="avif"/>
                                 </div>
-                                <div class="media-card">
-                                    <div class="media-image">
-                                        <Image src={neurodivergent} alt="Neurodivergent Partnerships" loading="eager" format="avif"/>
-                                    </div>
-                                    <h3>Neurodivergent Partnerships</h3>
-                                    <p>Inclusive demos and hands-on activities designed for all learners</p>
+                                <h3>Tri-Valley Innovation Fair</h3>
+                                <p>Showcasing our robot and sparking curiosity in STEM careers</p>
+                            </div>
+                            <div class="media-card">
+                                <div class="media-image">
+                                    <Image src={neurodivergent} alt="Neurodivergent Partnerships" loading="eager" format="avif"/>
                                 </div>
-                                <div class="media-card">
-                                    <div class="media-image">
-                                        <Image src={opensauce} alt="OPENSAUCE!" loading="eager" format="avif"/>
-                                    </div>
-                                    <h3>OPENSAUCE!</h3>
-                                    <p>Connecting with makers and sharing our engineering process</p>
+                                <h3>Neurodivergent Partnerships</h3>
+                                <p>Inclusive demos and hands-on activities designed for all learners</p>
+                            </div>
+                            <div class="media-card">
+                                <div class="media-image">
+                                    <Image src={opensauce} alt="OPENSAUCE!" loading="eager" format="avif"/>
                                 </div>
-                                <div class="media-card">
-                                    <div class="media-image">
-                                        <Image src={stemworkshops} alt="STEM Workshops" loading="eager" format="avif" height={200} widths={[400, 800]} sizes="(max-width: 768px) 100vw, 33vw"/>
-                                    </div>
-                                    <h3>STEM Workshops</h3>
-                                    <p>Interactive build sessions for younger students and aspiring teams</p>
+                                <h3>OPENSAUCE!</h3>
+                                <p>Connecting with makers and sharing our engineering process</p>
+                            </div>
+                            <div class="media-card">
+                                <div class="media-image">
+                                    <Image src={stemworkshops} alt="STEM Workshops" loading="eager" format="avif" height={200} widths={[400, 800]} sizes="(max-width: 768px) 100vw, 33vw"/>
                                 </div>
+                                <h3>STEM Workshops</h3>
+                                <p>Interactive build sessions for younger students and aspiring teams</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <br/>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <h2 class="section-title">Mentorship Programs</h2>
+                        <h3 class="text-red mb-3" style="font-size: 1.8rem;">Mentorship Programs</h3>
                         <p class="text-lg">
                             At TurbΩ V8, mentorship means sharing our knowledge to uplift others. We believe in
                             empowering teams by fostering collaboration, encouraging innovation, and helping students
                             grow through guidance and support. Mentorship is how we strengthen the STEM community
                             together.
                         </p>
-                        <br/>
                         <ul class="list-styled">
                             <li>FTC team mentoring
                                 <ul class="sub-list">
@@ -114,12 +111,23 @@ import stemworkshops from "../images/stemworkshops.jpg";
                             <li>Competition strategy sessions</li>
                         </ul>
                     </div>
+                    <div class="col-md-6">
+                        <h3 class="text-red mb-3" style="font-size: 1.8rem;">STEM Workshops</h3>
+                        <p class="text-lg">
+                            We host free hands-on workshops where students learn robotics fundamentals,
+                            programming basics, and engineering design principles. Our workshops are designed
+                            to be accessible to students of all skill levels.
+                        </p>
+                        <ul class="list-styled">
+                            <li>Beginner robotics courses</li>
+                            <li>Programming workshops</li>
+                            <li>CAD and design sessions</li>
+                            <li>Competition preparation training</li>
+                        </ul>
+                    </div>
                 </div>
-                
 
-                
-
-                <div class="row mt-6">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="section-title text-center">Get Involved</h2>
                         <p class="text-center text-lg">
