@@ -17,18 +17,18 @@
     "@fontsource-variable/orbitron": "^5.2.8",
     "astro": "^5.17.1",
     "autoprefixer": "^10.4.24",
-    "firebase-tools": "^15.5.1",
+    "firebase-tools": "^15.6.0",
     "postcss": "^8.5.6"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.6",
     "@eslint/js": "^9.39.2",
-    "@typescript-eslint/parser": "^8.55.0",
-    "eslint": "^9.39.2",
-    "eslint-plugin-astro": "^1.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
+    "eslint": "^10.0.0",
+    "eslint-plugin-astro": "^1.6.0",
     "globals": "^17.3.0",
-    "jiti": "^2.6.1",
-    "typescript-eslint": "^8.55.0"
+    "jiti": "^2.6.1"
   },
   "browserslist": [
     "<0.5%",
