@@ -15,7 +15,7 @@
     "@astrojs/node": "^9.5.2",
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource-variable/orbitron": "^5.2.8",
-    "astro": "^5.17.1",
+    "astro": "^5.17.3",
     "autoprefixer": "^10.4.24",
     "firebase-tools": "^15.6.0",
     "postcss": "^8.5.6"
