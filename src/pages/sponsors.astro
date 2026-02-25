@@ -12,10 +12,10 @@ const sponsorsByTier = sponsors.reduce((acc, sponsor) => {
     }
     acc[sponsor.tier].push(sponsor);
     return acc;
-}, {} as Record<string, typeof sponsors>);
+}, {} as Record<string, (typeof sponsors)[number][]>);
 
 // Define tier order
-const tierOrder = [Tier.Diamond, Tier.Gold, Tier.Silver];
+const tierOrder = [Tier.Diamond, Tier.Gold, Tier.Silver, Tier.Bronze];
 
 // Tier display configuration (hardcoded)
 const tierConfig: Record<string, {displayName: string; gridClass: string; logoHeight: number}> = {
@@ -33,6 +33,11 @@ const tierConfig: Record<string, {displayName: string; gridClass: string; logoHe
         displayName: "Silver",
         gridClass: "silver",
         logoHeight: 100
+    },
+    [Tier.Bronze]: {
+        displayName: "Bronze",
+        gridClass: "bronze",
+        logoHeight: 80
     }
 };
 ---
@@ -190,6 +195,10 @@ const tierConfig: Record<string, {displayName: string; gridClass: string; logoHe
 
     .sponsor-grid.silver {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .sponsor-grid.bronze {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     .sponsor-card {
