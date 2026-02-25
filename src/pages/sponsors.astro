@@ -152,8 +152,7 @@ const tierConfig: Record<string, {displayName: string; gridClass: string; logoHe
                                             </div>
                                             <h4>{sponsor.name}</h4>
                                             <p>{sponsor.description}</p>
-                                            <a href={sponsor.url} target="_blank" rel="noopener noreferrer"
-                                               class="sponsor-link">Visit Website</a>
+                                            <OutlineButton href={sponsor.url} target="_blank" rel="noopener noreferrer">Visit Website</OutlineButton>
                                         </div>
                                     ))}
                                 </div>
@@ -258,20 +257,6 @@ const tierConfig: Record<string, {displayName: string; gridClass: string; logoHe
         color: rgba(255, 255, 255, 0.8);
     }
 
-    .sponsor-link {
-        color: var(--light-red);
-        text-decoration: none;
-        font-weight: 600;
-        border: 1px solid var(--light-red);
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-    }
-
-    .sponsor-link:hover {
-        background: var(--light-red);
-        color: white;
-    }
 
     .sponsorship-info {
         max-width: 800px;
