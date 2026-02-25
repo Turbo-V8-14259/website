@@ -21,7 +21,7 @@ const tierOrder = [Tier.Diamond, Tier.Gold, Tier.Silver];
 const tierConfig: Record<string, {displayName: string; gridClass: string; logoHeight: number}> = {
     [Tier.Diamond]: {
         displayName: "Diamond",
-        gridClass: "platinum",
+        gridClass: "diamond",
         logoHeight: 120
     },
     [Tier.Gold]: {
@@ -179,7 +179,7 @@ const tierConfig: Record<string, {displayName: string; gridClass: string; logoHe
         margin-bottom: 2rem;
     }
 
-    .sponsor-grid.platinum {
+    .sponsor-grid.diamond {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         margin: 0 auto 2rem;
     }
