@@ -12,7 +12,7 @@ const sponsorsByTier = sponsors.reduce((acc, sponsor) => {
     }
     acc[sponsor.tier].push(sponsor);
     return acc;
-}, {} as Record<string, typeof sponsors>);
+}, {} as Record<string, (typeof sponsors)[number][]>);
 
 // Define tier order
 const tierOrder = [Tier.Diamond, Tier.Gold, Tier.Silver];
@@ -112,12 +112,6 @@ const tierConfig: Record<string, {displayName: string; gridClass: string; logoHe
                                         <ul>
                                             <li>Name on website and portfolio</li>
                                             <li>Name on merch</li>
-                                        </ul>
-                                    </div>
-                                    <div class="tier-card">
-                                        <h4>Bronze - $100+</h4>
-                                        <ul>
-                                            <li>Name on website and portfolio</li>
                                         </ul>
                                     </div>
                                 </div>
