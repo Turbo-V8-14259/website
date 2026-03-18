@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import { Image } from "astro:assets";
-import decode from "../images/battle-bot.jpg";
 import intothedeep from "../images/intothedeep2.jpg";
 import centerstage from "../images/center-stage.png";
 import powerplay from "../images/powerplay.png";
@@ -13,10 +12,10 @@ const seasons = [
         name: "Decode™",
         status: "ongoing",
         description:
-            "Our current season is well underway! We've earned the Inspire Award 1st Place and Winning Alliance Captain at the NorCal FTC East Bay League, and we're competing in the NorCal FTC Regional Championship.",
+            "Our current season is well underway! We earned the Inspire Award 1st Place and Winning Alliance Captain at the NorCal FTC East Bay League, then placed 3rd Place Alliance and won the Design Award 3rd Place at the NorCal FTC Regional Championship — advancing us to the Michiana Premier Event (June 18–21, 2026).",
         href: "/2025-2026-decode",
-        image: decode,
-        highlights: ["Inspire Award 1st Place", "Winning Alliance Captain – East Bay League"],
+        image: null,
+        highlights: ["Inspire Award 1st Place", "Winning Alliance Captain – East Bay League", "3rd Place Alliance – NorCal FTC Regionals", "Design Award 3rd Place – NorCal FTC Regionals"],
     },
     {
         year: "2024–2025",
@@ -70,19 +69,25 @@ const seasons = [
                 {seasons.map((season, i) => (
                     <div class={`season-card card card-hover ${i % 2 === 1 ? "reverse" : ""}`}>
                         <div class="season-image-wrap image-hover-scale">
-                            <Image
-                                src={season.image}
-                                alt={`${season.year} ${season.name}`}
-                                widths={[600, 1000]}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                format="avif"
-                                class="image-cover season-img"
-                            />
-                            {season.status === "ongoing" && (
-                                <span class="ongoing-badge">Season Ongoing</span>
+                            {season.image ? (
+                                <Image
+                                    src={season.image}
+                                    alt={`${season.year} ${season.name}`}
+                                    widths={[600, 1000]}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    format="avif"
+                                    class="image-cover season-img"
+                                />
+                            ) : (
+                                <div class="robot-image-placeholder">
+                                    <p>Robot Picture Coming Soon</p>
+                                </div>
                             )}
                         </div>
                         <div class="season-info">
+                            {season.status === "ongoing" && (
+                                <span class="ongoing-badge">Season Ongoing</span>
+                            )}
                             <p class="text-red text-uppercase season-year">{season.year}</p>
                             <h2 class="season-name">{season.name}</h2>
                             <p class="text-muted season-desc">{season.description}</p>
@@ -132,6 +137,9 @@ const seasons = [
     .season-image-wrap {
         height: 320px;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .season-img {
@@ -142,9 +150,7 @@ const seasons = [
 
     /* Ongoing badge — reuses .ongoing-badge from decode page style */
     .ongoing-badge {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
+        display: inline-block;
         background: rgba(255, 165, 0, 0.9);
         color: #1a0000;
         padding: 0.35rem 0.9rem;
@@ -212,6 +218,28 @@ const seasons = [
         left: 0;
         color: var(--light-red);
         font-weight: bold;
+    }
+
+    /* Placeholder for seasons without an image */
+    .robot-image-placeholder {
+        width: 100%;
+        max-width: 320px;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.05));
+        border: 2px dashed var(--light-red);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .robot-image-placeholder p {
+        color: var(--light-red);
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 2rem;
     }
 
     @media (max-width: 768px) {
