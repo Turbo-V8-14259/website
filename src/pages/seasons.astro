@@ -1,0 +1,229 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import { Image } from "astro:assets";
+import decode from "../images/battle-bot.jpg";
+import intothedeep from "../images/intothedeep2.jpg";
+import centerstage from "../images/center-stage.png";
+import powerplay from "../images/powerplay.png";
+
+const seasons = [
+    {
+        year: "2025–2026",
+        name: "Decode™",
+        status: "ongoing",
+        description:
+            "Our current season is well underway! We've earned the Inspire Award 1st Place and Winning Alliance Captain at the NorCal FTC East Bay League, and we're competing in the NorCal FTC Regional Championship.",
+        href: "/2025-2026-decode",
+        image: decode,
+        highlights: ["Inspire Award 1st Place", "Winning Alliance Captain – East Bay League"],
+    },
+    {
+        year: "2024–2025",
+        name: "Into the Deep℠",
+        status: "complete",
+        description:
+            "A landmark season that took us all the way to the FIRST® World Championship, where we finished as a 3rd Place Alliance in the Ochoa Division and earned the Control Award.",
+        href: "/2024-2025-into-the-deep",
+        image: intothedeep,
+        highlights: ["FIRST® Championship – 3rd Place Alliance", "Control Award – Worlds", "MTI – 3rd Place Alliance"],
+    },
+    {
+        year: "2023–2024",
+        name: "CENTERSTAGE℠",
+        status: "complete",
+        description:
+            "A season defined by precision and innovation on the CENTERSTAGE game field, pushing our robot-design and autonomous capabilities to new heights.",
+        href: "/2023-2024-centerstage",
+        image: centerstage,
+        highlights: [],
+    },
+    {
+        year: "2022–2023",
+        name: "POWERPLAY℠",
+        status: "complete",
+        description:
+            "Our POWERPLAY season showcased TurbΩ V8's growing engineering talent and community impact as we sharpened our skills and expanded our outreach programs.",
+        href: "/2022-2023-powerplay",
+        image: powerplay,
+        highlights: [],
+    },
+];
+---
+
+<Layout title="Seasons">
+    <main class="main-content">
+        <!-- Uses global .hero, .hero-content, .hero-title, .hero-description from Layout -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Our Seasons</h1>
+                <p class="hero-description">
+                    Every year brings a new challenge. Explore TurbΩ V8's journey through each FIRST® Tech
+                    Challenge season — from our earliest competitions to our latest achievements.
+                </p>
+            </div>
+        </section>
+
+        <!-- Uses global .section and .container from Layout -->
+        <section class="section">
+            <div class="container seasons-list">
+                {seasons.map((season, i) => (
+                    <div class={`season-card card card-hover ${i % 2 === 1 ? "reverse" : ""}`}>
+                        <div class="season-image-wrap image-hover-scale">
+                            <Image
+                                src={season.image}
+                                alt={`${season.year} ${season.name}`}
+                                widths={[600, 1000]}
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                format="avif"
+                                class="image-cover season-img"
+                            />
+                            {season.status === "ongoing" && (
+                                <span class="ongoing-badge">Season Ongoing</span>
+                            )}
+                        </div>
+                        <div class="season-info">
+                            <p class="text-red text-uppercase season-year">{season.year}</p>
+                            <h2 class="season-name">{season.name}</h2>
+                            <p class="text-muted season-desc">{season.description}</p>
+                            {season.highlights.length > 0 && (
+                                <ul class="highlight-list">
+                                    {season.highlights.map(h => (
+                                        <li>{h}</li>
+                                    ))}
+                                </ul>
+                            )}
+                            <Button href={season.href}>View Season</Button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    /* Layout: stacked list of season cards */
+    .seasons-list {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    /* Season card: two-column grid using global .card styles as base */
+    .season-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .season-card.reverse {
+        direction: rtl;
+    }
+
+    .season-card.reverse > * {
+        direction: ltr;
+    }
+
+    /* Image */
+    .season-image-wrap {
+        height: 320px;
+        overflow: hidden;
+    }
+
+    .season-img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+    }
+
+    /* Ongoing badge — reuses .ongoing-badge from decode page style */
+    .ongoing-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: rgba(255, 165, 0, 0.9);
+        color: #1a0000;
+        padding: 0.35rem 0.9rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .season-image-wrap {
+        position: relative;
+    }
+
+    /* Info column */
+    .season-info {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .season-year {
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin: 0;
+    }
+
+    .season-name {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 900;
+        color: #fff;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .season-desc {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* Highlights list — reuses arrow style from season pages */
+    .highlight-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .highlight-list li {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        padding-left: 1.4rem;
+        position: relative;
+    }
+
+    .highlight-list li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--light-red);
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .season-card,
+        .season-card.reverse {
+            grid-template-columns: 1fr;
+            direction: ltr;
+        }
+
+        .season-image-wrap,
+        .season-img {
+            height: 220px;
+        }
+    }
+</style>

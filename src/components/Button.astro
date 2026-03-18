@@ -3,17 +3,21 @@ interface Props {
     href?: string;
     type?: "submit" | "reset" | "button";
     class?: string;
+    target?: string;
+    rel?: string;
 }
 
 const {
     href,
     type = "button",
     class: className = "",
+    target,
+    rel,
 }: Props = Astro.props;
 ---
 
 {href ? (
-<a href={href} class={`custom-btn ${className}`}>
+<a href={href} target={target} rel={rel} class={`custom-btn ${className}`}>
     <slot />
 </a>
     ) : (
