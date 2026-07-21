@@ -1,4 +1,4 @@
-import {type NewsArticle, type Sponsor, type TeamMember, Tier} from "./types.ts";
+import {type NewsArticle, type Sponsor, type TeamMember, Tier} from "./types";
 import avt from "./images/amadorvallytoday.jpeg";
 import patch from "./images/patch.webp";
 import haas from "./images/sponsor-logos/haas.png";

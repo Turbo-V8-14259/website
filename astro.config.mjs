@@ -15,6 +15,10 @@ export default defineConfig({
         inlineStylesheets: 'never',
     },
 
+    image: {
+        dangerouslyProcessSVG: true,
+    },
+
     vite: {
         css: {
             postcss: {

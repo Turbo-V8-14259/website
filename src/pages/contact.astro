@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import { email } from "../constants";
 ---
 
 <Layout title="Contact">
@@ -72,7 +73,7 @@ import Button from "../components/Button.astro";
                             <div class="contact-item">
                                 <h3>Team Email</h3>
                                 <p>
-                                    <a href="mailto:team@ftcturbov8.com">team@ftcturbov8.com</a>
+                                    <a href={"mailto:"+email}>{email}</a>
                                 </p>
                             </div>
                             <div class="contact-item">
