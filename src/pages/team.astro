@@ -3,16 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import {teamMembers} from "../constants";
 import type {TeamMember} from "../types";
 import Image from "astro/components/Image.astro";
-import Logo from '../images/team/placeholder-avatar.svg';
-import type {SvgComponent} from "astro/types";
 
-
-const bySubTeam = (subTeam: "Team Captain" | "Hardware" | "Software" | "Outreach" | "Mentor") => teamMembers.filter((m: TeamMember): boolean => m.subTeam === subTeam);
-const teamCaptain: TeamMember[] = bySubTeam("Team Captain");
-const hardwareTeam: TeamMember[] = bySubTeam("Hardware");
-const softwareTeam: TeamMember[] = bySubTeam("Software");
-const outreachTeam: TeamMember[] = bySubTeam("Outreach");
-const mentors: TeamMember[] = bySubTeam("Mentor");
+const sections: { title: string; subTeam: TeamMember["subTeam"] }[] = [
+    {title: "Captains", subTeam: "Team Captain"},
+    {title: "Hardware Team", subTeam: "Hardware"},
+    {title: "Software Team", subTeam: "Software"},
+    {title: "Outreach Team", subTeam: "Outreach"},
+    {title: "Mentors", subTeam: "Mentor"},
+    {title: "Past Members", subTeam: "Alumni"},
+];
+const groups = sections
+    .map((s) => ({...s, members: teamMembers.filter((m: TeamMember): boolean => m.subTeam === s.subTeam)}))
+    .filter((g) => g.members.length > 0);
 ---
 
 <Layout title="Our Team">
@@ -30,53 +32,21 @@ const mentors: TeamMember[] = bySubTeam("Mentor");
 
         <section class="section">
             <div class="container">
-                {teamCaptain.length > 0 && (
-                        <div class="team-category mb-6 px-2">
-                            <h2 class="section-title mb-4">Team Captain</h2>
-                            <div class="grid-auto-fit team-grid">
-                                {teamCaptain.map((m) => {
-                                    return (
-                                            <div class="card card-hover team-member p-4">
-                                                <div class="member-photo circular-image mb-3">
-                                                    {
-
-                                                        <Image
-                                                                src={m.image}
-                                                                alt={m.name}
-                                                                class="image-cover"
-                                                                loading="eager"
-                                                                format="avif"
-                                                        />
-
-                                                    }
-                                                </div>
-                                                <div class="member-text">
-                                                    <p class="member-role text-red text-uppercase mb-0"
-                                                       title={m.role}>{m.role}</p>
-                                                    <h3 class="member-name" title={m.name}>{m.name}</h3>
-                                                </div>
-                                            </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
-                )}
-                {hardwareTeam.length > 0 && (
-                        <div class="team-category mb-6 px-2">
-                            <h2 class="section-title mb-4">Hardware Team</h2>
-                            <div class="grid-auto-fit team-grid">
-                                {hardwareTeam.map((m) => (
+                {groups.map((g, i) => (
+                        <div class={`team-category px-2 ${i < groups.length - 1 ? "mb-6" : ""}`}>
+                            <h2 class="section-title mb-4">{g.title}</h2>
+                            <div class:list={["grid-auto-fit team-grid", {"team-grid-short": g.members.length < 4}]} style={`--count: ${g.members.length}`}>
+                                {g.members.map((m) => (
                                         <div class="card card-hover team-member p-4">
                                             <div class="member-photo circular-image image-hover-scale mb-3">
-                                                {
-                                                    <Image
-                                                            src={m.image}
-                                                            alt={m.name}
-                                                            class="image-cover"
-                                                            loading="eager"
-                                                            format="avif"
-                                                    />
-                                                }
+                                                <Image
+                                                        src={m.image}
+                                                        alt={m.name}
+                                                        class="image-cover"
+                                                        loading="eager"
+                                                        format="avif"
+                                                        height={120}
+                                                />
                                             </div>
                                             <div class="member-text">
                                                 <p class="member-role text-red text-uppercase mb-0"
@@ -87,89 +57,7 @@ const mentors: TeamMember[] = bySubTeam("Mentor");
                                 ))}
                             </div>
                         </div>
-                )}
-                {softwareTeam.length > 0 && (
-                        <div class="team-category mb-6 px-2">
-                            <h2 class="section-title mb-4">Software Team</h2>
-                            <div class="grid-auto-fit team-grid">
-                                {softwareTeam.map((m) => (
-                                        <div class="card card-hover team-member p-4">
-                                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                                {
-                                                    <Image
-                                                            src={m.image}
-                                                            alt={m.name}
-                                                            class="image-cover"
-                                                            loading="eager"
-                                                            format="avif"
-                                                    />
-                                                }
-                                            </div>
-                                            <div class="member-text">
-                                                <p class="member-role text-red text-uppercase mb-0"
-                                                   title={m.role}>{m.role}</p>
-                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
-                                            </div>
-                                        </div>
-                                ))}
-                            </div>
-                        </div>
-                )}
-                {outreachTeam.length > 0 && (
-                        <div class="team-category mb-6 px-2">
-                            <h2 class="section-title mb-4">Outreach Team</h2>
-                            <div class="grid-auto-fit team-grid">
-                                {outreachTeam.map((m) => (
-                                        <div class="card card-hover team-member p-4">
-                                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                                {
-                                                    <Image
-                                                            src={m.image}
-                                                            alt={m.name}
-                                                            class="image-cover"
-                                                            loading="eager"
-                                                            format="avif"
-                                                    />
-                                                }
-                                            </div>
-                                            <div class="member-text">
-                                                <p class="member-role text-red text-uppercase mb-0"
-                                                   title={m.role}>{m.role}</p>
-                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
-                                            </div>
-                                        </div>
-                                ))}
-                            </div>
-                        </div>
-                )}
-                {mentors.length > 0 && (
-                        <div class="team-category px-2">
-                            <h2 class="section-title mb-4">Mentors</h2>
-                            <div class="grid-auto-fit team-grid">
-                                {mentors.map((m) => (
-                                        <div class="card card-hover team-member p-4">
-                                            <div class="member-photo circular-image image-hover-scale mb-3">
-                                                {
-                                                    <Image
-                                                            src={m.image}
-                                                            alt={m.name}
-                                                            class="image-cover"
-                                                            loading="eager"
-                                                            format="avif"
-                                                            height={120}
-                                                    />
-                                                }
-                                            </div>
-                                            <div class="member-text">
-                                                <p class="member-role text-red text-uppercase mb-0"
-                                                   title={m.role}>{m.role}</p>
-                                                <h3 class="member-name" title={m.name}>{m.name}</h3>
-                                            </div>
-                                        </div>
-                                ))}
-                            </div>
-                        </div>
-                )}
+                ))}
             </div>
         </section>
     </main>
@@ -232,6 +120,18 @@ const mentors: TeamMember[] = bySubTeam("Mentor");
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    /* Groups smaller than a full row: keep normal card width and center them */
+    .team-grid-short {
+        grid-template-columns: repeat(var(--count), minmax(0, 280px));
+        justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+        .team-grid-short {
+            grid-template-columns: 1fr;
+        }
     }
 
     /* Responsive adjustments */
