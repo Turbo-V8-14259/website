@@ -32,107 +32,35 @@ export const contactFormUrl: string = "https://formspree.io/f/mjkopvbp";
 export const applyFormUrl: string = "https://formspree.io/f/mnnzoqqz";
 
 
-export const teamMembers: TeamMember[] = [{
-    name: "Veer Nanda",
-    subTeam: "Team Captain",
-    role: "Team Captain",
-    image: veer
-}, {
-    name: "Devesh Senthilraja ",
-    subTeam: "Hardware",
-    role: "Hardware Lead",
-    image: devesh
-}, {
-    name: "Rukshana Yowvanaraj",
-    subTeam: "Hardware",
-    role: "Hardware Member",
-    image: placeholderAvatar
-}, {
-    name: "Amber Mo",
-    subTeam: "Hardware",
-    role: "Hardware Member",
-    image: amber
-}, {
-    name: "Prathik Prasanna",
-    subTeam: "Hardware",
-    role: "Hardware Member",
-    image: prathik
-}, {
-    name: "Meet Bhanushali",
-    subTeam: "Hardware",
-    role: "Hardware Member",
-    image: meet
-}, {
-    name: "Vedant Yelluru",
-    subTeam: "Hardware",
-    role: "Hardware Member",
-    image: vedant
-}, {
-    name: "Sushant Indupuru",
-    subTeam: "Software",
-    role: "Software Lead",
-    image: sushant
-}, {
-    name: "Ethan Wang",
-    subTeam: "Software",
-    role: "Software Member",
-    image: ethan
-}, {
-    name: "Parv Surjan",
-    subTeam: "Software",
-    role: "Software Member",
-    image: parv
-}, {
-    name: "Yuvan Ramesh",
-    subTeam: "Software",
-    role: "Software Member",
-    image: yuvan
-}, {
-    name: "Aarav Shah",
-    subTeam: "Software",
-    role: "Software Member",
-    image: placeholderAvatar
-}, {
-    name: "Abhay Girish",
-    subTeam: "Outreach",
-    role: "Outreach Lead",
-    image: placeholderAvatar
-}, {
-    name: "Atharv Dua",
-    subTeam: "Outreach",
-    role: "Outreach Member",
-    image: atharv
-}, {
-    name: "Rachel Dong",
-    subTeam: "Outreach",
-    role: "Outreach Member",
-    image: rachel
-}, {
-    name: "Sai Kata",
-    subTeam: "Outreach",
-    role: "Outreach Member",
-    image: sai
-}, {
-    name: "Anish Dhamjia",
-    subTeam: "Outreach",
-    role: "Outreach Member",
-    image: anish
-}, {
-    name: "Peter Wetherell",
-    subTeam: "Mentor",
-    role: "Mentor",
-    image: peter
-}, {
-    name: "Steven Szczeszynski",
-    subTeam: "Mentor",
-    role: "Mentor",
-    image: steven
-}, {
-    name: "Levi",
-    subTeam: "Mentor",
-    role: "Mentor",
-    image: levi
-}
+export const teamMembers: TeamMember[] = [
+    {name: "Amber Mo", subTeam: "Team Captain", role: "Team Captain", image: amber},
+    {name: "Rachel Dong", subTeam: "Team Captain", role: "Co-Captain", image: rachel},
+    {name: "Vedant Yelluru", subTeam: "Hardware", role: "Hardware Lead", image: vedant},
+    {name: "Siva Sundar", subTeam: "Hardware", role: "Hardware Co-Lead", image: placeholderAvatar},
+    {name: "Meet Bhanushali", subTeam: "Hardware", role: "Hardware Member", image: meet},
+    {name: "Kai-Hsun Tsai", subTeam: "Hardware", role: "Hardware Member", image: placeholderAvatar},
+    {name: "Parv Surjan", subTeam: "Software", role: "Software Lead", image: parv},
+    {name: "Atharv Gurnani", subTeam: "Software", role: "Software Member", image: placeholderAvatar},
+    {name: "Maximus Luan", subTeam: "Software", role: "Software Member", image: placeholderAvatar},
+    {name: "Jayesh Meka", subTeam: "Software", role: "Software Member", image: placeholderAvatar},
+    {name: "Atharv Dua", subTeam: "Outreach", role: "Outreach Lead", image: atharv},
+    {name: "Anish Dhamija", subTeam: "Outreach", role: "Outreach Co-Lead", image: anish},
+    {name: "Rivya Jain", subTeam: "Outreach", role: "Outreach Member", image: placeholderAvatar},
+    {name: "Shanaya Dhamija", subTeam: "Outreach", role: "Outreach Member", image: placeholderAvatar},
+    {name: "Saanvi Dua", subTeam: "Outreach", role: "Outreach Member", image: placeholderAvatar},
+    {name: "Veer Nanda", subTeam: "Mentor", role: "Mentor", image: veer},
+    {name: "Peter Wetherell", subTeam: "Mentor", role: "Mentor", image: peter},
+    {name: "Steven Szczeszynski", subTeam: "Mentor", role: "Mentor", image: steven},
+    {name: "Levi", subTeam: "Mentor", role: "Mentor", image: levi},
+    {name: "Devesh Senthilraja", subTeam: "Alumni", role: "Alumni", image: devesh},
+    {name: "Rukshana Yowvanaraj", subTeam: "Alumni", role: "Alumni", image: placeholderAvatar},
+    {name: "Prathik Prasanna", subTeam: "Alumni", role: "Alumni", image: prathik},
+    {name: "Sushant Indupuru", subTeam: "Alumni", role: "Alumni", image: sushant},
+    {name: "Ethan Wang", subTeam: "Alumni", role: "Alumni", image: ethan},
+    {name: "Yuvan Ramesh", subTeam: "Alumni", role: "Alumni", image: yuvan},
+    {name: "Aarav Shah", subTeam: "Alumni", role: "Alumni", image: placeholderAvatar},
+    {name: "Abhay Girish", subTeam: "Alumni", role: "Alumni", image: placeholderAvatar},
+    {name: "Sai Kata", subTeam: "Alumni", role: "Alumni", image: sai},
 ];
 
 export const newsArticles: NewsArticle[] = [{

@@ -20,7 +20,7 @@ export type Sponsor = {
 export type TeamMember = {
     name: string;
     subTeam: "Team Captain" | "Hardware" | "Software" | "Outreach" | "Mentor" | "Alumni";
-    role: "Team Captain" | "Hardware Lead" | "Hardware Member" | "Software Lead" | "Software Member" | "Outreach Lead" | "Outreach Member" | "Mentor" | "Alumni";
+    role: "Team Captain" | "Co-Captain" | "Hardware Lead" | "Hardware Co-Lead" | "Hardware Member" | "Software Lead" | "Software Member" | "Outreach Lead" | "Outreach Co-Lead" | "Outreach Member" | "Mentor" | "Alumni";
     image: ImageMetadata;
 }
 export enum Tier {

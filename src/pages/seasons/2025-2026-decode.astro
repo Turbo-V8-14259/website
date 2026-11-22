@@ -1,20 +1,18 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Button from "../../components/Button.astro";
-import OutlineButton from "../../components/OutlineButton.astro";
+import { Image } from "astro:assets";
+import decodeRobot from "../../images/decode-robot.png";
 ---
 
 <Layout title="2025-2026 DECODE">
     <main class="main-content">
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">2025-2026 Decode™</h1>
-                <p class="hero-subtitle ongoing-badge">Season Ongoing</p>
+                <h1 class="hero-title">2025-2026 DECODE™</h1>
+                <p class="hero-subtitle">Season Achievements</p>
                 <p class="hero-description">
-                    Our journey through the 2025-2026 FTC season "Decode™" is currently underway!
-                    Follow along as we compete, innovate, and achieve new milestones. This page is 
-                    updated regularly with our latest accomplishments as we decode the challenges 
-                    of this exciting season.
+                    Our journey through the 2025-2026 FTC season DECODE™ brought new challenges,
+                    new milestones, and recognition for our robot design and team excellence.
                 </p>
             </div>
         </section>
@@ -23,24 +21,7 @@ import OutlineButton from "../../components/OutlineButton.astro";
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="season-note">
-                            <h3>Season Currently in Progress</h3>
-                            <p>
-                                The 2025-2026 Decode™ season is actively underway! We're competing in tournaments,
-                                refining our robot, and achieving new milestones. Check back regularly for updates
-                                on our latest achievements, competition results, and team progress throughout the season.
-                            </p>
-                            <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">
-                                <strong>Latest Achievement:</strong> 3rd Place Alliance & Design Award 3rd Place at NorCal FTC Regional Championship — advancing to Michiana Premier Event!
-                            </p>
-                            <div class="next-competition-inline">
-                                <p><strong>Next Competition:</strong> Michiana Premier Event</p>
-                                <p style="color: #ffa500; font-weight: 600;">June 18–21, 2026</p>
-                                <OutlineButton href="https://ftc-events.firstinspires.org/2025/FPEMI" target="_blank" rel="noopener noreferrer">View Event</OutlineButton>
-                            </div>
-                        </div>
-                        
-                        <h2 class="section-title text-center" style="margin-top: 4rem;">
+                        <h2 class="section-title text-center">
                             Season Highlights 
                         </h2>
 
@@ -54,7 +35,7 @@ import OutlineButton from "../../components/OutlineButton.astro";
                                 <p class="achievement-description">
                                     Finished as a 3rd Place Alliance at the NorCal FTC Regional Championship
                                     and earned the Design Award 3rd Place, recognizing our robot's
-                                    engineering excellence. This result advances us to the Michiana Premier Event!
+                                    engineering excellence.
                                 </p>
                             </div>
                             <div class="achievement-card featured">
@@ -78,15 +59,15 @@ import OutlineButton from "../../components/OutlineButton.astro";
                         <h3 class="section-subtitle">Robot Design</h3>
                         <div class="robot-info">
                             <div class="robot-images">
-                                <div class="robot-image-placeholder">
-                                    <p>Robot Picture Coming Soon</p>
+                                <div class="robot-image">
+                                    <Image src={decodeRobot} alt="TurbΩ V8's 2025-2026 DECODE robot" widths={[320, 640]} sizes="320px" format="avif" />
                                 </div>
                             </div>
                             <h3>Design Philosophy</h3>
                             <p>
-                                Our 2025-2026 robot embodies the essence of "Decode™" - efficiently processing
-                                complex tasks and delivering precise execution. We've focused on creating an
-                                adaptable system that excels in both autonomous and driver-controlled periods.
+                                Our 2025-2026 robot embodied the essence of DECODE™ - efficiently processing
+                                complex tasks and delivering precise execution. We focused on creating an
+                                adaptable system that excelled in both autonomous and driver-controlled periods.
                             </p>
                             <h4>Key Features</h4>
                             <ul class="feature-list">
@@ -101,9 +82,9 @@ import OutlineButton from "../../components/OutlineButton.astro";
                     <div class="col-md-6">
                         <h3 class="section-subtitle">Game Strategy</h3>
                         <div class="strategy-info">
-                            <h3>Decode™ Challenge (2025–2026 FTC)</h3>
+                            <h3>DECODE™ Challenge (2025–2026 FTC)</h3>
                             <p>
-                                The 2025-2026 FIRST® Tech Challenge game "Decode™" requires teams to collect and score
+                                The 2025-2026 FIRST® Tech Challenge game DECODE™ requires teams to collect and score
                                 purple and green ARTIFACTS into alliance GOALS, build MOTIF-based PATTERNS on ramps,
                                 and return robots to BASE before time expires. Each match begins with a randomized
                                 OBELISK MOTIF that influences scoring patterns and robot actions.
@@ -122,19 +103,19 @@ import OutlineButton from "../../components/OutlineButton.astro";
 
                 <div class="row" style="margin-top: 5rem;">
                     <div class="col-12">
-                        <h2 class="section-title text-center">Season Progress</h2>
+                        <h2 class="section-title text-center">Season Growth</h2>
                         <div class="growth-stats">
                             <div class="stat-card">
                                 <h3>Technical Excellence</h3>
-                                <p>Implementing advanced algorithms and precision engineering to decode complex challenges</p>
+                                <p>Implemented advanced algorithms and precision engineering to decode complex challenges</p>
                             </div>
                             <div class="stat-card">
                                 <h3>Team Growth</h3>
-                                <p>Developing leadership skills and mentoring new members in robotics fundamentals</p>
+                                <p>Developed leadership skills and mentored new members in robotics fundamentals</p>
                             </div>
                             <div class="stat-card">
                                 <h3>Community Impact</h3>
-                                <p>Continuing our Steam Workshop programs and expanding outreach to inspire future engineers</p>
+                                <p>Continued our Steam Workshop programs and expanding outreach to inspire future engineers</p>
                             </div>
                         </div>
                     </div>

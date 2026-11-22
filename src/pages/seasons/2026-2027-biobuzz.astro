@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="2026-2027 BIOBUZZ™">
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">2026-2027 BIOBUZZ™</h1>
+                <p class="hero-subtitle ongoing-badge">Season Ongoing</p>
+                <p class="hero-description">
+                    Our 2026-2027 FIRST® Tech Challenge season BIOBUZZ™ has just begun!
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="coming-soon">
+                    <h2>Coming Soon</h2>
+                    <p>
+                        Information about our robot, game strategy, competitions, and results for the
+                        BIOBUZZ™ season is coming soon. Check back for updates!
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .ongoing-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff0000, #cc0000);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        margin: 1rem 0;
+    }
+
+    .coming-soon {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        text-align: center;
+        border-radius: 15px;
+        background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.05));
+        border: 2px dashed var(--light-red);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .coming-soon h2 {
+        color: var(--light-red);
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .coming-soon p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+</style>
